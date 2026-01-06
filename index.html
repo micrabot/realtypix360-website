@@ -218,14 +218,14 @@
           "position": 1,
           "author": {
             "@type": "Person",
-            "name": "Sarah Johnson"
+            "name": "Mary Lucchetti"
           },
           "reviewRating": {
             "@type": "Rating",
             "ratingValue": "5",
             "bestRating": "5"
           },
-          "reviewBody": "The quality is incredible and the same-day turnaround is a game-changer. Chris makes my listings look amazing and helps them sell faster.",
+          "reviewBody": "I use Chris for all of my listings & he consistently does a phenomenal job. He is very detail oriented & the quality of his photos cannot be beat. My sellers are always very happy with his work & I know his photos are a contributing factor to their quick sales.",
           "itemReviewed": {
             "@type": "LocalBusiness",
             "name": "RealtyPix360"
@@ -236,14 +236,14 @@
           "position": 2,
           "author": {
             "@type": "Person",
-            "name": "Michael Davis"
+            "name": "Joshua Siuta"
           },
           "reviewRating": {
             "@type": "Rating",
             "ratingValue": "5",
             "bestRating": "5"
           },
-          "reviewBody": "The 3D tours are phenomenal. Buyers love being able to walk through properties virtually. It saves everyone time and generates more qualified leads.",
+          "reviewBody": "Chris is fast, responsive, and highly professional, with a sharp eye for visual appeal that makes every listing stand out. His virtual walkthroughs are seamless and engaging. He consistently delivers high-quality work quickly. I feel his photos truly help create buyer interest and facilitate my sales.",
           "itemReviewed": {
             "@type": "LocalBusiness",
             "name": "RealtyPix360"
@@ -254,14 +254,14 @@
           "position": 3,
           "author": {
             "@type": "Person",
-            "name": "Emily Wilson"
+            "name": "Carolyn Alessi"
           },
           "reviewRating": {
             "@type": "Rating",
             "ratingValue": "5",
             "bestRating": "5"
           },
-          "reviewBody": "Having the floor plans included is huge—my clients always ask for them. RealtyPix360 gives me everything I need in one package at a great price.",
+          "reviewBody": "Chris is my go-to photographer and has photographed several of my listings over the past few years. I have never been disappointed. My clients are always very happy with the pictures and his professionalism. One client thought the pictures Chris took made all the difference in his sale!",
           "itemReviewed": {
             "@type": "LocalBusiness",
             "name": "RealtyPix360"
@@ -300,6 +300,29 @@
             line-height: 1.6;
             overflow-x: hidden;
             background: var(--color-white);
+        }
+
+        /* Accessibility Features */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--color-secondary);
+            color: var(--color-white);
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 10000;
+            border-radius: 0 0 4px 0;
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        *:focus {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 2px;
         }
 
         /* Navigation */
@@ -430,10 +453,10 @@
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: 75vh;
             display: flex;
             align-items: center;
-            padding: 8rem 2rem 4rem;
+            padding: 7rem 2rem 2.5rem;
             background: linear-gradient(135deg, var(--color-light) 0%, #e8e5e0 100%);
             position: relative;
             overflow: hidden;
@@ -465,7 +488,7 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 2.5rem;
             align-items: center;
             position: relative;
             z-index: 1;
@@ -645,7 +668,7 @@
 
         /* Pricing Section */
         .pricing {
-            padding: 6rem 2rem;
+            padding: 3.5rem 2rem;
             background: var(--color-white);
         }
 
@@ -694,8 +717,8 @@
         .pricing-card {
             background: var(--color-white);
             border: 2px solid #e5e5e5;
-            border-radius: 20px;
-            padding: 2.5rem;
+            border-radius: 15px;
+            padding: 1.75rem;
             transition: var(--transition);
             position: relative;
             overflow: hidden;
@@ -707,15 +730,15 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
+            height: 4px;
             background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
             transform: scaleX(0);
             transition: var(--transition);
         }
 
         .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
             border-color: var(--color-secondary);
         }
 
@@ -727,7 +750,7 @@
             background: linear-gradient(135deg, var(--color-secondary) 0%, #1e4654 100%);
             color: var(--color-white);
             border: none;
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .pricing-card.featured::before {
@@ -745,12 +768,12 @@
             display: inline-block;
             background: var(--color-accent);
             color: var(--color-white);
-            padding: 0.4rem 1rem;
+            padding: 0.35rem 0.875rem;
             border-radius: 50px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 0.5px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             text-transform: uppercase;
         }
 
@@ -760,16 +783,16 @@
 
         .pricing-card h3 {
             font-family: var(--font-display);
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             color: var(--color-primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
             font-weight: 700;
         }
 
         .pricing-subtitle {
             color: var(--color-text-light);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
         }
 
         .pricing-card.featured .pricing-subtitle {
@@ -778,17 +801,17 @@
 
         .price {
             font-family: var(--font-display);
-            font-size: 3.5rem;
+            font-size: 2.75rem;
             font-weight: 700;
             color: var(--color-secondary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
             line-height: 1;
         }
 
         .price-note {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--color-text-light);
-            margin-bottom: 2rem;
+            margin-bottom: 1.25rem;
         }
 
         .pricing-card.featured .price-note {
@@ -797,28 +820,29 @@
 
         .features-list {
             list-style: none;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .feature {
             display: flex;
             align-items: flex-start;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
+            gap: 0.6rem;
+            margin-bottom: 0.65rem;
             color: var(--color-text);
+            font-size: 0.9rem;
         }
 
         .feature-icon {
             flex-shrink: 0;
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             background: var(--color-secondary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--color-white);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             margin-top: 2px;
         }
 
@@ -829,6 +853,8 @@
         .btn-pricing {
             width: 100%;
             justify-content: center;
+            padding: 0.875rem 1.5rem;
+            font-size: 0.95rem;
         }
 
         .pricing-card.featured .btn-pricing {
@@ -843,7 +869,7 @@
 
         /* Add-ons Section */
         .addons {
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
             background: var(--color-light);
         }
 
@@ -907,7 +933,7 @@
 
         /* Services Section */
         .services {
-            padding: 6rem 2rem;
+            padding: 3.5rem 2rem;
             background: var(--color-white);
         }
 
@@ -966,7 +992,7 @@
 
         /* Why Choose Section */
         .why-choose {
-            padding: 6rem 2rem;
+            padding: 3.5rem 2rem;
             background: linear-gradient(135deg, var(--color-secondary) 0%, #1e4654 100%);
             color: var(--color-white);
         }
@@ -1014,7 +1040,7 @@
 
         /* Testimonials */
         .testimonials {
-            padding: 6rem 2rem;
+            padding: 3.5rem 2rem;
             background: var(--color-light);
         }
 
@@ -1085,7 +1111,7 @@
 
         /* CTA Section */
         .cta-section {
-            padding: 6rem 2rem;
+            padding: 3.5rem 2rem;
             background: var(--color-primary);
             color: var(--color-white);
             text-align: center;
@@ -1129,7 +1155,7 @@
         .footer {
             background: var(--color-primary);
             color: var(--color-white);
-            padding: 4rem 2rem 2rem;
+            padding: 3rem 2rem 2rem;
         }
 
         .footer-container {
@@ -1138,7 +1164,7 @@
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 3rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .footer-brand h3 {
@@ -1342,8 +1368,11 @@
     </style>
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="#" class="logo">RealtyPix360</a>
             <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
@@ -1364,14 +1393,15 @@
     </nav>
 
     <!-- Hero Section -->
+    <main id="main-content" role="main">
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">Winter Special Pricing</div>
-                <h1>Buffalo's Premier <span class="hero-highlight">Real Estate Photography</span></h1>
-                <p>Professional HDR photography, stunning 3D tours, detailed floor plans, and custom property websites—all delivered the same day. Make your listings unforgettable.</p>
+                <h1>List & Sell Faster with <span class="hero-highlight">Professional Photography</span></h1>
+                <p>Same-day HDR photography, 3D tours, floor plans & property websites that make your listings stand out and sell. Buffalo's most trusted real estate photographer since 2017.</p>
                 <div class="hero-ctas">
-                    <a href="tel:716-770-8030" class="btn btn-primary">
+                    <a href="tel:716-770-8030" class="btn btn-primary" aria-label="Call us at 716-770-8030">
                         📞 Call Now: 716-770-8030
                     </a>
                     <a href="portfolio.html" class="btn btn-secondary">View Portfolio</a>
@@ -1394,6 +1424,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section style="padding: 3rem 2rem; background: white; border-bottom: 1px solid #e5e5e5;">
+        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <h2 style="font-family: var(--font-display); font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem;">Buffalo's Real Estate Photography Experts</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-text-light);">
+                Since 2017, Chris Kivi's RealtyPix360 has been helping Buffalo and Niagara County real estate agents stand out with professional photography, immersive 3D tours, and detailed floor plans. As a certified Google Trusted Pro photographer with over 480 million engagements on virtual tours, we've perfected the art of making properties shine online. Our same-day turnaround and all-inclusive packages mean you get everything you need to list faster and sell smarter.
+            </p>
         </div>
     </section>
 
@@ -1583,24 +1623,29 @@
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">📸</div>
+                <div class="service-icon" role="img" aria-label="Camera icon representing HDR Photography">📸</div>
                 <h3>HDR Photography</h3>
                 <p>Professional high-dynamic-range photography with sky replacement that makes every property shine.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🏠</div>
+                <div class="service-icon" role="img" aria-label="House icon representing 3D Virtual Tours">🏠</div>
                 <h3>3D Virtual Tours</h3>
                 <p>Immersive Matterport and Zillow 3D tours that keep buyers engaged 10x longer than photos alone.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">📐</div>
+                <div class="service-icon" role="img" aria-label="Ruler icon representing Floor Plans">📐</div>
                 <h3>Floor Plans</h3>
                 <p>Detailed floor plans with room measurements—a $129 value included free with every package.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">🌐</div>
+                <div class="service-icon" role="img" aria-label="Globe icon representing Property Websites">🌐</div>
                 <h3>Property Websites</h3>
                 <p>Custom standalone websites for each listing, available in both branded and unbranded versions.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon" role="img" aria-label="Puzzle piece icon representing Custom Solutions">🧩</div>
+                <h3>Custom Solutions</h3>
+                <p>Not sure what you need? No worries! From aerial to ground level, inside & out, 3D or 360°—we'll customize your listing experience to fit your needs perfectly.</p>
             </div>
         </div>
     </section>
@@ -1639,60 +1684,141 @@
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="section-header">
-            <div class="section-badge">Client Reviews</div>
-            <h2>What Agents Are Saying</h2>
-            <p>Join hundreds of satisfied real estate professionals across Buffalo & Niagara</p>
+            <div class="section-badge">Real Google Reviews</div>
+            <h2>What Buffalo Agents Are Saying</h2>
+            <p>Trusted by hundreds of real estate professionals across Erie & Niagara County</p>
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"The quality is incredible and the same-day turnaround is a game-changer. Chris makes my listings look amazing and helps them sell faster."</p>
+                <p class="testimonial-text">"I use Chris for all of my listings & he consistently does a phenomenal job. He is very detail oriented & the quality of his photos cannot be beat. My sellers are always very happy with his work & I know his photos are a contributing factor to their quick sales."</p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">SJ</div>
+                    <div class="author-avatar">ML</div>
                     <div class="author-info">
-                        <h4>Sarah Johnson</h4>
-                        <p>Hunt Real Estate</p>
+                        <h4>Mary Lucchetti</h4>
+                        <p>Keller Williams Realty</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"The 3D tours are phenomenal. Buyers love being able to walk through properties virtually. It saves everyone time and generates more qualified leads."</p>
+                <p class="testimonial-text">"Chris is fast, responsive, and highly professional, with a sharp eye for visual appeal that makes every listing stand out. His virtual walkthroughs are seamless and engaging. He consistently delivers high-quality work quickly. I feel his photos truly help create buyer interest and facilitate my sales."</p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">MD</div>
+                    <div class="author-avatar">JS</div>
                     <div class="author-info">
-                        <h4>Michael Davis</h4>
+                        <h4>Joshua Siuta</h4>
                         <p>Howard Hanna</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Having the floor plans included is huge—my clients always ask for them. RealtyPix360 gives me everything I need in one package at a great price."</p>
+                <p class="testimonial-text">"Chris is my go-to photographer and has photographed several of my listings over the past few years. I have never been disappointed. My clients are always very happy with the pictures and his professionalism. One client thought the pictures Chris took made all the difference in his sale!"</p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">EW</div>
+                    <div class="author-avatar">CA</div>
                     <div class="author-info">
-                        <h4>Emily Wilson</h4>
-                        <p>Gurney Becker & Bourne</p>
+                        <h4>Carolyn Alessi</h4>
+                        <p>Hunt Real Estate</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <h2>Ready to Elevate Your Listings?</h2>
-        <p>Take advantage of our winter special pricing and give your properties the professional presentation they deserve.</p>
-        <div class="cta-buttons">
-            <a href="tel:716-770-8030" class="btn btn-light">
-                📞 Call: 716-770-8030
-            </a>
-            <a href="#" class="btn btn-primary">
-                📅 Book Online
-            </a>
+    <!-- CTA Section with Contact Form -->
+    <section class="cta-section" id="contact" style="background: var(--color-secondary); padding: 3rem 2rem;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-family: var(--font-display); font-size: 2.5rem; color: white; margin-bottom: 1rem;">Ready to Elevate Your Listings?</h2>
+                <p style="font-size: 1.15rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto 2rem;">Call us now or fill out the quick form below. We'll get back to you within the hour!</p>
+                <a href="tel:716-770-8030" style="display: inline-block; padding: 1.25rem 2.5rem; background: var(--color-accent); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1rem; margin-bottom: 2rem;" aria-label="Call us at 716-770-8030">
+                    📞 Call: 716-770-8030
+                </a>
+            </div>
+            
+            <div style="background: white; padding: 2.5rem; border-radius: 20px; max-width: 600px; margin: 0 auto;">
+                <h3 style="font-family: var(--font-display); font-size: 1.75rem; color: var(--color-primary); margin-bottom: 1.5rem; text-align: center;">Quick Booking Form</h3>
+                <form action="https://formspree.io/f/xdakrgzk" method="POST" id="ctaForm">
+                    <div style="margin-bottom: 1.25rem;">
+                        <label for="cta-name" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-primary);">Name *</label>
+                        <input type="text" id="cta-name" name="name" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e5e5; border-radius: 10px; font-family: var(--font-body); font-size: 1rem;">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.25rem;">
+                        <label for="cta-email" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-primary);">Email *</label>
+                        <input type="email" id="cta-email" name="email" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e5e5; border-radius: 10px; font-family: var(--font-body); font-size: 1rem;">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.25rem;">
+                        <label for="cta-phone" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-primary);">Phone *</label>
+                        <input type="tel" id="cta-phone" name="phone" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e5e5; border-radius: 10px; font-family: var(--font-body); font-size: 1rem;">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.25rem;">
+                        <label for="cta-property" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-primary);">Property Address</label>
+                        <input type="text" id="cta-property" name="property" placeholder="Optional" style="width: 100%; padding: 0.875rem; border: 2px solid #e5e5e5; border-radius: 10px; font-family: var(--font-body); font-size: 1rem;">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.25rem;">
+                        <label for="cta-service" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-primary);">Package Interested In</label>
+                        <select id="cta-service" name="service" style="width: 100%; padding: 0.875rem; border: 2px solid #e5e5e5; border-radius: 10px; font-family: var(--font-body); font-size: 1rem;">
+                            <option value="">Select a package...</option>
+                            <option value="standard">Standard Package - $175</option>
+                            <option value="zillow">Zillow 3D Bundle - $250</option>
+                            <option value="matterport">Matterport Bundle - $350</option>
+                            <option value="luxury">Custom Luxury Bundle - $500+</option>
+                            <option value="not-sure">Not Sure Yet</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" style="width: 100%; background: var(--color-secondary); color: white; padding: 1.125rem; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; font-family: var(--font-body); transition: all 0.3s;">
+                        Send Message
+                    </button>
+                    
+                    <div id="ctaFormStatus" style="margin-top: 1rem; padding: 1rem; border-radius: 10px; text-align: center; display: none;"></div>
+                </form>
+            </div>
         </div>
     </section>
+
+    <script>
+        // CTA Form submission handler
+        const ctaForm = document.getElementById('ctaForm');
+        const ctaFormStatus = document.getElementById('ctaFormStatus');
+        
+        if (ctaForm) {
+            ctaForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(ctaForm);
+                
+                try {
+                    const response = await fetch(ctaForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        ctaFormStatus.style.display = 'block';
+                        ctaFormStatus.style.background = '#d4edda';
+                        ctaFormStatus.style.color = '#155724';
+                        ctaFormStatus.textContent = 'Thank you! We\'ll contact you within the hour.';
+                        ctaForm.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    ctaFormStatus.style.display = 'block';
+                    ctaFormStatus.style.background = '#f8d7da';
+                    ctaFormStatus.style.color = '#721c24';
+                    ctaFormStatus.textContent = 'Oops! Please call us at 716-770-8030.';
+                }
+            });
+        }
+    </script>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1749,6 +1875,23 @@
             </div>
         </div>
     </footer>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo" style="background: #1a1a1a; color: white; padding: 2rem; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <p style="margin-bottom: 1rem;">&copy; 2026 RealtyPix360. All rights reserved.</p>
+            <nav aria-label="Footer navigation">
+                <ul style="list-style: none; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <li><a href="privacy.html" style="color: #d4a574; text-decoration: none;">Privacy Policy</a></li>
+                    <li><a href="accessibility.html" style="color: #d4a574; text-decoration: none;">♿ Accessibility</a></li>
+                    <li><a href="faq.html" style="color: #d4a574; text-decoration: none;">FAQ</a></li>
+                    <li><a href="contact.html" style="color: #d4a574; text-decoration: none;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
     <script>
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
