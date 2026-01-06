@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - RealtyPix360 | 500+ Properties Photographed</title>
+    <meta name="description" content="Browse our portfolio of 500+ professionally photographed properties across Buffalo & Niagara. View stunning real estate photography, 3D tours, and floor plans.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1a1a1a;
+            --color-secondary: #2c5f6f;
+            --color-accent: #d4a574;
+            --color-light: #f8f6f3;
+            --color-white: #ffffff;
+            --color-text: #2d2d2d;
+            --color-text-light: #6b6b6b;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'DM Sans', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.6;
+            background: var(--color-white);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* Hero Section */
+        .portfolio-hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--color-light) 0%, #e8e5e0 100%);
+            text-align: center;
+        }
+
+        .portfolio-hero h1 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .portfolio-hero p {
+            font-size: 1.25rem;
+            color: var(--color-text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filters Section */
+        .filters {
+            padding: 3rem 2rem;
+            background: var(--color-white);
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .filters-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            padding-left: 3rem;
+            border: 2px solid #e5e5e5;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--color-secondary);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-light);
+            font-size: 1.25rem;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #e5e5e5;
+            background: var(--color-white);
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-text);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--color-secondary);
+            color: var(--color-white);
+            border-color: var(--color-secondary);
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: var(--color-light);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stats-text {
+            font-weight: 500;
+            color: var(--color-text);
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .view-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #e5e5e5;
+            background: var(--color-white);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .view-btn.active {
+            background: var(--color-secondary);
+            border-color: var(--color-secondary);
+            color: var(--color-white);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            background: var(--color-white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background: var(--color-light);
+        }
+
+        .card-badges {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-secondary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge.tour {
+            background: var(--color-secondary);
+            color: var(--color-white);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-address {
+            font-weight: 600;
+            color: var(--color-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-location {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-features {
+            display: flex;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        .feature-icon {
+            color: var(--color-accent);
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--color-light);
+            border-top-color: var(--color-secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .empty-state h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .empty-state p {
+            color: var(--color-text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 3rem 2rem;
+        }
+
+        .page-btn {
+            padding: 0.75rem 1.25rem;
+            border: 2px solid #e5e5e5;
+            background: var(--color-white);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .page-btn:hover,
+        .page-btn.active {
+            background: var(--color-secondary);
+            color: var(--color-white);
+            border-color: var(--color-secondary);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Error State */
+        .error-state {
+            background: #fee;
+            border: 2px solid #fcc;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem;
+            text-align: center;
+        }
+
+        .error-state h3 {
+            color: #c00;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .portfolio-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .filters-container {
+                flex-direction: column;
+            }
+
+            .search-box {
+                min-width: 100%;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Image placeholder */
+        .image-placeholder {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, var(--color-light) 0%, #e8e5e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-light);
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">RealtyPix360</a>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="tel:716-770-8030">📞 716-770-8030</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="portfolio-hero">
+        <h1>Our Portfolio</h1>
+        <p>Browse 500+ professionally photographed properties across Buffalo & Niagara County</p>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-text">
+            Showing <span id="showing-count">0</span> of <span id="total-count">0</span> properties
+        </div>
+    </div>
+
+    <!-- Filters -->
+    <section class="filters">
+        <div class="filters-container">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    placeholder="Search by address, city, or zip code..."
+                    aria-label="Search properties"
+                >
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">All Properties</button>
+                <button class="filter-btn" data-filter="3d-tour">3D Tours</button>
+                <button class="filter-btn" data-filter="floor-plan">Floor Plans</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <div id="portfolio-container">
+        <!-- Loading state -->
+        <div class="loading" id="loading-state">
+            <div class="spinner"></div>
+            <p>Loading portfolio...</p>
+        </div>
+
+        <!-- Portfolio grid (populated by JavaScript) -->
+        <div class="portfolio-grid" id="portfolio-grid" style="display: none;"></div>
+
+        <!-- Empty state -->
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <h3>No Properties Found</h3>
+            <p>Try adjusting your search or filters</p>
+        </div>
+
+        <!-- Error state -->
+        <div class="error-state" id="error-state" style="display: none;">
+            <h3>Oops! Something went wrong</h3>
+            <p id="error-message">Unable to load portfolio. Please try again later.</p>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination" style="display: none;">
+        <button class="page-btn" id="prev-btn">← Previous</button>
+        <span id="page-info"></span>
+        <button class="page-btn" id="next-btn">Next →</button>
+    </div>
+
+    <script>
+        // Portfolio Manager
+        class PortfolioManager {
+            constructor() {
+                this.currentPage = 1;
+                this.currentFilter = 'all';
+                this.searchQuery = '';
+                this.allListings = [];
+                this.apiUrl = '/api/aryeo-listings.js'; // Vercel serverless function
+                
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.loadListings();
+            }
+
+            setupEventListeners() {
+                // Search
+                const searchInput = document.getElementById('search-input');
+                let searchTimeout;
+                searchInput.addEventListener('input', (e) => {
+                    clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(() => {
+                        this.searchQuery = e.target.value;
+                        this.currentPage = 1;
+                        this.loadListings();
+                    }, 500); // Debounce search
+                });
+
+                // Filters
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        e.target.classList.add('active');
+                        this.currentFilter = e.target.dataset.filter;
+                        this.currentPage = 1;
+                        this.filterAndDisplay();
+                    });
+                });
+
+                // Pagination
+                document.getElementById('prev-btn').addEventListener('click', () => {
+                    if (this.currentPage > 1) {
+                        this.currentPage--;
+                        this.loadListings();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                });
+
+                document.getElementById('next-btn').addEventListener('click', () => {
+                    if (this.currentPage < this.totalPages) {
+                        this.currentPage++;
+                        this.loadListings();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                });
+            }
+
+            async loadListings() {
+                try {
+                    this.showLoading();
+
+                    const params = new URLSearchParams({
+                        page: this.currentPage,
+                        per_page: 50,
+                        search: this.searchQuery
+                    });
+
+                    const response = await fetch(`${this.apiUrl}?${params}`);
+                    
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch listings');
+                    }
+
+                    const data = await response.json();
+                    
+                    this.allListings = data.listings;
+                    this.totalListings = data.pagination.total;
+                    this.totalPages = data.pagination.lastPage;
+
+                    this.filterAndDisplay();
+
+                } catch (error) {
+                    console.error('Error loading listings:', error);
+                    this.showError(error.message);
+                }
+            }
+
+            filterAndDisplay() {
+                let filteredListings = [...this.allListings];
+
+                // Apply filters
+                if (this.currentFilter === '3d-tour') {
+                    filteredListings = filteredListings.filter(listing => listing.has3DTour);
+                } else if (this.currentFilter === 'floor-plan') {
+                    filteredListings = filteredListings.filter(listing => listing.hasFloorPlan);
+                }
+
+                if (filteredListings.length === 0) {
+                    this.showEmpty();
+                } else {
+                    this.displayListings(filteredListings);
+                    this.updateStats(filteredListings.length);
+                    this.updatePagination();
+                }
+            }
+
+            displayListings(listings) {
+                const grid = document.getElementById('portfolio-grid');
+                const loadingState = document.getElementById('loading-state');
+                const emptyState = document.getElementById('empty-state');
+                const errorState = document.getElementById('error-state');
+
+                loadingState.style.display = 'none';
+                emptyState.style.display = 'none';
+                errorState.style.display = 'none';
+                grid.style.display = 'grid';
+
+                grid.innerHTML = listings.map(listing => this.createListingCard(listing)).join('');
+
+                // Add click handlers
+                grid.querySelectorAll('.portfolio-card').forEach((card, index) => {
+                    card.addEventListener('click', () => {
+                        const listing = listings[index];
+                        if (listing.propertyWebsiteUrl) {
+                            window.open(listing.propertyWebsiteUrl, '_blank');
+                        }
+                    });
+                });
+            }
+
+            createListingCard(listing) {
+                const badges = [];
+                if (listing.has3DTour) badges.push('<span class="badge tour">3D Tour</span>');
+                if (listing.hasFloorPlan) badges.push('<span class="badge">Floor Plan</span>');
+                if (listing.imageCount > 0) badges.push(`<span class="badge">${listing.imageCount} Photos</span>`);
+
+                return `
+                    <div class="portfolio-card">
+                        ${listing.thumbnail 
+                            ? `<img src="${listing.thumbnail}" alt="${listing.address?.street || 'Property'}" class="card-image" loading="lazy">`
+                            : '<div class="image-placeholder">🏠</div>'
+                        }
+                        <div class="card-badges">
+                            ${badges.join('')}
+                        </div>
+                        <div class="card-content">
+                            <div class="card-address">${listing.address?.street || 'Address Not Available'}</div>
+                            <div class="card-location">${listing.address?.city || ''}, ${listing.address?.state || ''} ${listing.address?.zip || ''}</div>
+                            <div class="card-features">
+                                ${listing.has3DTour ? '<div class="feature-item"><span class="feature-icon">🏠</span> 3D Tour</div>' : ''}
+                                ${listing.hasFloorPlan ? '<div class="feature-item"><span class="feature-icon">📐</span> Floor Plan</div>' : ''}
+                                ${listing.imageCount > 0 ? `<div class="feature-item"><span class="feature-icon">📸</span> ${listing.imageCount} Photos</div>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            updateStats(count) {
+                document.getElementById('showing-count').textContent = count;
+                document.getElementById('total-count').textContent = this.totalListings;
+            }
+
+            updatePagination() {
+                const pagination = document.getElementById('pagination');
+                const prevBtn = document.getElementById('prev-btn');
+                const nextBtn = document.getElementById('next-btn');
+                const pageInfo = document.getElementById('page-info');
+
+                if (this.totalPages > 1) {
+                    pagination.style.display = 'flex';
+                    prevBtn.disabled = this.currentPage === 1;
+                    nextBtn.disabled = this.currentPage === this.totalPages;
+                    pageInfo.textContent = `Page ${this.currentPage} of ${this.totalPages}`;
+                } else {
+                    pagination.style.display = 'none';
+                }
+            }
+
+            showLoading() {
+                document.getElementById('loading-state').style.display = 'block';
+                document.getElementById('portfolio-grid').style.display = 'none';
+                document.getElementById('empty-state').style.display = 'none';
+                document.getElementById('error-state').style.display = 'none';
+            }
+
+            showEmpty() {
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('portfolio-grid').style.display = 'none';
+                document.getElementById('empty-state').style.display = 'block';
+                document.getElementById('error-state').style.display = 'none';
+                document.getElementById('pagination').style.display = 'none';
+            }
+
+            showError(message) {
+                document.getElementById('loading-state').style.display = 'none';
+                document.getElementById('portfolio-grid').style.display = 'none';
+                document.getElementById('empty-state').style.display = 'none';
+                document.getElementById('error-state').style.display = 'block';
+                document.getElementById('error-message').textContent = message;
+                document.getElementById('pagination').style.display = 'none';
+            }
+        }
+
+        // Initialize portfolio when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            new PortfolioManager();
+        });
+    </script>
+</body>
+</html>
