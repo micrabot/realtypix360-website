@@ -35,6 +35,25 @@
             background: var(--color-white);
         }
 
+        /* Accessibility Features */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #2c5f6f;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 10000;
+            border-radius: 0 0 4px 0;
+            font-weight: 600;
+        }
+        .skip-link:focus { top: 0; }
+        *:focus {
+            outline: 3px solid #d4a574;
+            outline-offset: 2px;
+        }
+
         /* Navigation */
         .nav {
             position: fixed;
@@ -434,20 +453,23 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="/" class="logo">RealtyPix360</a>
             <ul class="nav-links">
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/portfolio.html">Portfolio</a></li>
                 <li><a href="/commercial.html">Commercial</a></li>
-                <li><a href="tel:716-770-8030">📞 716-770-8030</a></li>
+                <li><a href="tel:716-770-8030" aria-label="Call us at 716-770-8030">📞 716-770-8030</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
+    <main id="main-content" role="main">
     <section class="portfolio-hero">
         <h1>Our Portfolio</h1>
         <p>Browse 500+ professionally photographed properties across Buffalo & Niagara County</p>
@@ -723,5 +745,20 @@
             new PortfolioManager();
         });
     </script>
+    </main>
+
+    <footer role="contentinfo" style="background: #1a1a1a; color: white; padding: 2rem; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <p style="margin-bottom: 1rem;">&copy; 2026 RealtyPix360. All rights reserved.</p>
+            <nav aria-label="Footer navigation">
+                <ul style="list-style: none; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <li><a href="privacy.html" style="color: #d4a574; text-decoration: none;">Privacy Policy</a></li>
+                    <li><a href="accessibility.html" style="color: #d4a574; text-decoration: none;">♿ Accessibility</a></li>
+                    <li><a href="faq.html" style="color: #d4a574; text-decoration: none;">FAQ</a></li>
+                    <li><a href="contact.html" style="color: #d4a574; text-decoration: none;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
 </body>
 </html>
