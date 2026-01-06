@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Statement | RealtyPix360</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1a1a1a;
+            --color-secondary: #2c5f6f;
+            --color-accent: #d4a574;
+            --color-light: #f8f6f3;
+            --font-display: 'Lora', serif;
+            --font-body: 'Raleway', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); color: #2d2d2d; line-height: 1.7; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--color-secondary); color: white; padding: 8px; z-index: 100; }
+        .skip-link:focus { top: 0; }
+        .nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem; display: flex; justify-content: space-between; }
+        .logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: #2d2d2d; text-decoration: none; font-weight: 500; }
+        .hero { padding: 8rem 2rem 3rem; background: linear-gradient(135deg, var(--color-light) 0%, #e8e5e0 100%); text-align: center; }
+        .hero h1 { font-family: var(--font-display); font-size: 3rem; color: var(--color-primary); margin-bottom: 1rem; }
+        .content { max-width: 900px; margin: 4rem auto; padding: 0 2rem 4rem; }
+        .content h2 { font-family: var(--font-display); font-size: 2rem; color: var(--color-primary); margin: 3rem 0 1rem; }
+        .content p { margin-bottom: 1.5rem; font-size: 1.05rem; }
+        .content ul { margin: 1rem 0 1.5rem 2rem; }
+        .content li { margin-bottom: 0.75rem; }
+        .highlight { background: var(--color-light); padding: 1.5rem; border-left: 4px solid var(--color-accent); margin: 2rem 0; border-radius: 8px; }
+        .wcag-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--color-secondary); color: white; padding: 0.75rem 1.5rem; border-radius: 50px; margin: 2rem 0; }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">RealtyPix360</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="accessibility.html" aria-current="page">Accessibility</a></li>
+                <li><a href="tel:716-770-8030" aria-label="Call us at 716-770-8030">📞 716-770-8030</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Accessibility Statement</h1>
+        <p>RealtyPix360 is committed to ensuring digital accessibility for all</p>
+    </section>
+
+    <main id="main" class="content">
+        <div class="wcag-badge" role="img" aria-label="WCAG 2.1 Level AA Compliant">
+            ♿ WCAG 2.1 AA Compliant
+        </div>
+
+        <h2>Our Commitment</h2>
+        <p>RealtyPix360 is committed to ensuring that our website is accessible to people with disabilities. We strive to meet Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards.</p>
+
+        <h2>Accessibility Features</h2>
+        <p>Our website includes the following accessibility features:</p>
+        <ul>
+            <li><strong>Keyboard Navigation:</strong> All functionality is available using a keyboard</li>
+            <li><strong>Screen Reader Compatible:</strong> Content is structured for screen reader users</li>
+            <li><strong>Clear Focus Indicators:</strong> Visible focus states for keyboard navigation</li>
+            <li><strong>Alt Text:</strong> All images include descriptive alternative text</li>
+            <li><strong>Color Contrast:</strong> Text meets WCAG AA contrast requirements</li>
+            <li><strong>Responsive Design:</strong> Site works on all devices and screen sizes</li>
+            <li><strong>Skip Links:</strong> Quick navigation to main content</li>
+            <li><strong>ARIA Labels:</strong> Proper labeling for assistive technologies</li>
+            <li><strong>Readable Fonts:</strong> Clear, legible typography at all sizes</li>
+            <li><strong>Form Accessibility:</strong> Proper labels and error messages</li>
+        </ul>
+
+        <h2>Third-Party Content</h2>
+        <p>Some content on our website comes from third-party services (such as Aryeo property sites, Formspree forms, and embedded maps). We work to ensure these services are accessible, but their accessibility is managed by those providers.</p>
+
+        <h2>Ongoing Efforts</h2>
+        <p>We regularly review and test our website for accessibility compliance. We:</p>
+        <ul>
+            <li>Conduct regular accessibility audits</li>
+            <li>Test with assistive technologies</li>
+            <li>Follow WCAG 2.1 guidelines for new features</li>
+            <li>Train our team on accessibility best practices</li>
+            <li>Welcome feedback from users</li>
+        </ul>
+
+        <h2>Known Issues</h2>
+        <p>We are actively working to address any accessibility issues. Currently identified areas for improvement:</p>
+        <ul>
+            <li>Portfolio page dynamic loading (working with Aryeo to improve)</li>
+            <li>Some third-party embedded content</li>
+        </ul>
+
+        <h2>Feedback</h2>
+        <p>We welcome your feedback on the accessibility of our website. If you encounter any accessibility barriers, please let us know:</p>
+        
+        <div class="highlight">
+            <strong>Contact Us:</strong><br>
+            Phone: <a href="tel:716-770-8030">716-770-8030</a><br>
+            Email: <a href="mailto:realtypix360@gmail.com">realtypix360@gmail.com</a><br>
+            Address: 601 E Robinson St, North Tonawanda, NY 14120
+        </div>
+
+        <p>We aim to respond to accessibility feedback within 2 business days and to resolve issues within 10 business days.</p>
+
+        <h2>Compatibility</h2>
+        <p>Our website is designed to be compatible with:</p>
+        <ul>
+            <li>Recent versions of Chrome, Firefox, Safari, and Edge</li>
+            <li>JAWS, NVDA, and VoiceOver screen readers</li>
+            <li>Voice recognition software</li>
+            <li>Screen magnification software</li>
+        </ul>
+
+        <h2>Legal Compliance</h2>
+        <p>RealtyPix360 is committed to complying with:</p>
+        <ul>
+            <li>Americans with Disabilities Act (ADA)</li>
+            <li>Section 508 of the Rehabilitation Act</li>
+            <li>New York Human Rights Law</li>
+            <li>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</li>
+        </ul>
+
+        <p><em>Last Updated: January 5, 2026</em></p>
+    </main>
+</body>
+</html>
