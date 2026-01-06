@@ -273,7 +273,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-primary: #1a1a1a;
@@ -283,8 +283,8 @@
             --color-white: #ffffff;
             --color-text: #2d2d2d;
             --color-text-light: #6b6b6b;
-            --font-display: 'Playfair Display', serif;
-            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'Lora', serif;
+            --font-body: 'Raleway', sans-serif;
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -395,6 +395,37 @@
 
         .cta-nav::after {
             display: none;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-primary);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(8px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-8px);
         }
 
         /* Hero Section */
@@ -548,6 +579,12 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
+        @media (max-width: 768px) {
+            .hero-image img {
+                height: 400px;
+            }
+        }
+
         .hero-stats {
             position: absolute;
             bottom: 30px;
@@ -560,6 +597,31 @@
             display: flex;
             justify-content: space-around;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                margin-top: 1rem;
+                padding: 1.25rem;
+                flex-direction: row;
+                gap: 1rem;
+            }
+            
+            .stat {
+                flex: 1;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .stat-label {
+                font-size: 0.75rem;
+            }
         }
 
         .stat {
@@ -1189,8 +1251,45 @@
         }
 
         @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--color-white);
+                flex-direction: column;
+                gap: 0;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                max-height: 500px;
+                opacity: 1;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                border-bottom: 1px solid #e5e5e5;
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .cta-nav {
+                display: block;
+                margin-top: 1rem;
             }
 
             .hero h1 {
@@ -1247,9 +1346,16 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="#" class="logo">RealtyPix360</a>
-            <ul class="nav-links">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#pricing">Pricing</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="commercial.html">Commercial</a></li>
                 <li><a href="#why-us">Why Us</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact" class="cta-nav">Get Started</a></li>
@@ -1268,7 +1374,7 @@
                     <a href="tel:716-770-8030" class="btn btn-primary">
                         📞 Call Now: 716-770-8030
                     </a>
-                    <a href="#pricing" class="btn btn-secondary">View Packages</a>
+                    <a href="portfolio.html" class="btn btn-secondary">View Portfolio</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -1382,6 +1488,46 @@
                 </ul>
                 <a href="#contact" class="btn btn-light btn-pricing">Book Now</a>
             </div>
+
+            <!-- NEW Custom Luxury Bundle -->
+            <div class="pricing-card" style="border: 3px solid var(--color-accent);">
+                <div class="pricing-badge" style="background: var(--color-accent);">Luxury Homes $500K+</div>
+                <h3>Custom Luxury Bundle</h3>
+                <p class="pricing-subtitle">Premium package for high-end properties</p>
+                <div class="price" style="color: var(--color-accent);">$500<span style="font-size: 1.5rem; font-weight: 400;">+</span></div>
+                <p class="price-note">Starts at $500 - Custom pricing for luxury listings</p>
+                <ul class="features-list">
+                    <li class="feature">
+                        <span class="feature-icon" style="background: var(--color-accent);">✓</span>
+                        <span>Custom Matterport 3D tour with room tags</span>
+                    </li>
+                    <li class="feature">
+                        <span class="feature-icon" style="background: var(--color-accent);">✓</span>
+                        <span>3D Floor Plan with lot layout</span>
+                    </li>
+                    <li class="feature">
+                        <span class="feature-icon" style="background: var(--color-accent);">✓</span>
+                        <span>Professional video walkthrough</span>
+                    </li>
+                    <li class="feature">
+                        <span class="feature-icon" style="background: var(--color-accent);">✓</span>
+                        <span>Branded & unbranded property sites</span>
+                    </li>
+                    <li class="feature">
+                        <span class="feature-icon" style="background: var(--color-accent);">✓</span>
+                        <span>ANSI Z765 certified room measurements</span>
+                    </li>
+                    <li class="feature">
+                        <span class="feature-icon" style="background: var(--color-accent);">✓</span>
+                        <span>Custom floor plan in YOUR colors with YOUR logo</span>
+                    </li>
+                    <li class="feature">
+                        <span class="feature-icon" style="background: var(--color-accent);">✓</span>
+                        <span>Virtual twilight photography included</span>
+                    </li>
+                </ul>
+                <a href="#contact" class="btn btn-primary btn-pricing" style="background: var(--color-accent); border-color: var(--color-accent);">Request Quote</a>
+            </div>
         </div>
     </section>
 
@@ -1405,6 +1551,24 @@
                     <h3>Virtual Staging</h3>
                     <div class="addon-price">$10/photo</div>
                     <p>Transform empty rooms into beautifully furnished spaces that help buyers envision their future home.</p>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">🌆</div>
+                    <h3>Virtual Twilight</h3>
+                    <div class="addon-price">$25</div>
+                    <p>Transform daytime exterior shots into stunning twilight images with warm lighting and dramatic skies.</p>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">📐</div>
+                    <h3>Color 3D Floor Plan</h3>
+                    <div class="addon-price">$50</div>
+                    <p>3D floor plan with lot layout showing property boundaries and outdoor features. Perfect for showcasing the full property.</p>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">🎨</div>
+                    <h3>Custom Branded Floor Plan</h3>
+                    <div class="addon-price">Contact</div>
+                    <p>Upgrade your floor plan in YOUR brand colors with YOUR logo. Ideal for open house handouts and premium marketing materials.</p>
                 </div>
             </div>
         </div>
@@ -1457,7 +1621,7 @@
             <div class="benefit">
                 <div class="benefit-number">🎯</div>
                 <h3>Google Trusted Pro</h3>
-                <p>Certified Google Trusted Pro photographer with 8+ years of 3D scanning experience.</p>
+                <p>Certified Google Trusted Pro photographer with 480+ million engagements on Google Street View tours.</p>
             </div>
             <div class="benefit">
                 <div class="benefit-number">💎</div>
@@ -1555,6 +1719,7 @@
                 <h4>Company</h4>
                 <ul class="footer-links">
                     <li><a href="#why-us">About Us</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -1584,5 +1749,31 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container')) {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
