@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercial Division - GetMyVR | Large-Scale 3D Scanning & Documentation</title>
+    <meta name="description" content="RealtyPix360's commercial division provides large-scale 3D scanning for factories, retail locations, and commercial facilities. From 450K sq ft spaces to multi-location projects.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1a1a1a;
+            --color-secondary: #2c5f6f;
+            --color-accent: #d4a574;
+            --color-light: #f8f6f3;
+            --color-white: #ffffff;
+            --color-text: #2d2d2d;
+            --color-text-light: #6b6b6b;
+            --font-display: 'Lora', serif;
+            --font-body: 'Raleway', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.6;
+            background: var(--color-white);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-primary);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--color-primary) 0%, #0d0d0d 100%);
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .division-badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-white);
+            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #c49563;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 165, 116, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-white);
+            color: var(--color-primary);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--color-secondary);
+            color: var(--color-white);
+            padding: 3rem 2rem;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            color: var(--color-accent);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Overview Section */
+        .overview {
+            padding: 6rem 2rem;
+            background: var(--color-white);
+        }
+
+        .overview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .overview-content h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .overview-content p {
+            font-size: 1.15rem;
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .overview-image {
+            width: 100%;
+            height: 500px;
+            background: var(--color-light);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--color-text-light);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--color-light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--color-white);
+            color: var(--color-secondary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: var(--color-text-light);
+        }
+
+        .features-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--color-white);
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        /* Use Cases Section */
+        .use-cases {
+            padding: 6rem 2rem;
+            background: var(--color-white);
+        }
+
+        .use-cases-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .use-case-card {
+            background: var(--color-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .use-case-card:hover {
+            border-left-width: 8px;
+            transform: translateX(5px);
+        }
+
+        .use-case-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .use-case-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .use-case-card li {
+            padding: 0.5rem 0;
+            color: var(--color-text-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .use-case-card li::before {
+            content: "→";
+            color: var(--color-accent);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .overview-container {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--color-white);
+                flex-direction: column;
+                gap: 0;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                max-height: 500px;
+                opacity: 1;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                border-bottom: 1px solid #e5e5e5;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.25rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .overview-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">RealtyPix360</a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="commercial.html">Commercial</a></li>
+                <li><a href="tel:716-770-8030">📞 716-770-8030</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="division-badge">Our Commercial Division</div>
+            <h1>Large-Scale 3D Scanning & Documentation</h1>
+            <p>From 450,000 sq ft manufacturing facilities to multi-location retail chains, GetMyVR provides professional 3D documentation for commercial spaces of any size.</p>
+            <div class="hero-ctas">
+                <a href="tel:716-770-8030" class="btn btn-primary">
+                    📞 Call: 716-770-8030
+                </a>
+                <a href="https://www.getmyvr.com" target="_blank" class="btn btn-secondary">Visit GetMyVR.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">450K+</div>
+                <div class="stat-label">Largest Single Facility Scanned (sq ft)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">42</div>
+                <div class="stat-label">Home Depot Locations Documented</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">480M+</div>
+                <div class="stat-label">Google Street View Tour Engagements</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">Since 2017</div>
+                <div class="stat-label">Years of 3D Scanning Expertise</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview">
+        <div class="overview-container">
+            <div class="overview-content">
+                <h2>Professional 3D Documentation for Business</h2>
+                <p>GetMyVR is our commercial division, specializing in large-scale 3D scanning and virtual documentation for businesses, facilities, and commercial properties.</p>
+                <p>As a Google Trusted Pro photographer, we've generated over 480 million engagements through Google Street View tours. Using the same Matterport Pro3 technology trusted by real estate professionals, we capture accurate digital twins of your commercial spaces—perfect for facilities management, construction documentation, remote collaboration, and more.</p>
+                <p>Whether you're managing a single facility or a nationwide chain, we provide the detailed 3D documentation you need to operate more efficiently and market more effectively.</p>
+            </div>
+            <div class="overview-image">
+                🏭
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-header">
+            <div class="section-badge">What We Offer</div>
+            <h2>Commercial 3D Scanning Capabilities</h2>
+            <p>Enterprise-grade documentation solutions for businesses of all sizes</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏭</div>
+                <h3>Large-Scale Facilities</h3>
+                <p>Manufacturing plants, warehouses, distribution centers—we document spaces up to 450,000+ sq ft with precision and efficiency.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏪</div>
+                <h3>Multi-Location Projects</h3>
+                <p>Standardized documentation across multiple locations. We've scanned 42 Home Depot stores and counting.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🗺️</div>
+                <h3>Google Street View Tours</h3>
+                <p>Official Google Trusted Pro photographer with 480+ million engagements. Put your business on the map with indoor Street View tours.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📐</div>
+                <h3>As-Built Documentation</h3>
+                <p>Accurate measurements and spatial data for facilities management, renovations, and construction planning.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Matterport Pro3</h3>
+                <p>Industry-leading technology capturing millimeter-accurate 3D models with detailed floor plans and measurements.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>Virtual Access</h3>
+                <p>Remote site visits, stakeholder presentations, and team training—all accessible 24/7 from anywhere.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast Turnaround</h3>
+                <p>Efficient scanning processes and quick delivery to keep your projects on schedule.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases">
+        <div class="section-header">
+            <div class="section-badge">Applications</div>
+            <h2>How Businesses Use 3D Documentation</h2>
+            <p>Virtual documentation serves multiple business needs across industries</p>
+        </div>
+        <div class="use-cases-grid">
+            <div class="use-case-card">
+                <h3>Facilities Management</h3>
+                <ul>
+                    <li>Digital asset inventory</li>
+                    <li>Maintenance planning</li>
+                    <li>Space utilization analysis</li>
+                    <li>Remote inspections</li>
+                </ul>
+            </div>
+            <div class="use-case-card">
+                <h3>Construction & Renovation</h3>
+                <ul>
+                    <li>Pre-construction documentation</li>
+                    <li>Progress tracking</li>
+                    <li>As-built verification</li>
+                    <li>Contractor coordination</li>
+                </ul>
+            </div>
+            <div class="use-case-card">
+                <h3>Retail & Hospitality</h3>
+                <ul>
+                    <li>Store layout planning</li>
+                    <li>Brand consistency</li>
+                    <li>Virtual walkthroughs</li>
+                    <li>Marketing materials</li>
+                </ul>
+            </div>
+            <div class="use-case-card">
+                <h3>Insurance & Legal</h3>
+                <ul>
+                    <li>Property condition records</li>
+                    <li>Claims documentation</li>
+                    <li>Risk assessment</li>
+                    <li>Historical preservation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Document Your Space?</h2>
+        <p>Let's discuss how 3D documentation can benefit your business. From single facilities to multi-location projects, we're ready to help.</p>
+        <div class="cta-buttons">
+            <a href="tel:716-770-8030" class="btn btn-primary">
+                📞 Call: 716-770-8030
+            </a>
+            <a href="https://www.getmyvr.com" target="_blank" class="btn btn-secondary">Visit GetMyVR.com</a>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container')) {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
