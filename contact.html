@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | RealtyPix360</title>
+    <meta name="description" content="Contact RealtyPix360 for professional real estate photography in Buffalo & Niagara. Same-day service available.">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Accessibility Features */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #2c5f6f;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 10000;
+        }
+        .skip-link:focus { top: 0; }
+        *:focus {
+            outline: 3px solid #d4a574;
+            outline-offset: 2px;
+        }
+        :root {
+            --color-primary: #1a1a1a;
+            --color-secondary: #2c5f6f;
+            --color-accent: #d4a574;
+            --color-light: #f8f6f3;
+            --font-display: 'Lora', serif;
+            --font-body: 'Raleway', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); color: #2d2d2d; line-height: 1.6; }
+        .nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem; display: flex; justify-content: space-between; }
+        .logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-primary); text-decoration: none; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: #2d2d2d; text-decoration: none; font-weight: 500; }
+        .hero { padding: 8rem 2rem 4rem; background: linear-gradient(135deg, var(--color-light) 0%, #e8e5e0 100%); text-align: center; }
+        .hero h1 { font-family: var(--font-display); font-size: 3.5rem; color: var(--color-primary); margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; color: #6b6b6b; }
+        .contact-section { max-width: 1200px; margin: 4rem auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .contact-info h2 { font-family: var(--font-display); font-size: 2.5rem; color: var(--color-primary); margin-bottom: 2rem; }
+        .info-item { margin-bottom: 2rem; }
+        .info-item h3 { font-size: 1.25rem; color: var(--color-secondary); margin-bottom: 0.5rem; }
+        .info-item p { color: #6b6b6b; font-size: 1.1rem; }
+        .info-item a { color: var(--color-secondary); text-decoration: none; }
+        .contact-form { background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .contact-form h2 { font-family: var(--font-display); font-size: 2rem; color: var(--color-primary); margin-bottom: 2rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-primary); }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 1rem; border: 2px solid #e5e5e5; border-radius: 10px; font-family: var(--font-body); font-size: 1rem; transition: all 0.3s; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--color-secondary); }
+        .form-group textarea { resize: vertical; min-height: 150px; }
+        .submit-btn { background: var(--color-secondary); color: white; padding: 1.25rem 3rem; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.3s; }
+        .submit-btn:hover { background: var(--color-primary); transform: translateY(-2px); }
+        .form-status { margin-top: 1rem; padding: 1rem; border-radius: 10px; text-align: center; display: none; }
+        .form-status.success { background: #d4edda; color: #155724; display: block; }
+        .form-status.error { background: #f8d7da; color: #721c24; display: block; }
+        @media (max-width: 768px) { .contact-section { grid-template-columns: 1fr; } .hero h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">RealtyPix360</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="tel:716-770-8030" aria-label="Call us at 716-770-8030">📞 716-770-8030</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+    <section class="hero">
+        <h1>Get In Touch</h1>
+        <p>Ready to make your listings stand out? Contact us today!</p>
+    </section>
+
+    <div class="contact-section">
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            
+            <div class="info-item">
+                <h3>📞 Phone</h3>
+                <p><a href="tel:716-770-8030" aria-label="Call us at 716-770-8030">716-770-8030</a></p>
+                <p style="font-size: 0.95rem; margin-top: 0.5rem;">Call or text anytime</p>
+            </div>
+
+            <div class="info-item">
+                <h3>📧 Email</h3>
+                <p><a href="mailto:realtypix360@gmail.com">realtypix360@gmail.com</a></p>
+            </div>
+
+            <div class="info-item">
+                <h3>📍 Service Area</h3>
+                <p>Erie & Niagara County</p>
+                <p style="font-size: 0.95rem; margin-top: 0.5rem;">Travel available for additional fee</p>
+            </div>
+
+            <div class="info-item">
+                <h3>🏢 Office</h3>
+                <p>601 E Robinson St<br>North Tonawanda, NY 14120</p>
+            </div>
+
+            <div class="info-item">
+                <h3>⚡ Turnaround Time</h3>
+                <p><strong>Same Day!</strong></p>
+                <p style="font-size: 0.95rem; margin-top: 0.5rem;">Shoot in the morning, deliver by evening</p>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form action="https://formspree.io/f/xdakrgzk" method="POST" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="property">Property Address</label>
+                    <input type="text" id="property" name="property" placeholder="Optional">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service Interested In</label>
+                    <select id="service" name="service">
+                        <option value="">Select a service...</option>
+                        <option value="standard">Standard Package - $175</option>
+                        <option value="zillow">Zillow 3D Bundle - $250</option>
+                        <option value="matterport">Matterport Bundle - $350</option>
+                        <option value="luxury">Custom Luxury Bundle - $500+</option>
+                        <option value="commercial">Commercial Services</option>
+                        <option value="other">Other / Not Sure</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required placeholder="Tell us about your needs..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+                
+                <div class="form-status" id="formStatus"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    formStatus.className = 'form-status success';
+                    formStatus.textContent = 'Thank you! We\'ll get back to you shortly.';
+                    form.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'Oops! Something went wrong. Please call us at 716-770-8030.';
+            }
+        });
+    </script>
+    </main>
+
+    <footer role="contentinfo" style="background: #1a1a1a; color: white; padding: 2rem; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <p style="margin-bottom: 1rem;">&copy; 2026 RealtyPix360. All rights reserved.</p>
+            <nav aria-label="Footer navigation">
+                <ul style="list-style: none; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <li><a href="privacy.html" style="color: #d4a574; text-decoration: none;">Privacy Policy</a></li>
+                    <li><a href="accessibility.html" style="color: #d4a574; text-decoration: none;">♿ Accessibility</a></li>
+                    <li><a href="faq.html" style="color: #d4a574; text-decoration: none;">FAQ</a></li>
+                    <li><a href="contact.html" style="color: #d4a574; text-decoration: none;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
