@@ -308,7 +308,7 @@
             color: var(--color-text);
             line-height: 1.6;
             overflow-x: hidden;
-            background: var(--color-white);
+            background: #ffffff;
         }
 
         /* Accessibility Features */
@@ -683,7 +683,7 @@
         /* Pricing Section */
         .pricing {
             padding: 3.5rem 2rem;
-            background: var(--color-white);
+            background: #ffffff;
         }
 
         .section-header {
@@ -729,7 +729,7 @@
         }
 
         .pricing-card {
-            background: var(--color-white);
+            background: #ffffff;
             border: 2px solid #e5e5e5;
             border-radius: 15px;
             padding: 1.75rem;
@@ -874,7 +874,7 @@
         }
 
         .pricing-card.featured .btn-pricing {
-            background: var(--color-white);
+            background: #ffffff;
             color: var(--color-secondary);
         }
 
@@ -902,7 +902,7 @@
         }
 
         .addon-card {
-            background: var(--color-white);
+            background: #ffffff;
             padding: 2rem;
             border-radius: 15px;
             border: 2px solid transparent;
@@ -951,7 +951,7 @@
         /* Services Section */
         .services {
             padding: 3.5rem 2rem;
-            background: var(--color-white);
+            background: #ffffff;
         }
 
         .services-grid {
@@ -985,7 +985,7 @@
             width: 80px;
             height: 80px;
             margin: 0 auto 1.5rem;
-            background: var(--color-white);
+            background: #ffffff;
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -1071,7 +1071,7 @@
         }
 
         .testimonial-card {
-            background: var(--color-white);
+            background: #ffffff;
             padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
@@ -1163,7 +1163,7 @@
         }
 
         .btn-light {
-            background: var(--color-white);
+            background: #ffffff;
             color: var(--color-primary);
         }
 
@@ -1313,7 +1313,7 @@
                 top: 80px;
                 left: 0;
                 right: 0;
-                background: var(--color-white);
+                background: #ffffff;
                 flex-direction: column;
                 gap: 0;
                 padding: 2rem;
@@ -1393,6 +1393,8 @@
             animation: fadeInUp 0.8s ease 0.3s both;
         }
     </style>
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfibkQsAAAAAHOr--43_H2E66Z1Fn8BC2Lydm8O"></script>
 </head>
 <body>
     <!-- Skip to main content for accessibility -->
@@ -1801,6 +1803,15 @@
             <div style="background: white; padding: 2.5rem; border-radius: 20px; max-width: 600px; margin: 0 auto;">
                 <h3 style="font-family: var(--font-display); font-size: 1.75rem; color: var(--color-primary); margin-bottom: 1.5rem; text-align: center;">Quick Booking Form</h3>
                 <form action="https://formspree.io/f/xdakrgzk" method="POST" id="ctaForm">
+                    <!-- Honeypot field - hidden from humans, bots will fill it -->
+                    <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+                    
+                    <!-- Hidden timestamp for speed validation -->
+                    <input type="hidden" name="form_load_time" id="ctaFormLoadTime">
+                    
+                    <!-- reCAPTCHA token -->
+                    <input type="hidden" name="recaptcha_token" id="ctaRecaptchaToken">
+                    
                     <div style="margin-bottom: 1.25rem;">
                         <label for="cta-name" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--color-primary);">Name *</label>
                         <input type="text" id="cta-name" name="name" required style="width: 100%; padding: 0.875rem; border: 2px solid #e5e5e5; border-radius: 10px; font-family: var(--font-body); font-size: 1rem;">
@@ -1844,14 +1855,57 @@
     </section>
 
     <script>
-        // CTA Form submission handler
+        // CTA Form submission handler - TRIPLE SPAM PROTECTION
         const ctaForm = document.getElementById('ctaForm');
         const ctaFormStatus = document.getElementById('ctaFormStatus');
+        const ctaFormLoadTime = Date.now();
+        
+        // Set load time for speed validation
+        if (document.getElementById('ctaFormLoadTime')) {
+            document.getElementById('ctaFormLoadTime').value = ctaFormLoadTime;
+        }
         
         if (ctaForm) {
             ctaForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
+                // PROTECTION 1: Honeypot check
+                const honeypot = ctaForm.querySelector('[name="_gotcha"]');
+                if (honeypot && honeypot.value) {
+                    console.log('Bot detected: honeypot filled');
+                    ctaFormStatus.style.display = 'block';
+                    ctaFormStatus.style.background = '#f8d7da';
+                    ctaFormStatus.style.color = '#721c24';
+                    ctaFormStatus.textContent = 'Submission failed. Please try again.';
+                    return;
+                }
+                
+                // PROTECTION 2: Time-based validation (must take at least 3 seconds)
+                const submitTime = Date.now();
+                const timeDiff = (submitTime - ctaFormLoadTime) / 1000;
+                if (timeDiff < 3) {
+                    console.log('Bot detected: too fast (' + timeDiff + 's)');
+                    ctaFormStatus.style.display = 'block';
+                    ctaFormStatus.style.background = '#f8d7da';
+                    ctaFormStatus.style.color = '#721c24';
+                    ctaFormStatus.textContent = 'Please take your time filling out the form.';
+                    return;
+                }
+                
+                // PROTECTION 3: Get reCAPTCHA token
+                try {
+                    const token = await grecaptcha.execute('6LfibkQsAAAAAHOr--43_H2E66Z1Fn8BC2Lydm8O', {action: 'submit'});
+                    document.getElementById('ctaRecaptchaToken').value = token;
+                } catch (error) {
+                    console.error('reCAPTCHA error:', error);
+                    ctaFormStatus.style.display = 'block';
+                    ctaFormStatus.style.background = '#f8d7da';
+                    ctaFormStatus.style.color = '#721c24';
+                    ctaFormStatus.textContent = 'Security check failed. Please refresh and try again.';
+                    return;
+                }
+                
+                // All validations passed - submit form
                 const formData = new FormData(ctaForm);
                 
                 try {
@@ -1869,6 +1923,10 @@
                         ctaFormStatus.style.color = '#155724';
                         ctaFormStatus.textContent = 'Thank you! We\'ll contact you within the hour.';
                         ctaForm.reset();
+                        // Reset load time for potential re-submission
+                        if (document.getElementById('ctaFormLoadTime')) {
+                            document.getElementById('ctaFormLoadTime').value = Date.now();
+                        }
                     } else {
                         throw new Error('Form submission failed');
                     }
