@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow private API routes
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://realtypix360.com/sitemap.xml
