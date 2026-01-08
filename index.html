@@ -1430,8 +1430,8 @@
                 <h1>List & Sell Faster with <span class="hero-highlight">Professional Photography</span></h1>
                 <p>Same-day HDR photography, 3D tours, floor plans & property websites that make your listings stand out and sell. Buffalo's most trusted real estate photographer since 2017.</p>
                 <div class="hero-ctas">
-                    <a href="tel:716-770-8030" class="btn btn-primary" aria-label="Call us at 716-770-8030">
-                        📞 Call Now: 716-770-8030
+                    <a href="#" data-phone="link" class="btn btn-primary" aria-label="Call us">
+                        📞 Call Now: <span data-phone="text">Loading...</span>
                     </a>
                     <a href="portfolio.html" class="btn btn-secondary">View Portfolio</a>
                 </div>
@@ -1795,8 +1795,8 @@
             <div style="text-align: center; margin-bottom: 2rem;">
                 <h2 style="font-family: var(--font-display); font-size: 2.5rem; color: white; margin-bottom: 1rem;">Ready to Elevate Your Listings?</h2>
                 <p style="font-size: 1.15rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto 2rem;">Call us now or fill out the quick form below. We'll get back to you within the hour!</p>
-                <a href="tel:716-770-8030" style="display: inline-block; padding: 1.25rem 2.5rem; background: var(--color-accent); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1rem; margin-bottom: 2rem;" aria-label="Call us at 716-770-8030">
-                    📞 Call: 716-770-8030
+                <a href="#" data-phone="link" style="display: inline-block; padding: 1.25rem 2.5rem; background: var(--color-accent); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1rem; margin-bottom: 2rem;" aria-label="Call us">
+                    📞 Call: <span data-phone="text">Loading...</span>
                 </a>
             </div>
             
@@ -1947,7 +1947,7 @@
                 <h3>RealtyPix360</h3>
                 <p>Buffalo & Niagara's premier real estate photography service. Professional HDR photography, 3D tours, floor plans, and property websites—all with same-day turnaround.</p>
                 <div class="footer-contact">
-                    <a href="tel:716-770-8030">📞 716-770-8030</a>
+                    <a href="#" data-phone="link">📞 <span data-phone="text">Loading...</span></a>
                     <a href="/cdn-cgi/l/email-protection#730116121f070a031a0b40454333141e121a1f5d101c1e">✉️ <span class="__cf_email__" data-cfemail="6e1c0b0f021a171e07165d585e2e09030f0702400d0103">[email&#160;protected]</span></a>
                     <p style="color: rgba(255,255,255,0.7);">📍 601 E Robinson St, North Tonawanda, NY 14120</p>
                 </div>
@@ -2038,6 +2038,22 @@
                 navLinks.classList.remove('active');
             }
         });
+    </script>
+    <!-- Phone Number Protection -->
+    <script>
+    (function() {
+        const parts = ['716', '770', '8030'];
+        const formatted = parts[0] + '-' + parts[1] + '-' + parts[2];
+        const href = 'tel:' + parts.join('');
+        
+        document.querySelectorAll('[data-phone="link"]').forEach(el => {
+            el.href = href;
+        });
+        
+        document.querySelectorAll('[data-phone="text"]').forEach(el => {
+            el.textContent = formatted;
+        });
+    })();
     </script>
 </body>
 </html>
