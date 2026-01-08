@@ -558,7 +558,7 @@
                 <li><a href="commercial.html">Commercial</a></li>
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="tel:716-770-8030" aria-label="Call us at 716-770-8030">📞 716-770-8030</a></li>
+                <li><a href="#" data-phone="link" aria-label="Call us at <span data-phone="text">Loading...</span>">📞 <span data-phone="text">Loading...</span></a></li>
             </ul>
         </div>
     </nav>
@@ -571,8 +571,8 @@
             <h1>Large-Scale 3D Scanning & Documentation</h1>
             <p>From 450,000 sq ft manufacturing facilities to multi-location retail chains, GetMyVR provides professional 3D documentation for commercial spaces of any size.</p>
             <div class="hero-ctas">
-                <a href="tel:716-770-8030" class="btn btn-primary">
-                    📞 Call: 716-770-8030
+                <a href="#" data-phone="link" class="btn btn-primary">
+                    📞 Call: <span data-phone="text">Loading...</span>
                 </a>
                 <a href="https://www.getmyvr.com" target="_blank" class="btn btn-secondary">Visit GetMyVR.com</a>
             </div>
@@ -714,8 +714,8 @@
         <h2>Ready to Document Your Space?</h2>
         <p>Let's discuss how 3D documentation can benefit your business. From single facilities to multi-location projects, we're ready to help.</p>
         <div class="cta-buttons">
-            <a href="tel:716-770-8030" class="btn btn-primary">
-                📞 Call: 716-770-8030
+            <a href="#" data-phone="link" class="btn btn-primary">
+                📞 Call: <span data-phone="text">Loading...</span>
             </a>
             <a href="https://www.getmyvr.com" target="_blank" class="btn btn-secondary">Visit GetMyVR.com</a>
         </div>
@@ -762,5 +762,22 @@
             </nav>
         </div>
     </footer>
+
+    <!-- Phone Number Protection -->
+    <script>
+    (function() {
+        const parts = ['716', '770', '8030'];
+        const formatted = parts[0] + '-' + parts[1] + '-' + parts[2];
+        const href = 'tel:' + parts.join('');
+        
+        document.querySelectorAll('[data-phone="link"]').forEach(el => {
+            el.href = href;
+        });
+        
+        document.querySelectorAll('[data-phone="text"]').forEach(el => {
+            el.textContent = formatted;
+        });
+    })();
+    </script>
 </body>
 </html>
