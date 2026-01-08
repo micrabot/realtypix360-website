@@ -42,7 +42,7 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-body); color: #2d2d2d; line-height: 1.6; }
-        .nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav { position: fixed; top: 0; width: 100%; background: #ffffff; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
         .nav-container { max-width: 1400px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; justify-content: space-between; }
         .logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--color-primary); text-decoration: none; }
         .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -69,6 +69,79 @@
         .form-status.success { background: #d4edda; color: #155724; display: block; }
         .form-status.error { background: #f8d7da; color: #721c24; display: block; }
         @media (max-width: 768px) { .contact-section { grid-template-columns: 1fr; } .hero h1 { font-size: 2.5rem; } }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--color-primary);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                flex-direction: column;
+                gap: 0;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                max-height: 500px;
+                opacity: 1;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                border-bottom: 1px solid #e5e5e5;
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -76,7 +149,12 @@
     <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="index.html" class="logo">RealtyPix360</a>
-            <ul class="nav-links">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="commercial.html">Commercial</a></li>
@@ -89,8 +167,9 @@
 
     <main id="main-content" role="main">
     <section class="hero">
-        <h1>Get In Touch</h1>
-        <p>Ready to make your listings stand out? Contact us today!</p>
+        <h1>Call Today, Get Photos Today!</h1>
+        <p style="font-size: 1.4rem; font-weight: 600; color: var(--color-secondary); margin-bottom: 1rem;">Same-Day Turnaround Guaranteed</p>
+        <p>Shoot in the morning, photos delivered by evening. Professional HDR photography, 3D tours, and floor plans ready when you need them. Serving Erie & Niagara County.</p>
     </section>
 
     <div class="contact-section">
@@ -104,19 +183,10 @@
             </div>
 
             <div class="info-item">
-                <h3>📧 Email</h3>
-                <p><a href="/cdn-cgi/l/email-protection#b0c2d5d1dcc4c9c0d9c8838680f0d7ddd1d9dc9ed3dfdd"><span class="__cf_email__" data-cfemail="e29087838e969b928b9ad1d4d2a2858f838b8ecc818d8f">[email&#160;protected]</span></a></p>
-            </div>
-
-            <div class="info-item">
                 <h3>📍 Service Area</h3>
-                <p>Erie & Niagara County</p>
-                <p style="font-size: 0.95rem; margin-top: 0.5rem;">Travel available for additional fee</p>
-            </div>
-
-            <div class="info-item">
-                <h3>🏢 Office</h3>
-                <p>601 E Robinson St<br>North Tonawanda, NY 14120</p>
+                <p><strong>Erie & Niagara County</strong></p>
+                <p style="font-size: 0.95rem; margin-top: 0.75rem;">Including Buffalo, Amherst, Clarence, Lancaster, Orchard Park, Hamburg, West Seneca, Cheektowaga, Tonawanda, North Tonawanda, Lockport, Niagara Falls, and surrounding areas.</p>
+                <p style="font-size: 0.95rem; margin-top: 0.5rem; color: #6b6b6b;">Travel available outside service area for additional fee</p>
             </div>
 
             <div class="info-item">
@@ -222,5 +292,32 @@
             </nav>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav')) {
+                    mobileMenuBtn.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
