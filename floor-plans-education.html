@@ -380,9 +380,6 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-            }
-
             .comparison-grid {
                 grid-template-columns: 1fr;
             }
@@ -414,7 +411,7 @@
             width: 25px;
             height: 3px;
             background: var(--color-primary);
-            transition: var(--transition);
+            transition: all 0.3s ease;
             border-radius: 2px;
         }
 
@@ -441,7 +438,7 @@
                 top: 70px;
                 left: 0;
                 right: 0;
-                background: var(--color-white);
+                background: #ffffff;
                 flex-direction: column;
                 gap: 0;
                 padding: 2rem;
@@ -494,7 +491,7 @@
                 <li><a href="/commercial.html">Commercial</a></li>
                 <li><a href="/faq.html">FAQ</a></li>
                 <li><a href="/contact.html">Contact</a></li>
-                <li><a href="tel:716-770-8030" aria-label="Call us at 716-770-8030">📞 716-770-8030</a></li>
+                <li><a href="#" data-phone="link" aria-label="Call us">📞 <span data-phone="text">Loading...</span></a></li>
             </ul>
         </div>
     </nav>
@@ -502,7 +499,7 @@
     <!-- Main Content -->
     <main id="main-content">
         <h1>🏠 The Complete Listing Formula</h1>
-        <p class="subtitle">Master the art of listings that convert in 2025</p>
+        <p class="subtitle">Master the art of listings that convert in 2026</p>
 
         <!-- Module 1 -->
         <div class="module active" id="module1">
@@ -804,32 +801,6 @@
     </main>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const navLinks = document.getElementById('nav-links');
-
-        if (mobileMenuBtn && navLinks) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenuBtn.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenuBtn.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.nav')) {
-                    mobileMenuBtn.classList.remove('active');
-                    navLinks.classList.remove('active');
-                }
-            });
-        }
-
-        // Interactive module system
         let currentModule = 1;
         const totalModules = 5;
 
@@ -892,6 +863,51 @@
 
         // Initialize
         updateProgress();
+    </script>
+    <!-- Mobile Menu Toggle -->
+    <script>
+    (function() {
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav')) {
+                    mobileMenuBtn.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    })();
+    </script>
+
+    <!-- Phone Number Protection -->
+    <script>
+    (function() {
+        const parts = ['716', '770', '8030'];
+        const formatted = parts[0] + '-' + parts[1] + '-' + parts[2];
+        const href = 'tel:' + parts.join('');
+        
+        document.querySelectorAll('[data-phone="link"]').forEach(el => {
+            el.href = href;
+        });
+        
+        document.querySelectorAll('[data-phone="text"]').forEach(el => {
+            el.textContent = formatted;
+        });
+    })();
     </script>
 </body>
 </html>
