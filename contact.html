@@ -162,7 +162,7 @@
                 <li><a href="commercial.html">Commercial</a></li>
                 <li><a href="faq.html">FAQ</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="tel:716-770-8030" aria-label="Call us at 716-770-8030">📞 716-770-8030</a></li>
+                <li><a href="#" data-phone="link" aria-label="Call us">📞 <span data-phone="text">Loading...</span></a></li>
             </ul>
         </div>
     </nav>
@@ -180,7 +180,7 @@
             
             <div class="info-item">
                 <h3>📞 Phone</h3>
-                <p><a href="tel:716-770-8030" aria-label="Call us at 716-770-8030">716-770-8030</a></p>
+                <p><a href="#" data-phone="link"><span data-phone="text">Loading...</span></a></p>
                 <p style="font-size: 0.95rem; margin-top: 0.5rem;">Call or text anytime</p>
             </div>
 
@@ -367,6 +367,22 @@
                 }
             });
         }
+    </script>
+    <!-- Phone Number Protection -->
+    <script>
+    (function() {
+        const parts = ['716', '770', '8030'];
+        const formatted = parts[0] + '-' + parts[1] + '-' + parts[2];
+        const href = 'tel:' + parts.join('');
+        
+        document.querySelectorAll('[data-phone="link"]').forEach(el => {
+            el.href = href;
+        });
+        
+        document.querySelectorAll('[data-phone="text"]').forEach(el => {
+            el.textContent = formatted;
+        });
+    })();
     </script>
 </body>
 </html>
