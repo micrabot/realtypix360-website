@@ -41,7 +41,7 @@
             font-family: var(--font-body);
             color: var(--color-text);
             line-height: 1.6;
-            background: var(--color-white);
+            background: #ffffff;
         }
 
         /* Accessibility Features */
@@ -139,7 +139,7 @@
         /* Filters Section */
         .filters {
             padding: 3rem 2rem;
-            background: var(--color-white);
+            background: #ffffff;
             border-bottom: 1px solid #e5e5e5;
         }
 
@@ -194,7 +194,7 @@
         .filter-btn {
             padding: 0.75rem 1.5rem;
             border: 2px solid #e5e5e5;
-            background: var(--color-white);
+            background: #ffffff;
             border-radius: 50px;
             font-family: var(--font-body);
             font-size: 0.95rem;
@@ -237,7 +237,7 @@
             width: 40px;
             height: 40px;
             border: 2px solid #e5e5e5;
-            background: var(--color-white);
+            background: #ffffff;
             border-radius: 8px;
             cursor: pointer;
             transition: var(--transition);
@@ -264,7 +264,7 @@
         }
 
         .portfolio-card {
-            background: var(--color-white);
+            background: #ffffff;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -399,7 +399,7 @@
         .page-btn {
             padding: 0.75rem 1.25rem;
             border: 2px solid #e5e5e5;
-            background: var(--color-white);
+            background: #ffffff;
             border-radius: 8px;
             font-family: var(--font-body);
             font-weight: 500;
@@ -516,7 +516,7 @@
                 top: 70px;
                 left: 0;
                 right: 0;
-                background: var(--color-white);
+                background: #ffffff;
                 flex-direction: column;
                 gap: 0;
                 padding: 2rem;
@@ -563,7 +563,7 @@
                 <li><a href="/commercial.html">Commercial</a></li>
                 <li><a href="/faq.html">FAQ</a></li>
                 <li><a href="/contact.html">Contact</a></li>
-                <li><a href="tel:716-770-8030" aria-label="Call us at 716-770-8030">📞 716-770-8030</a></li>
+                <li><a href="#" data-phone="link" aria-label="Call us">📞 <span data-phone="text">Loading...</span></a></li>
             </ul>
         </div>
     </nav>
@@ -912,6 +912,23 @@
                 navLinks.classList.remove('active');
             }
         });
+    </script>
+
+    <!-- Phone Number Protection -->
+    <script>
+    (function() {
+        const parts = ['716', '770', '8030'];
+        const formatted = parts[0] + '-' + parts[1] + '-' + parts[2];
+        const href = 'tel:' + parts.join('');
+        
+        document.querySelectorAll('[data-phone="link"]').forEach(el => {
+            el.href = href;
+        });
+        
+        document.querySelectorAll('[data-phone="text"]').forEach(el => {
+            el.textContent = formatted;
+        });
+    })();
     </script>
 </body>
 </html>
