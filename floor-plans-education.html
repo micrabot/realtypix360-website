@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Complete Listing Formula - Free Training | RealtyPix360</title>
-    <meta name="description" content="Learn why 3D tours + floor plans create listings that convert. Free training for Buffalo & Niagara real estate agents.">
+    <meta name="description" content="Learn why 3D tours + floor plans create listings that convert. Interactive training for Buffalo & Niagara real estate agents.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -58,10 +58,6 @@
             font-weight: 600;
         }
         .skip-link:focus { top: 0; }
-        *:focus {
-            outline: 3px solid #d4a574;
-            outline-offset: 2px;
-        }
 
         /* Navigation */
         .nav {
@@ -121,18 +117,39 @@
             padding-bottom: 4rem;
         }
 
+        /* Module System */
+        .module {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .module.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         h1 {
             font-family: var(--font-display);
             font-size: 2.5rem;
             color: var(--color-primary);
-            margin: 2rem 0 1rem;
+            margin: 2rem 0 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--color-text-light);
+            margin-bottom: 3rem;
         }
 
         h2 {
             font-family: var(--font-display);
             font-size: 2rem;
             color: var(--color-primary);
-            margin: 3rem 0 1.5rem;
+            margin: 2rem 0 1.5rem;
         }
 
         h3 {
@@ -201,6 +218,130 @@
             margin: 0.5rem 0;
         }
 
+        /* Quiz Section */
+        .quiz {
+            background: var(--color-light);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .quiz-option {
+            background: white;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e5e5e5;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--color-secondary);
+            background: rgba(44, 95, 111, 0.05);
+        }
+
+        .quiz-option.correct {
+            border-color: #27ae60;
+            background: rgba(39, 174, 96, 0.1);
+        }
+
+        .quiz-option.incorrect {
+            border-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+        }
+
+        .quiz-feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+        }
+
+        .quiz-feedback.correct {
+            background: rgba(39, 174, 96, 0.1);
+            border-left: 4px solid #27ae60;
+        }
+
+        .quiz-feedback.incorrect {
+            background: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid #e74c3c;
+        }
+
+        /* Navigation Buttons */
+        .module-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            padding-top: 2rem;
+            border-top: 2px solid var(--color-light);
+        }
+
+        .nav-button {
+            padding: 1rem 2rem;
+            background: var(--color-secondary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button:hover {
+            background: #1a4a5a;
+            transform: translateY(-2px);
+        }
+
+        .nav-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .nav-button.secondary {
+            background: var(--color-light);
+            color: var(--color-text);
+        }
+
+        .nav-button.secondary:hover {
+            background: #d4a574;
+            color: white;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-light);
+            z-index: 999;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        /* CTA Box */
         .cta-box {
             background: linear-gradient(135deg, var(--color-secondary) 0%, #1a4a5a 100%);
             color: white;
@@ -213,6 +354,12 @@
         .cta-box h2 {
             color: white;
             margin-top: 0;
+        }
+
+        .cta-box ul {
+            text-align: left;
+            display: inline-block;
+            margin: 1rem 0;
         }
 
         .cta-button {
@@ -255,6 +402,11 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+    </div>
+    
     <!-- Navigation -->
     <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
@@ -273,211 +425,370 @@
     <!-- Main Content -->
     <main id="main-content">
         <h1>🏠 The Complete Listing Formula</h1>
-        <p class="subtitle" style="font-size: 1.3rem; color: var(--color-text-light); margin-bottom: 3rem;">Master the art of listings that convert in 2025</p>
+        <p class="subtitle">Master the art of listings that convert in 2025</p>
 
-        <h2>Module 1: Understanding the Modern Buyer</h2>
+        <!-- Module 1 -->
+        <div class="module active" id="module1">
+            <h2>Module 1: Understanding the Modern Buyer</h2>
 
-        <h3>🎯 The Reality Check</h3>
+            <h3>🎯 The Reality Check</h3>
 
-        <p><strong>It's Saturday morning. Your prospect is on the couch with their phone.</strong></p>
+            <p><strong>It's Saturday morning. Your prospect is on the couch with their phone.</strong></p>
 
-        <p>They're not getting in the car. They're not driving across town to see "just another house." They're scrolling through 47 listings in 8 minutes.</p>
+            <p>They're not getting in the car. They're not driving across town to see "just another house." They're scrolling through 47 listings in 8 minutes.</p>
 
-        <p><strong>Your listing has exactly 12 seconds to make them stop scrolling.</strong></p>
+            <p><strong>Your listing has exactly 12 seconds to make them stop scrolling.</strong></p>
 
-        <h3>Why People Don't Want to Drive Anymore</h3>
+            <h3>Why People Don't Want to Drive Anymore</h3>
 
-        <ul>
-            <li><strong>Time is precious:</strong> Average person views 10-15 properties online before visiting ONE in person</li>
-            <li><strong>Information overload:</strong> Buyers are more educated and selective than ever</li>
-            <li><strong>Efficiency mindset:</strong> "Why drive 20 minutes when I can virtually walk through in 2?"</li>
-            <li><strong>Comparison shopping:</strong> They're evaluating YOUR listing against competitors simultaneously</li>
-        </ul>
-
-        <div class="highlight-box">
-            <h4>💡 Key Insight</h4>
-            <p>The buyer's journey now happens 80% online. Your listing isn't competing with other houses in the neighborhood—it's competing with every other tab open in their browser.</p>
-        </div>
-
-        <h2>Module 2: The 3D Tour Advantage - Owning Their Time</h2>
-
-        <h3>⏱️ The Time Ownership Revolution</h3>
-
-        <p><strong>Video Tour:</strong> 2 minutes. Play button. Stop button. Over.</p>
-
-        <p><strong>3D Digital Twin:</strong> No stop button. No end. Buyers explore for 8, 12, 15 minutes. They're in YOUR property, on THEIR terms.</p>
-
-        <h3>Why 3D Tours Stop People in Their Tracks:</h3>
-
-        <ul>
-            <li><strong>Self-directed exploration:</strong> They control where they go, what they look at, how long they stay</li>
-            <li><strong>No artificial ending:</strong> Unlike videos that finish, 3D tours keep them engaged indefinitely</li>
-            <li><strong>Discovery mindset:</strong> "What's around this corner? What's in that closet?" - natural curiosity keeps them exploring</li>
-            <li><strong>Repeat visits:</strong> They come back multiple times before even contacting you</li>
-            <li><strong>Time investment = emotional investment:</strong> The longer they explore, the more attached they become</li>
-        </ul>
-
-        <div class="comparison-grid">
-            <div class="comparison-card negative">
-                <h4>🎥 Video Tour</h4>
-                <span class="stat">2-3 min</span>
-                <p>Average engagement</p>
-                <p>Linear, passive experience</p>
-                <p>"Next listing..."</p>
-            </div>
-            <div class="comparison-card positive">
-                <h4>🏠 3D Digital Twin</h4>
-                <span class="stat">12-15 min</span>
-                <p>Average engagement</p>
-                <p>Interactive, immersive</p>
-                <p>"I need to show this to my spouse!"</p>
-            </div>
-        </div>
-
-        <div class="highlight-box">
-            <h4>💡 You're Owning Their Time</h4>
-            <p>When someone spends 15 minutes exploring your 3D tour, they're not looking at 10 other listings. They're mentally moving furniture. They're imagining their life there. Time spent = mental ownership.</p>
-        </div>
-
-        <h3>🌨️ The Buffalo/Niagara Weather Advantage</h3>
-
-        <p><strong>January snowstorm?</strong> No problem.</p>
-        <p><strong>Freezing rain forecast?</strong> Buyers are still touring—from their couch.</p>
-        <p><strong>Roads are a mess?</strong> Your listing is still working 24/7.</p>
-
-        <p>In Buffalo & Niagara, weather can shut down showings for days. But 3D tours + floor plans give you an easy win—you're capturing qualified leads while your competition waits for better weather.</p>
-
-        <h2>Module 3: The Fatal Information Gap</h2>
-
-        <div class="comparison-grid">
-            <div class="comparison-card negative">
-                <h4>❌ Basic Listing</h4>
-                <p>📷 10 photos</p>
-                <p>Generic description</p>
-                <p>Square footage</p>
-                <span class="stat">23%</span>
-                <p>Click-through rate</p>
-            </div>
-            <div class="comparison-card positive">
-                <h4>✅ Complete Listing</h4>
-                <p>🎯 Photos + 3D Tour + Floor Plan</p>
-                <p>Detailed walkthrough</p>
-                <p>Interactive experience</p>
-                <span class="stat">71%</span>
-                <p>Click-through rate</p>
-            </div>
-        </div>
-
-        <h3>What Prospects Actually Want to Know:</h3>
-
-        <ul>
-            <li><strong>Layout & Flow:</strong> "How do the rooms connect?"</li>
-            <li><strong>Size Perception:</strong> "Is this 1,200 sq ft spacious or cramped?"</li>
-            <li><strong>Furniture Fit:</strong> "Will my king bed fit in that bedroom?"</li>
-            <li><strong>Daily Life:</strong> "Can I see myself living here?"</li>
-            <li><strong>Problem Spots:</strong> "What are they NOT showing me?"</li>
-        </ul>
-
-        <h3>🔍 The Missing Piece Problem</h3>
-
-        <p><strong>3D Tour Alone:</strong> "This is cool, but I'm lost. Where's the kitchen in relation to the living room?"</p>
-
-        <p><strong>Floor Plan Alone:</strong> "OK, I see the layout, but what does it actually LOOK like?"</p>
-
-        <p><strong>3D Tour + Floor Plan Together:</strong> "Oh WOW! Now I get it. I can see myself here. Let me share this with my spouse!"</p>
-
-        <div class="highlight-box">
-            <h4>💡 The Power Combo</h4>
-            <p>Floor plans give context and orientation. 3D tours give experience and emotion. Together, they create complete confidence—and that confidence is what converts browsers into buyers.</p>
-        </div>
-
-        <h2>Module 4: The FOMO Factor</h2>
-
-        <h3>⚡ The Psychology of Complete Information</h3>
-
-        <p>When you provide comprehensive information, something powerful happens in the buyer's mind:</p>
-
-        <h3>How Complete Listings Create Urgency:</h3>
-
-        <ul>
-            <li><strong>Transparency builds trust:</strong> "They're not hiding anything—this must be good!"</li>
-            <li><strong>Easy decision-making:</strong> "I have everything I need to decide RIGHT NOW"</li>
-            <li><strong>Competitive advantage visibility:</strong> "Wow, other listings don't have this—I better act fast"</li>
-            <li><strong>Shareability:</strong> "I need to send this to my partner immediately"</li>
-            <li><strong>Professional impression:</strong> "This seller and agent are serious—this won't last"</li>
-        </ul>
-
-        <div class="comparison-grid">
-            <div class="comparison-card negative">
-                <h4>Incomplete Listing</h4>
-                <span class="stat">4-7 days</span>
-                <p>Average time to first showing</p>
-                <p>"Let me think about it..."</p>
-            </div>
-            <div class="comparison-card positive">
-                <h4>Complete Listing</h4>
-                <span class="stat">24-48 hrs</span>
-                <p>Average time to first showing</p>
-                <p>"Can I see this TODAY?"</p>
-            </div>
-        </div>
-
-        <h2>Module 5: Why NOW More Than Ever</h2>
-
-        <h3>🏆 The Market Reality Check</h3>
-
-        <p><strong>Today's Market Landscape:</strong></p>
-
-        <ul>
-            <li>Average buyer looks at 10-12 listings online before contacting an agent</li>
-            <li>73% of buyers say virtual tours are important in their search</li>
-            <li>Listings with floor plans get 52% more views than those without</li>
-            <li>Complete listings (photos + 3D + floor plans) spend 31% less time on market</li>
-        </ul>
-
-        <h3>What Your Competition Is (Probably) Doing Wrong:</h3>
-
-        <ul>
-            <li>Using only phone photos</li>
-            <li>Relying on MLS-minimum descriptions</li>
-            <li>Skipping floor plans entirely</li>
-            <li>Having a 3D tour but no orientation context</li>
-            <li>Treating online presence as an afterthought</li>
-        </ul>
-
-        <div class="highlight-box">
-            <h4>💡 Your Competitive Edge</h4>
-            <p>When you provide professional photography + 3D tours + accurate floor plans, you're not just marketing a property—you're demonstrating that you're a professional who invests in results. That attracts serious sellers AND serious buyers.</p>
-        </div>
-
-        <div class="cta-box">
-            <h2>🎉 Congratulations!</h2>
-            <p style="font-size: 1.2rem; margin: 1.5rem 0;">You've completed "The Complete Listing Formula"</p>
-            
-            <h3 style="color: white; margin-top: 2rem;">🎓 What You've Learned:</h3>
-            <ul style="text-align: left; display: inline-block; margin: 1rem 0;">
-                <li>Modern buyers do 80% of their research online before contacting you</li>
-                <li>3D digital twins stop people in their tracks—no stop button means you own their time</li>
-                <li>Floor plans + 3D tours create the complete picture buyers need</li>
-                <li>Complete information accelerates decisions and creates FOMO</li>
-                <li>Professional presentation is your competitive advantage</li>
-                <li>Buffalo weather can't stop your listings from working 24/7</li>
+            <ul>
+                <li><strong>Time is precious:</strong> Average person views 10-15 properties online before visiting ONE in person</li>
+                <li><strong>Information overload:</strong> Buyers are more educated and selective than ever</li>
+                <li><strong>Efficiency mindset:</strong> "Why drive 20 minutes when I can virtually walk through in 2?"</li>
+                <li><strong>Comparison shopping:</strong> They're evaluating YOUR listing against competitors simultaneously</li>
             </ul>
 
-            <h3 style="color: white; margin-top: 2rem;">Ready to Elevate Your Listings?</h3>
-            <p>RealtyPix360 provides same-day turnaround on professional photography, 3D tours, and floor plans for the Buffalo/Western NY market.</p>
-            
-            <a href="/contact.html" class="cta-button">Get Started Today</a>
-            
-            <p style="margin-top: 2rem; font-size: 0.95rem;">
-                📧 realtypix360@gmail.com | 📞 716-770-8030<br>
-                <small>Google Trusted Pro | 480M+ Verified Views | 668+ Properties Photographed</small>
-            </p>
+            <div class="highlight-box">
+                <h4>💡 Key Insight</h4>
+                <p>The buyer's journey now happens 80% online. Your listing isn't competing with other houses in the neighborhood—it's competing with every other tab open in their browser.</p>
+            </div>
+
+            <div class="quiz">
+                <p><strong>Quick Check: What's the #1 reason prospects skip listings today?</strong></p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">A) Price is too high</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">B) Not enough information to justify a visit</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">C) Bad location</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">D) Poor curb appeal</div>
+                </div>
+                <div class="quiz-feedback">
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="module-nav">
+                <button class="nav-button secondary" disabled>Previous</button>
+                <button class="nav-button" onclick="nextModule()">Next Module →</button>
+            </div>
         </div>
 
-        <p style="text-align: center; margin-top: 3rem;">
-            <a href="/index.html" style="color: var(--color-secondary); text-decoration: none; font-weight: 600;">← Back to Homepage</a>
-        </p>
+        <!-- Module 2 -->
+        <div class="module" id="module2">
+            <h2>Module 2: The 3D Tour Advantage - Owning Their Time</h2>
+
+            <h3>⏱️ The Time Ownership Revolution</h3>
+
+            <p><strong>Video Tour:</strong> 2 minutes. Play button. Stop button. Over.</p>
+
+            <p><strong>3D Digital Twin:</strong> No stop button. No end. Buyers explore for 8, 12, 15 minutes. They're in YOUR property, on THEIR terms.</p>
+
+            <h3>Why 3D Tours Stop People in Their Tracks:</h3>
+
+            <ul>
+                <li><strong>Self-directed exploration:</strong> They control where they go, what they look at, how long they stay</li>
+                <li><strong>No artificial ending:</strong> Unlike videos that finish, 3D tours keep them engaged indefinitely</li>
+                <li><strong>Discovery mindset:</strong> "What's around this corner? What's in that closet?" - natural curiosity keeps them exploring</li>
+                <li><strong>Repeat visits:</strong> They come back multiple times before even contacting you</li>
+                <li><strong>Time investment = emotional investment:</strong> The longer they explore, the more attached they become</li>
+            </ul>
+
+            <div class="comparison-grid">
+                <div class="comparison-card negative">
+                    <h4>🎥 Video Tour</h4>
+                    <span class="stat">2-3 min</span>
+                    <p>Average engagement</p>
+                    <p>Linear, passive experience</p>
+                    <p>"Next listing..."</p>
+                </div>
+                <div class="comparison-card positive">
+                    <h4>🏠 3D Digital Twin</h4>
+                    <span class="stat">12-15 min</span>
+                    <p>Average engagement</p>
+                    <p>Interactive, immersive</p>
+                    <p>"I need to show this to my spouse!"</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>💡 You're Owning Their Time</h4>
+                <p>When someone spends 15 minutes exploring your 3D tour, they're not looking at 10 other listings. They're mentally moving furniture. They're imagining their life there. Time spent = mental ownership.</p>
+            </div>
+
+            <h3>🌨️ The Buffalo/Niagara Weather Advantage</h3>
+
+            <p><strong>January snowstorm?</strong> No problem.</p>
+            <p><strong>Freezing rain forecast?</strong> Buyers are still touring—from their couch.</p>
+            <p><strong>Roads are a mess?</strong> Your listing is still working 24/7.</p>
+
+            <p>In Buffalo & Niagara, weather can shut down showings for days. But 3D tours + floor plans give you an easy win—you're capturing qualified leads while your competition waits for better weather.</p>
+
+            <div class="module-nav">
+                <button class="nav-button secondary" onclick="prevModule()">← Previous</button>
+                <button class="nav-button" onclick="nextModule()">Next Module →</button>
+            </div>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="module" id="module3">
+            <h2>Module 3: The Fatal Information Gap</h2>
+
+            <div class="comparison-grid">
+                <div class="comparison-card negative">
+                    <h4>❌ Basic Listing</h4>
+                    <p>📷 10 photos</p>
+                    <p>Generic description</p>
+                    <p>Square footage</p>
+                    <span class="stat">23%</span>
+                    <p>Click-through rate</p>
+                </div>
+                <div class="comparison-card positive">
+                    <h4>✅ Complete Listing</h4>
+                    <p>🎯 Photos + 3D Tour + Floor Plan</p>
+                    <p>Detailed walkthrough</p>
+                    <p>Interactive experience</p>
+                    <span class="stat">71%</span>
+                    <p>Click-through rate</p>
+                </div>
+            </div>
+
+            <h3>What Prospects Actually Want to Know:</h3>
+
+            <ul>
+                <li><strong>Layout & Flow:</strong> "How do the rooms connect?"</li>
+                <li><strong>Size Perception:</strong> "Is this 1,200 sq ft spacious or cramped?"</li>
+                <li><strong>Furniture Fit:</strong> "Will my king bed fit in that bedroom?"</li>
+                <li><strong>Daily Life:</strong> "Can I see myself living here?"</li>
+                <li><strong>Problem Spots:</strong> "What are they NOT showing me?"</li>
+            </ul>
+
+            <h3>🔍 The Missing Piece Problem</h3>
+
+            <p><strong>3D Tour Alone:</strong> "This is cool, but I'm lost. Where's the kitchen in relation to the living room?"</p>
+
+            <p><strong>Floor Plan Alone:</strong> "OK, I see the layout, but what does it actually LOOK like?"</p>
+
+            <p><strong>3D Tour + Floor Plan Together:</strong> "Oh WOW! Now I get it. I can see myself here. Let me share this with my spouse!"</p>
+
+            <div class="highlight-box">
+                <h4>💡 The Power Combo</h4>
+                <p>Floor plans give context and orientation. 3D tours give experience and emotion. Together, they create complete confidence—and that confidence is what converts browsers into buyers.</p>
+            </div>
+
+            <div class="module-nav">
+                <button class="nav-button secondary" onclick="prevModule()">← Previous</button>
+                <button class="nav-button" onclick="nextModule()">Next Module →</button>
+            </div>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="module" id="module4">
+            <h2>Module 4: The FOMO Factor</h2>
+
+            <h3>⚡ The Psychology of Complete Information</h3>
+
+            <p>When you provide comprehensive information, something powerful happens in the buyer's mind:</p>
+
+            <h3>How Complete Listings Create Urgency:</h3>
+
+            <ul>
+                <li><strong>Transparency builds trust:</strong> "They're not hiding anything—this must be good!"</li>
+                <li><strong>Easy decision-making:</strong> "I have everything I need to decide RIGHT NOW"</li>
+                <li><strong>Competitive advantage visibility:</strong> "Wow, other listings don't have this—I better act fast"</li>
+                <li><strong>Shareability:</strong> "I need to send this to my partner immediately"</li>
+                <li><strong>Professional impression:</strong> "This seller and agent are serious—this won't last"</li>
+            </ul>
+
+            <div class="comparison-grid">
+                <div class="comparison-card negative">
+                    <h4>Incomplete Listing</h4>
+                    <span class="stat">4-7 days</span>
+                    <p>Average time to first showing</p>
+                    <p>"Let me think about it..."</p>
+                </div>
+                <div class="comparison-card positive">
+                    <h4>Complete Listing</h4>
+                    <span class="stat">24-48 hrs</span>
+                    <p>Average time to first showing</p>
+                    <p>"Can I see this TODAY?"</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>💡 The Trust Equation</h4>
+                <p>Complete Information + Professional Presentation = Qualified, Ready-to-Act Leads</p>
+                <p>You're not just getting more leads—you're getting BETTER leads who are further along in their decision process.</p>
+            </div>
+
+            <div class="quiz">
+                <p><strong>What happens when listings have floor plans + 3D tours?</strong></p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">A) They confuse buyers with too much info</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">B) They accelerate the buying decision and create urgency</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">C) They only work for luxury properties</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">D) They replace the need for in-person showings</div>
+                </div>
+                <div class="quiz-feedback">
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="module-nav">
+                <button class="nav-button secondary" onclick="prevModule()">← Previous</button>
+                <button class="nav-button" onclick="nextModule()">Next Module →</button>
+            </div>
+        </div>
+
+        <!-- Module 5 -->
+        <div class="module" id="module5">
+            <h2>Module 5: Why NOW More Than Ever</h2>
+
+            <h3>🏆 The Market Reality Check</h3>
+
+            <p><strong>Today's Market Landscape:</strong></p>
+
+            <ul>
+                <li>Average buyer looks at 10-12 listings online before contacting an agent</li>
+                <li>73% of buyers say virtual tours are important in their search</li>
+                <li>Listings with floor plans get 52% more views than those without</li>
+                <li>Complete listings (photos + 3D + floor plans) spend 31% less time on market</li>
+            </ul>
+
+            <h3>What Your Competition Is (Probably) Doing Wrong:</h3>
+
+            <ul>
+                <li>Using only phone photos</li>
+                <li>Relying on MLS-minimum descriptions</li>
+                <li>Skipping floor plans entirely</li>
+                <li>Having a 3D tour but no orientation context</li>
+                <li>Treating online presence as an afterthought</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>💡 Your Competitive Edge</h4>
+                <p>When you provide professional photography + 3D tours + accurate floor plans, you're not just marketing a property—you're demonstrating that you're a professional who invests in results. That attracts serious sellers AND serious buyers.</p>
+            </div>
+
+            <h3>The RealtyPix360 Advantage:</h3>
+
+            <ul>
+                <li><strong>Same-day turnaround:</strong> Keep your listings moving fast</li>
+                <li><strong>Complete package:</strong> Everything buyers need to decide</li>
+                <li><strong>Professional quality:</strong> Stand out in every search</li>
+                <li><strong>Verified results:</strong> 480+ million views across 668+ properties</li>
+                <li><strong>Local expertise:</strong> Buffalo/WNY market specialists</li>
+            </ul>
+
+            <h3>🎯 The Bottom Line</h3>
+
+            <p>You're competing in an attention economy. Every listing without a complete information package is leaving money on the table and frustrating qualified buyers who move on to better-presented properties.</p>
+
+            <p><strong>The question isn't "Can I afford professional presentation?"</strong></p>
+
+            <p><strong>The question is "Can I afford NOT to have it?"</strong></p>
+
+            <div class="module-nav">
+                <button class="nav-button secondary" onclick="prevModule()">← Previous</button>
+                <button class="nav-button" onclick="showCompletion()">Complete Training →</button>
+            </div>
+        </div>
+
+        <!-- Completion -->
+        <div class="module" id="completion">
+            <div class="cta-box">
+                <h2>🎉 Congratulations!</h2>
+                <p style="font-size: 1.2rem; margin: 1.5rem 0;">You've completed "The Complete Listing Formula"</p>
+                
+                <h3 style="color: white; margin-top: 2rem;">🎓 What You've Learned:</h3>
+                <ul style="text-align: left; display: inline-block; margin: 1rem 0;">
+                    <li>Modern buyers do 80% of their research online before contacting you</li>
+                    <li>3D digital twins stop people in their tracks—no stop button means you own their time</li>
+                    <li>Floor plans + 3D tours create the complete picture buyers need</li>
+                    <li>Complete information accelerates decisions and creates FOMO</li>
+                    <li>Professional presentation is your competitive advantage</li>
+                    <li>Buffalo weather can't stop your listings from working 24/7</li>
+                </ul>
+
+                <h3 style="color: white; margin-top: 2rem;">Ready to Elevate Your Listings?</h3>
+                <p>RealtyPix360 provides same-day turnaround on professional photography, 3D tours, and floor plans for the Buffalo/Western NY market.</p>
+                
+                <a href="/contact.html" class="cta-button">Get Started Today</a>
+                
+                <p style="margin-top: 2rem; font-size: 0.95rem;">
+                    📧 realtypix360@gmail.com | 📞 716-770-8030<br>
+                    <small>Google Trusted Pro | 480M+ Verified Views | 668+ Properties Photographed</small>
+                </p>
+            </div>
+
+            <div class="module-nav" style="border: none;">
+                <button class="nav-button secondary" onclick="prevModule()">← Previous</button>
+                <a href="/index.html" class="nav-button">Back to Homepage</a>
+            </div>
+        </div>
     </main>
+
+    <script>
+        let currentModule = 1;
+        const totalModules = 5;
+
+        function updateProgress() {
+            const progress = (currentModule / totalModules) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function showModule(moduleNum) {
+            document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+            document.getElementById('module' + moduleNum).classList.add('active');
+            window.scrollTo(0, 0);
+            updateProgress();
+        }
+
+        function nextModule() {
+            if (currentModule < totalModules) {
+                currentModule++;
+                showModule(currentModule);
+            }
+        }
+
+        function prevModule() {
+            if (currentModule > 1) {
+                currentModule--;
+                showModule(currentModule);
+            }
+        }
+
+        function showCompletion() {
+            document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+            document.getElementById('completion').classList.add('active');
+            document.getElementById('progressBar').style.width = '100%';
+            window.scrollTo(0, 0);
+        }
+
+        function checkAnswer(element, isCorrect) {
+            const quiz = element.closest('.quiz');
+            const feedback = quiz.querySelector('.quiz-feedback');
+            const feedbackText = feedback.querySelector('p');
+            const options = quiz.querySelectorAll('.quiz-option');
+            
+            // Disable all options
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === element) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            // Show feedback
+            feedback.classList.add('show', isCorrect ? 'correct' : 'incorrect');
+            
+            if (isCorrect) {
+                feedbackText.textContent = '✅ Correct! Buyers skip listings when they don\'t have enough information to make the drive worthwhile. Complete information = more qualified showings.';
+            } else {
+                feedbackText.textContent = '❌ Not quite. While price, location, and curb appeal matter, the #1 reason is lack of sufficient information. Buyers won\'t drive unless they\'re confident it\'s worth their time.';
+            }
+        }
+
+        // Initialize
+        updateProgress();
+    </script>
 </body>
 </html>
