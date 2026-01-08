@@ -1,8 +1,11 @@
 User-agent: *
 Allow: /
 
-# Disallow private API routes
+# Disallow API routes
 Disallow: /api/
+
+# Disallow query parameters that create duplicate content
+Disallow: /*?*
 
 # Sitemap location
 Sitemap: https://realtypix360.com/sitemap.xml
