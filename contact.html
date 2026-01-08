@@ -143,6 +143,8 @@
             }
         }
     </style>
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfibkQsAAAAAHOr--43_H2E66Z1Fn8BC2Lydm8O"></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -199,6 +201,15 @@
         <div class="contact-form">
             <h2>Send Us a Message</h2>
             <form action="https://formspree.io/f/xdakrgzk" method="POST" id="contactForm">
+                <!-- Honeypot field - hidden from humans, bots will fill it -->
+                <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+                
+                <!-- Hidden timestamp for speed validation -->
+                <input type="hidden" name="form_load_time" id="formLoadTime">
+                
+                <!-- reCAPTCHA token -->
+                <input type="hidden" name="recaptcha_token" id="recaptchaToken">
+                
                 <div class="form-group">
                     <label for="name">Name *</label>
                     <input type="text" id="name" name="name" required>
@@ -245,12 +256,48 @@
     </div>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // TRIPLE SPAM PROTECTION
         const form = document.getElementById('contactForm');
         const formStatus = document.getElementById('formStatus');
+        const formLoadTime = Date.now();
+        
+        // Set load time for speed validation
+        document.getElementById('formLoadTime').value = formLoadTime;
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
+            // PROTECTION 1: Honeypot check
+            const honeypot = form.querySelector('[name="_gotcha"]');
+            if (honeypot && honeypot.value) {
+                console.log('Bot detected: honeypot filled');
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'Submission failed. Please try again.';
+                return;
+            }
+            
+            // PROTECTION 2: Time-based validation (must take at least 3 seconds)
+            const submitTime = Date.now();
+            const timeDiff = (submitTime - formLoadTime) / 1000;
+            if (timeDiff < 3) {
+                console.log('Bot detected: too fast (' + timeDiff + 's)');
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'Please take your time filling out the form.';
+                return;
+            }
+            
+            // PROTECTION 3: Get reCAPTCHA token
+            try {
+                const token = await grecaptcha.execute('6LfibkQsAAAAAHOr--43_H2E66Z1Fn8BC2Lydm8O', {action: 'submit'});
+                document.getElementById('recaptchaToken').value = token;
+            } catch (error) {
+                console.error('reCAPTCHA error:', error);
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'Security check failed. Please refresh and try again.';
+                return;
+            }
+            
+            // All validations passed - submit form
             const formData = new FormData(form);
             
             try {
@@ -266,6 +313,8 @@
                     formStatus.className = 'form-status success';
                     formStatus.textContent = 'Thank you! We\'ll get back to you shortly.';
                     form.reset();
+                    // Reset load time for potential re-submission
+                    document.getElementById('formLoadTime').value = Date.now();
                 } else {
                     throw new Error('Form submission failed');
                 }
