@@ -1778,7 +1778,7 @@
                     </div>
                 </div>
                 
-                <a href="/floor-plans-education.html" style="display: inline-block; padding: 1.25rem 2.5rem; background: var(--color-secondary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1rem; margin-top: 1rem; transition: var(--transition);">
+                <a href="floor-plans-education.html" style="display: inline-block; padding: 1.25rem 2.5rem; background: var(--color-secondary); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1rem; margin-top: 1rem; transition: var(--transition);">
                     Start Free Training →
                 </a>
                 
@@ -1971,7 +1971,13 @@
                 mobileMenuBtn.classList.remove('active');
                 navLinks.classList.remove('active');
             });
-        });
-
         // Close mobile menu when clicking outside
-        document.addEvent
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav')) {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
