@@ -495,12 +495,9 @@
         }
 
         .hero-container {
-            max-width: 1400px;
+            max-width: 900px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            align-items: center;
+            text-align: center;
             position: relative;
             z-index: 1;
         }
@@ -560,9 +557,51 @@
 
         .hero-ctas {
             display: flex;
+            justify-content: center;
             align-items: center;
             gap: 1.5rem;
             flex-wrap: wrap;
+        }
+
+        /* Hero Stats Bar */
+        .hero-stats-bar {
+            display: inline-block;
+            margin-top: 2.5rem;
+            padding: 1rem 3rem;
+            background: #ff6b35;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .hero-stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: none;
+        }
+
+        .hero-stat-label {
+            display: none;
+        }
+
+        .hero-stat-divider {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats-bar {
+                padding: 0.875rem 2rem;
+            }
+
+            .hero-stat-number {
+                font-size: 1.25rem;
+            }
         }
 
         /* Portfolio Gallery Section */
@@ -721,84 +760,6 @@
         .btn-secondary:hover {
             background: var(--color-primary);
             color: var(--color-white);
-        }
-
-        .hero-image {
-            position: relative;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        @media (max-width: 768px) {
-            .hero-image img {
-                height: 400px;
-            }
-        }
-
-        .hero-stats {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            right: 30px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .hero-stats {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                right: auto;
-                margin-top: 1rem;
-                padding: 1.25rem;
-                flex-direction: row;
-                gap: 1rem;
-            }
-            
-            .stat {
-                flex: 1;
-            }
-            
-            .stat-number {
-                font-size: 1.5rem;
-            }
-            
-            .stat-label {
-                font-size: 0.75rem;
-            }
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--color-secondary);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--color-text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         /* Pricing Section */
@@ -1556,21 +1517,10 @@
                     </a>
                     <a href="portfolio.html" class="btn btn-secondary">View Portfolio</a>
                 </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Luxury home interior">
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">Same</span>
-                        <span class="stat-label">Day Delivery</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Satisfaction</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">8+</span>
-                        <span class="stat-label">Years Experience</span>
+
+                <div class="hero-stats-bar">
+                    <div class="hero-stat-item">
+                        <span class="hero-stat-number">⚡ Same-Day Photo Delivery!</span>
                     </div>
                 </div>
             </div>
