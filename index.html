@@ -106,7 +106,7 @@
             },
             "price": "175",
             "priceCurrency": "USD",
-            "priceValidUntil": "2025-03-31",
+            "priceValidUntil": "2026-03-31",
             "availability": "https://schema.org/InStock",
             "url": "https://realtypix360.com#pricing"
           },
@@ -123,7 +123,7 @@
             },
             "price": "250",
             "priceCurrency": "USD",
-            "priceValidUntil": "2025-03-31",
+            "priceValidUntil": "2026-03-31",
             "availability": "https://schema.org/InStock",
             "url": "https://realtypix360.com#pricing"
           },
@@ -140,7 +140,7 @@
             },
             "price": "350",
             "priceCurrency": "USD",
-            "priceValidUntil": "2025-03-31",
+            "priceValidUntil": "2026-03-31",
             "availability": "https://schema.org/InStock",
             "url": "https://realtypix360.com#pricing"
           }
@@ -469,7 +469,7 @@
             align-items: center;
             align-items: center;
             padding: 7rem 2rem 2.5rem;
-            background: linear-gradient(135deg, var(--color-light) 0%, #e8e5e0 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('realtypix360-sunroom-shot.webp') center center/cover no-repeat;
             position: relative;
             overflow: hidden;
         }
@@ -479,11 +479,10 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 60%;
+            width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(44,95,111,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.5;
-            animation: patternSlide 20s linear infinite;
+            background: linear-gradient(135deg, rgba(44, 95, 111, 0.1) 0%, transparent 100%);
+            pointer-events: none;
         }
 
         @keyframes patternSlide {
@@ -538,23 +537,25 @@
             font-family: var(--font-display);
             font-size: 4rem;
             line-height: 1.1;
-            color: var(--color-primary);
+            color: #ffffff;
             margin-bottom: 1.5rem;
             font-weight: 700;
             letter-spacing: -2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero-highlight {
-            color: var(--color-secondary);
+            color: var(--color-accent);
             position: relative;
             display: inline-block;
         }
 
         .hero p {
             font-size: 1.25rem;
-            color: var(--color-text-light);
+            color: #ffffff;
             margin-bottom: 2.5rem;
             line-height: 1.8;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         .hero-ctas {
@@ -562,6 +563,126 @@
             align-items: center;
             gap: 1.5rem;
             flex-wrap: wrap;
+        }
+
+        /* Portfolio Gallery Section */
+        .portfolio-gallery {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, #ffffff 0%, var(--color-light) 100%);
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-header h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .gallery-header p {
+            font-size: 1.2rem;
+            color: var(--color-text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            aspect-ratio: 16/9;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-item-overlay h3 {
+            color: white;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-item-overlay p {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+        }
+
+        .gallery-cta {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .gallery-header h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-item {
+                min-height: 250px;
+            }
         }
 
         .btn {
@@ -1452,6 +1573,57 @@
                         <span class="stat-label">Years Experience</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery -->
+    <section class="portfolio-gallery">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <div class="gallery-badge">Our Work</div>
+                <h2>See the Difference</h2>
+                <p>Professional HDR photography that makes every property shine. Each shot captures the story, the space, and the lifestyle.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="realtypix360-frontyard-shot.webp" alt="Luxury home exterior with professional landscaping - Buffalo real estate photography" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <h3>Stunning Exteriors</h3>
+                        <p>Curb appeal that stops scrollers in their tracks</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="realtypix360-backyard-shot.webp" alt="Custom pool and outdoor living space - Western NY luxury property photography" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <h3>Outdoor Living</h3>
+                        <p>Showcasing lifestyle amenities that sell dreams</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="realtypix360-kitchen-shot.webp" alt="High-end kitchen with professional real estate photography lighting" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <h3>Designer Kitchens</h3>
+                        <p>Bright, inviting spaces that feel like home</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="realtypix360-living-room-shot.webp" alt="Luxury living room with fireplace - Buffalo property photography" loading="lazy">
+                    <div class="gallery-item-overlay">
+                        <h3>Elegant Interiors</h3>
+                        <p>HDR photography that captures every detail</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-cta">
+                <a href="portfolio.html" class="btn btn-primary" style="padding: 1.25rem 3rem; font-size: 1.1rem;">
+                    View Full Portfolio →
+                </a>
             </div>
         </div>
     </section>
