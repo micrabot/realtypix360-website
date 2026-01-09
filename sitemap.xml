@@ -36,9 +36,17 @@
   <!-- FAQ Page -->
   <url>
     <loc>https://realtypix360.com/faq.html</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  
+  <!-- Free Training Page -->
+  <url>
+    <loc>https://realtypix360.com/floor-plans-education.html</loc>
+    <lastmod>2026-01-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   
   <!-- Privacy Policy -->
