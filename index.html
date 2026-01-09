@@ -435,17 +435,18 @@
         .mobile-menu-btn {
             display: none;
             flex-direction: column;
-            gap: 5px;
+            gap: 6px;
             background: none;
             border: none;
             cursor: pointer;
-            padding: 5px;
+            padding: 10px;
+            z-index: 1001;
         }
 
         .mobile-menu-btn span {
-            width: 25px;
+            width: 28px;
             height: 3px;
-            background: var(--color-primary);
+            background: #1a1a1a;
             border-radius: 3px;
             transition: var(--transition);
         }
@@ -647,7 +648,7 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
