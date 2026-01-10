@@ -6,9 +6,6 @@
     <title>3D Floor Plans Portfolio | RealtyPix360</title>
     <meta name="description" content="Explore our stunning collection of professional 3D floor plans for Western New York real estate properties. High-quality architectural visualizations for homes and commercial spaces.">
     
-    <!-- GLightbox CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-    
     <style>
         * {
             margin: 0;
@@ -23,6 +20,75 @@
             line-height: 1.6;
         }
         
+        /* Navigation Styles */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        .cta-phone {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        
+        .cta-phone:hover {
+            transform: translateY(-2px);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        /* Header Styles */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -41,6 +107,53 @@
             opacity: 0.95;
             max-width: 800px;
             margin: 0 auto;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #667eea;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #95a5a6;
         }
         
         .container {
@@ -137,7 +250,6 @@
             overflow: hidden;
             box-shadow: 0 3px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
         }
         
         .floor-plan-card:hover {
@@ -145,11 +257,50 @@
             box-shadow: 0 5px 25px rgba(0,0,0,0.15);
         }
         
-        .floor-plan-image {
+        .floor-plan-image-wrapper {
+            position: relative;
             width: 100%;
             height: 300px;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+        
+        .floor-plan-image {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
+            transition: opacity 0.3s;
+        }
+        
+        .view-toggle-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(102, 126, 234, 0.95);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        
+        .view-toggle-btn:hover {
+            background: rgba(118, 75, 162, 0.95);
+            transform: scale(1.05);
+        }
+        
+        .view-toggle-btn.showing-2d {
+            background: rgba(46, 204, 113, 0.95);
+        }
+        
+        .view-toggle-btn.showing-2d:hover {
+            background: rgba(39, 174, 96, 0.95);
         }
         
         .floor-plan-info {
@@ -212,6 +363,33 @@
         }
         
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                gap: 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
             .header h1 {
                 font-size: 2rem;
             }
@@ -234,6 +412,23 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">RealtyPix360</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/commercial.html">Commercial</a></li>
+                <li><a href="/faq.html">FAQ</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="tel:7167708030" class="cta-phone">📞 Call Us</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+    
+    <!-- Header -->
     <div class="header">
         <h1>🏗️ Professional 3D Floor Plans</h1>
         <p>Explore our portfolio of stunning 3D architectural floor plans for Western New York properties</p>
@@ -295,12 +490,7 @@
         </div>
     </div>
     
-    <!-- GLightbox JS -->
-    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-    
     <script>
-        let lightbox;
-        
         // Fetch and display floor plans
         async function loadFloorPlans(refresh = false) {
             const loading = document.getElementById('loading');
@@ -338,28 +528,20 @@
                     return;
                 }
                 
+                // Count how many have both views
+                const hasBothCount = floorPlans.filter(p => p.has_both).length;
+                
                 // Update count
-                countBadge.textContent = `${floorPlans.length} floor plan${floorPlans.length !== 1 ? 's' : ''}`;
+                countBadge.textContent = `${floorPlans.length} properties`;
                 
                 // Clear grid
                 grid.innerHTML = '';
                 grid.style.display = 'grid';
                 
                 // Create cards
-                floorPlans.forEach((plan, index) => {
-                    const card = createFloorPlanCard(plan, index);
+                floorPlans.forEach((property, index) => {
+                    const card = createFloorPlanCard(property, index);
                     grid.appendChild(card);
-                });
-                
-                // Initialize lightbox
-                if (lightbox) {
-                    lightbox.destroy();
-                }
-                lightbox = GLightbox({
-                    selector: '.glightbox',
-                    touchNavigation: true,
-                    loop: true,
-                    autoplayVideos: true
                 });
                 
             } catch (err) {
@@ -370,33 +552,65 @@
             }
         }
         
-        // Create floor plan card
-        function createFloorPlanCard(plan, index) {
+        // Create floor plan card with 2D/3D toggle
+        function createFloorPlanCard(property, index) {
             const card = document.createElement('div');
             card.className = 'floor-plan-card';
             
-            const imageUrl = plan.url || plan.preview_url || '';
-            const name = plan.name || 'Unnamed Floor Plan';
-            const propertyName = plan.property_name || 'Property';
-            const propertyAddress = plan.property_address || '';
+            const has3D = property.view_3d && property.view_3d.url;
+            const has2D = property.view_2d && property.view_2d.url;
+            const hasBoth = has3D && has2D;
+            
+            // Default to 3D view
+            const currentView = has3D ? property.view_3d : property.view_2d;
+            const imageUrl = currentView.url || '';
+            const propertyName = property.property_name || 'Property';
             
             card.innerHTML = `
-                <a href="${imageUrl}" class="glightbox" data-gallery="floor-plans" data-title="${propertyName}" data-description="${propertyAddress}">
+                <div class="floor-plan-image-wrapper">
                     <img 
                         src="${imageUrl}" 
-                        alt="${propertyName} - 3D Floor Plan" 
+                        alt="${propertyName} - Floor Plan" 
                         class="floor-plan-image" 
                         loading="lazy"
-                        onerror="this.parentElement.innerHTML='<div class=image-placeholder>🏗️<br><small>Loading...</small></div>'"
+                        data-3d-url="${has3D ? property.view_3d.url : ''}"
+                        data-2d-url="${has2D ? property.view_2d.url : ''}"
+                        data-current="3d"
                     >
-                </a>
+                    ${hasBoth ? `
+                        <button class="view-toggle-btn" onclick="toggleView(this)">
+                            <span class="toggle-label">Switch to 2D</span>
+                        </button>
+                    ` : ''}
+                </div>
                 <div class="floor-plan-info">
                     <div class="floor-plan-title">${propertyName}</div>
-                    ${propertyAddress ? `<div class="floor-plan-address">${propertyAddress}</div>` : ''}
                 </div>
             `;
             
             return card;
+        }
+        
+        // Toggle between 2D and 3D views
+        function toggleView(button) {
+            const wrapper = button.closest('.floor-plan-image-wrapper');
+            const img = wrapper.querySelector('.floor-plan-image');
+            const label = button.querySelector('.toggle-label');
+            const currentView = img.dataset.current;
+            
+            if (currentView === '3d') {
+                // Switch to 2D
+                img.src = img.dataset['2dUrl'];
+                img.dataset.current = '2d';
+                label.textContent = 'Switch to 3D';
+                button.classList.add('showing-2d');
+            } else {
+                // Switch to 3D
+                img.src = img.dataset['3dUrl'];
+                img.dataset.current = '3d';
+                label.textContent = 'Switch to 2D';
+                button.classList.remove('showing-2d');
+            }
         }
         
         // Refresh data
@@ -408,6 +622,53 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadFloorPlans();
         });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
     </script>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>RealtyPix360</h3>
+                <p>Professional real estate photography and 3D tours serving Buffalo and Western New York.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="/portfolio.html">Real Estate Photography</a></li>
+                    <li><a href="/3d-floor-plans.html">3D Floor Plans</a></li>
+                    <li><a href="/commercial.html">Commercial Photography</a></li>
+                    <li><a href="/">3D Virtual Tours</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>📞 <a href="tel:7167708030">(716) 770-8030</a></li>
+                    <li>📧 <a href="/contact.html">Contact Form</a></li>
+                    <li>📍 Serving Buffalo & WNY</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/portfolio.html">Portfolio</a></li>
+                    <li><a href="/faq.html">FAQ</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 RealtyPix360. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
