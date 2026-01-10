@@ -124,23 +124,57 @@ async function getAllFloorPlans() {
 }
 
 /**
- * Filter for 3D floor plans only (JPG/JPEG images only)
+ * Filter for BOTH 2D AND 3D floor plans (JPG/JPEG images only)
+ * Groups them by property so we can show them together
  */
 function filter3DFloorPlans(floorPlans) {
-  return floorPlans.filter(plan => {
+  // First, get all JPG files (both 2D and 3D)
+  const jpegPlans = floorPlans.filter(plan => {
     const name = (plan.name || '').toLowerCase();
-    const tags = plan.tags || [];
-    
-    // Check if it's a 3D floor plan
-    const is3D = (
-      tags.includes('3d') || 
-      name.includes('3d') ||
-      (!tags.includes('2d') && !name.includes('2d'))
-    );
-    
-    // ONLY show JPG/JPEG files (no PNG, PDF, or SVG)
-    const isJPEG = name.endsWith('.jpg') || name.endsWith('.jpeg');
-    
-    return is3D && isJPEG;
+    return name.endsWith('.jpg') || name.endsWith('.jpeg');
   });
+  
+  // Group by property (same property_name = same property)
+  const grouped = {};
+  
+  jpegPlans.forEach(plan => {
+    const propName = plan.property_name || 'Unknown';
+    
+    if (!grouped[propName]) {
+      grouped[propName] = {
+        property_name: plan.property_name,
+        property_address: plan.property_address,
+        plans: []
+      };
+    }
+    
+    // Determine if it's 2D or 3D based on filename
+    const name = (plan.name || '').toLowerCase();
+    const is3D = name.includes('3d') || (!name.includes('2d'));
+    
+    grouped[propName].plans.push({
+      ...plan,
+      type: is3D ? '3d' : '2d'
+    });
+  });
+  
+  // Convert back to array and organize with 3D first
+  const result = Object.values(grouped).map(group => {
+    // Sort so 3D comes first
+    group.plans.sort((a, b) => {
+      if (a.type === '3d' && b.type === '2d') return -1;
+      if (a.type === '2d' && b.type === '3d') return 1;
+      return 0;
+    });
+    
+    return {
+      property_name: group.property_name,
+      property_address: group.property_address,
+      view_3d: group.plans.find(p => p.type === '3d') || null,
+      view_2d: group.plans.find(p => p.type === '2d') || null,
+      has_both: group.plans.length > 1
+    };
+  });
+  
+  return result;
 }
