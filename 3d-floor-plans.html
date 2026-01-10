@@ -6,6 +6,9 @@
     <title>3D Floor Plans Portfolio | RealtyPix360</title>
     <meta name="description" content="Explore our stunning collection of professional 3D floor plans for Western New York real estate properties. High-quality architectural visualizations for homes and commercial spaces.">
     
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -92,18 +95,18 @@
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 40px 20px;
             text-align: center;
         }
         
         .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2rem;
+            margin-bottom: 8px;
             font-weight: 700;
         }
         
         .header p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             opacity: 0.95;
             max-width: 800px;
             margin: 0 auto;
@@ -113,8 +116,8 @@
         footer {
             background: #2c3e50;
             color: white;
-            padding: 3rem 2rem 1rem;
-            margin-top: 4rem;
+            padding: 2rem 1.5rem 0.75rem;
+            margin-top: 2.5rem;
         }
         
         .footer-content {
@@ -159,15 +162,15 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 25px 15px;
         }
         
         .intro-text {
             background: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
+            margin-bottom: 25px;
         }
         
         .intro-text h2 {
@@ -239,9 +242,9 @@
         
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
         
         .floor-plan-card {
@@ -260,9 +263,10 @@
         .floor-plan-image-wrapper {
             position: relative;
             width: 100%;
-            height: 300px;
+            height: 250px;
             overflow: hidden;
             background: #f0f0f0;
+            cursor: pointer;
         }
         
         .floor-plan-image {
@@ -304,14 +308,15 @@
         }
         
         .floor-plan-info {
-            padding: 20px;
+            padding: 12px 15px;
         }
         
         .floor-plan-title {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: #333;
-            margin-bottom: 8px;
+            margin-bottom: 0;
+            line-height: 1.3;
         }
         
         .floor-plan-property {
@@ -390,8 +395,53 @@
                 display: block;
             }
             
+            /* Tighten up cards on mobile */
+            .header {
+                padding: 25px 15px;
+            }
+            
             .header h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .container {
+                padding: 15px 12px;
+            }
+            
+            .intro-text {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .floor-plan-image-wrapper {
+                height: 200px;
+            }
+            
+            .floor-plan-info {
+                padding: 10px 12px;
+            }
+            
+            .floor-plan-title {
+                font-size: 0.9rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            footer {
+                padding: 1.5rem 1rem 0.5rem;
+                margin-top: 1.5rem;
             }
             
             .grid {
@@ -490,6 +540,9 @@
         </div>
     </div>
     
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    
     <script>
         // Fetch and display floor plans
         async function loadFloorPlans(refresh = false) {
@@ -567,7 +620,7 @@
             const propertyName = property.property_name || 'Property';
             
             card.innerHTML = `
-                <div class="floor-plan-image-wrapper">
+                <div class="floor-plan-image-wrapper" data-property-name="${propertyName}">
                     <img 
                         src="${imageUrl}" 
                         alt="${propertyName} - Floor Plan" 
@@ -578,7 +631,7 @@
                         data-current="3d"
                     >
                     ${hasBoth ? `
-                        <button class="view-toggle-btn" onclick="toggleView(this)">
+                        <button class="view-toggle-btn" onclick="event.stopPropagation(); toggleView(this);">
                             <span class="toggle-label">Switch to 2D</span>
                         </button>
                     ` : ''}
@@ -587,6 +640,30 @@
                     <div class="floor-plan-title">${propertyName}</div>
                 </div>
             `;
+            
+            // Add click handler to image wrapper for lightbox
+            const wrapper = card.querySelector('.floor-plan-image-wrapper');
+            wrapper.addEventListener('click', (e) => {
+                // Don't trigger if clicking the toggle button
+                if (e.target.closest('.view-toggle-btn')) return;
+                
+                const img = wrapper.querySelector('.floor-plan-image');
+                const currentUrl = img.src;
+                const propertyName = wrapper.dataset.propertyName;
+                
+                // Open lightbox with current view
+                const lightbox = GLightbox({
+                    elements: [{
+                        'href': currentUrl,
+                        'type': 'image',
+                        'title': propertyName,
+                        'description': img.dataset.current === '3d' ? '3D View' : '2D View'
+                    }],
+                    openEffect: 'fade',
+                    closeEffect: 'fade'
+                });
+                lightbox.open();
+            });
             
             return card;
         }
