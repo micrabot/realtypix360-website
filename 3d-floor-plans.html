@@ -318,8 +318,8 @@
             refreshBtn.disabled = true;
             
             try {
-                // Call API endpoint
-                const url = '/api/floor-plans-3d';
+                // Call API endpoint - using existing endpoint
+                const url = '/api/captur3d-floor-plans';
                 const response = await fetch(url);
                 const data = await response.json();
                 
