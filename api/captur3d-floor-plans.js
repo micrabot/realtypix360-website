@@ -1,8 +1,8 @@
-// api/captur3d-floor-plans.js
-// Vercel Serverless Function to fetch 3D floor plans from CAPTUR3D API
+// api/floor-plans-3d.js
+// Serverless function to fetch 3D floor plans
 
-const CAPTUR3D_API_KEY = 'nVK8f1nI36SBX8Oxmt+8PQchxhmLYEtkZgA/Let1GeM=';
-const CAPTUR3D_BASE_URL = 'https://captur3d.io/api/v2';
+const API_KEY = 'nVK8f1nI36SBX8Oxmt+8PQchxhmLYEtkZgA/Let1GeM=';
+const BASE_URL = 'https://captur3d.io/api/v2';
 const API_VERSION = '2025-01-01';
 
 export default async function handler(req, res) {
@@ -17,15 +17,15 @@ export default async function handler(req, res) {
   }
 
   try {
-    console.log('Fetching floor plans from CAPTUR3D...');
+    console.log('Fetching 3D floor plans...');
     
     // Fetch all properties with floor plans
     const allFloorPlans = await getAllFloorPlans();
     
-    // Filter for 3D only
+    // Filter for 3D images only
     const floorPlans3D = filter3DFloorPlans(allFloorPlans);
     
-    console.log(`Found ${floorPlans3D.length} 3D floor plans`);
+    console.log(`Found ${floorPlans3D.length} 3D floor plan images`);
     
     // Return response
     return res.status(200).json({
@@ -44,7 +44,7 @@ export default async function handler(req, res) {
 }
 
 /**
- * Fetch all floor plans from CAPTUR3D API
+ * Fetch all floor plans from API
  */
 async function getAllFloorPlans() {
   const allFloorPlans = [];
@@ -55,11 +55,11 @@ async function getAllFloorPlans() {
   while (hasMore) {
     try {
       // Fetch properties for this page
-      const propertiesUrl = `${CAPTUR3D_BASE_URL}/properties?page[size]=${pageSize}&page[after]=${(page - 1) * pageSize}`;
+      const propertiesUrl = `${BASE_URL}/properties?page[size]=${pageSize}&page[after]=${(page - 1) * pageSize}`;
       
       const propertiesResponse = await fetch(propertiesUrl, {
         headers: {
-          'Authorization': `Bearer ${CAPTUR3D_API_KEY}`,
+          'Authorization': `Bearer ${API_KEY}`,
           'x-api-version': API_VERSION,
           'Content-Type': 'application/json'
         }
@@ -82,11 +82,11 @@ async function getAllFloorPlans() {
         const propertyId = property.id;
         
         // Fetch property details with floor plans expanded
-        const detailUrl = `${CAPTUR3D_BASE_URL}/properties/${propertyId}?expand=floor_plans`;
+        const detailUrl = `${BASE_URL}/properties/${propertyId}?expand=floor_plans`;
         
         const detailResponse = await fetch(detailUrl, {
           headers: {
-            'Authorization': `Bearer ${CAPTUR3D_API_KEY}`,
+            'Authorization': `Bearer ${API_KEY}`,
             'x-api-version': API_VERSION,
             'Content-Type': 'application/json'
           }
@@ -124,7 +124,7 @@ async function getAllFloorPlans() {
 }
 
 /**
- * Filter for 3D floor plans only
+ * Filter for 3D floor plans only (JPG/JPEG images only)
  */
 function filter3DFloorPlans(floorPlans) {
   return floorPlans.filter(plan => {
@@ -138,6 +138,9 @@ function filter3DFloorPlans(floorPlans) {
       (!tags.includes('2d') && !name.includes('2d'))
     );
     
-    return is3D;
+    // ONLY show JPG/JPEG files (no PNG, PDF, or SVG)
+    const isJPEG = name.endsWith('.jpg') || name.endsWith('.jpeg');
+    
+    return is3D && isJPEG;
   });
 }
