@@ -12,7 +12,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RealtyPix360 Buffalo Real Estate Photography & 3D | Same-Day Service</title>
+    <title>RealtyPix360 - Buffalo's Premier Real Estate Photography | Same-Day Service</title>
     <meta name="description" content="Professional real estate photography in Buffalo & Niagara. HDR photos, 3D tours, floor plans & property websites - all with same-day turnaround. Winter special pricing from $175.">
     
     <!-- Schema.org Structured Data -->
@@ -28,7 +28,7 @@
       "telephone": "+1-716-770-8030",
       "email": "realtypix360@gmail.com",
       "image": "https://realtypix360.com/logo.png",
-      "priceRange": "$10-$350",
+      "priceRange": "$175-$350",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "601 E Robinson St",
@@ -1041,7 +1041,7 @@
             margin: 3rem auto 0;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 2rem;f
         }
 
         .service-card {
@@ -1520,6 +1520,122 @@
                 text-align: center;
                 padding-top: 1rem !important;
             }
+            
+            /* Service Area Mobile */
+            .service-area {
+                padding: 2rem 1rem !important;
+            }
+            
+            .service-area h2 {
+                font-size: 1.75rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .service-area-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+            
+            .service-area-county {
+                padding: 1.25rem !important;
+            }
+            
+            .service-area-county ul {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .service-area-cta {
+                padding: 1.25rem !important;
+            }
+        }
+
+        /* Service Area Section */
+        .service-area {
+            background: #f8f9fa;
+            padding: 2.5rem 2rem;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        .service-area-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-area h2 {
+            text-align: center;
+            color: var(--color-primary);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .service-area-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .service-area-county {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .service-area-county h3 {
+            color: var(--color-secondary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--color-light);
+            padding-bottom: 0.5rem;
+        }
+        
+        .service-area-county ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .service-area-county li {
+            padding: 0.4rem 0;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .service-area-county li::before {
+            content: "•";
+            color: var(--color-primary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .service-area-cta {
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+        
+        .service-area-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-area-cta a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid white;
+            transition: opacity 0.3s;
+        }
+        
+        .service-area-cta a:hover {
+            opacity: 0.8;
         }
 
         /* Smooth scroll */
@@ -1574,7 +1690,7 @@
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">Winter Special Pricing</div>
-                <h1>Same-Day Real Estate <span class="hero-highlight">Professional Photography</span></h1>
+                <h1>List & Sell Faster with <span class="hero-highlight">Professional Photography</span></h1>
                 <p>Same-day HDR photography, 3D tours, floor plans & property websites that make your listings stand out and sell. Buffalo's most trusted real estate photographer since 2017.</p>
                 <div class="hero-ctas">
                     <a href="#" data-phone="link" class="btn btn-primary" aria-label="Call us">
@@ -1646,7 +1762,7 @@
     <!-- About Us Section -->
     <section style="padding: 3rem 2rem; background: white; border-bottom: 1px solid #e5e5e5;">
         <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-            <h2 style="font-family: var(--font-display); font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem;">Buffalo's Property Marketing Experts</h2>
+            <h2 style="font-family: var(--font-display); font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem;">Buffalo's Real Estate Photography Experts</h2>
             <p style="font-size: 1.1rem; line-height: 1.8; color: var(--color-text-light);">
                 Since 2017, Chris Kivi's RealtyPix360 has been helping Buffalo and Niagara County real estate agents stand out with professional photography, immersive 3D tours, and detailed floor plans. As a certified Google Trusted Pro photographer with over 480 million engagements on virtual tours, we've perfected the art of making properties shine online. Our same-day turnaround and all-inclusive packages mean you get everything you need to list faster and sell smarter.
             </p>
@@ -1656,9 +1772,9 @@
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
         <div class="section-header">
-            <div class="section-badge">Hire Locally & Cut out the middleman </div>
+            <div class="section-badge">Winter Special Pricing</div>
             <h2>Choose Your Perfect Package</h2>
-            <p>Every package includes same-day turnaround, custom property website with branded & unbranded versions . National Companies will charge you 2-5X! But we'll gladly take a tip!</p>
+            <p>Every package includes same-day turnaround and a custom property website with branded & unbranded versions</p>
         </div>
         <div class="pricing-grid">
             <!-- Standard Package -->
@@ -1799,13 +1915,13 @@
                 <div class="addon-card">
                     <div class="addon-icon">🎬</div>
                     <h3>Slideshow Video</h3>
-                    <div class="addon-price">$30</div>
+                    <div class="addon-price">$40</div>
                     <p>Professional slideshow video showcasing your property's best features with smooth transitions and music.</p>
                 </div>
                 <div class="addon-card">
                     <div class="addon-icon">✨</div>
                     <h3>Virtual Staging</h3>
-                    <div class="addon-price">$10/photo</div>
+                    <div class="addon-price">$10/stagedphoto</div>
                     <p>Transform empty rooms into beautifully furnished spaces that help buyers envision their future home.</p>
                 </div>
                 <div class="addon-card">
@@ -1817,8 +1933,8 @@
                 <div class="addon-card">
                     <div class="addon-icon">📐</div>
                     <h3>Color 3D Floor Plan</h3>
-                    <div class="addon-price">$50</div>
-                    <p>3D floor plan with lot layout showing property boundaries and outdoor features. Perfect for showcasing the full property.</p>
+                    <div class="addon-price">$70</div>
+                    <p>3D floor plan, fully staged with lot layout showing lot boundaries and outdoor features. Perfect for showcasing the full property.</p>
                 </div>
                 <div class="addon-card">
                     <div class="addon-icon">🎨</div>
@@ -2126,6 +2242,63 @@
             });
         }
     </script>
+
+    <!-- Service Area Section -->
+    <section class="service-area">
+        <div class="service-area-container">
+            <h2>Our Complete Service Area</h2>
+            <div class="service-area-grid">
+                <div class="service-area-county">
+                    <h3>Erie County</h3>
+                    <ul>
+                        <li>Buffalo</li>
+                        <li>Amherst</li>
+                        <li>Cheektowaga</li>
+                        <li>Clarence</li>
+                        <li>Hamburg</li>
+                        <li>Lancaster</li>
+                        <li>Orchard Park</li>
+                        <li>Tonawanda</li>
+                        <li>West Seneca</li>
+                        <li>Williamsville</li>
+                        <li>East Aurora</li>
+                        <li>Grand Island</li>
+                        <li>Depew</li>
+                        <li>Lackawanna</li>
+                        <li>Kenmore</li>
+                        <li>Angola</li>
+                        <li>Blasdell</li>
+                        <li>Sloan</li>
+                        <li>Alden</li>
+                        <li>Elma</li>
+                    </ul>
+                </div>
+                <div class="service-area-county">
+                    <h3>Niagara County</h3>
+                    <ul>
+                        <li>Niagara Falls</li>
+                        <li>Lockport</li>
+                        <li>North Tonawanda</li>
+                        <li>Lewiston</li>
+                        <li>Youngstown</li>
+                        <li>Sanborn</li>
+                        <li>Wheatfield</li>
+                        <li>Newfane</li>
+                        <li>Wilson</li>
+                        <li>Ransomville</li>
+                        <li>Gasport</li>
+                        <li>Middleport</li>
+                        <li>Barker</li>
+                        <li>Olcott</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service-area-cta">
+                <p><strong>Don't see your town?</strong> We cover all of Western New York.</p>
+                <a href="#" data-phone="link">Call us at <span data-phone="text">716-770-8030</span></a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
