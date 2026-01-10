@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Floor Plans Portfolio | RealtyPix360</title>
+    <meta name="description" content="Explore our stunning collection of professional 3D floor plans for Western New York real estate properties. High-quality architectural visualizations for homes and commercial spaces.">
+    
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .intro-text {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .intro-text h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .intro-text p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .count-badge {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        
+        .refresh-btn {
+            background: #764ba2;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .refresh-btn:hover {
+            background: #5f3a82;
+        }
+        
+        .refresh-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .floor-plan-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .floor-plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+        
+        .floor-plan-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .floor-plan-info {
+            padding: 20px;
+        }
+        
+        .floor-plan-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .floor-plan-property {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+        
+        .floor-plan-address {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .error {
+            background: #ff5555;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .empty-state svg {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+            
+            .floor-plan-image {
+                height: 250px;
+            }
+        }
+        
+        .cache-indicator {
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏗️ Professional 3D Floor Plans</h1>
+        <p>Explore our portfolio of stunning 3D architectural floor plans for Western New York properties</p>
+    </div>
+    
+    <div class="container">
+        <!-- SEO-friendly intro text -->
+        <div class="intro-text">
+            <h2>Why Choose 3D Floor Plans?</h2>
+            <p>
+                3D floor plans provide an immersive, realistic view of property layouts that traditional 2D plans simply can't match. 
+                Our professional 3D floor plans help real estate agents, homeowners, and developers showcase properties with stunning 
+                clarity and detail.
+            </p>
+            <p>
+                At RealtyPix360, we've created dozens of high-quality 3D floor plans for residential and commercial properties across 
+                Buffalo and Western New York. Each floor plan is meticulously crafted using cutting-edge technology and professional 
+                design standards to give potential buyers and tenants the best possible understanding of property layouts.
+            </p>
+            <p>
+                <strong>Services include:</strong> Residential 3D floor plans, commercial property floor plans, custom branding, 
+                multiple file formats (PDF, PNG, DWG), and fast 12-24 hour turnaround times.
+            </p>
+        </div>
+        
+        <!-- Controls -->
+        <div class="controls">
+            <div class="count-badge">
+                <span id="floor-plan-count">Loading...</span>
+            </div>
+            <div>
+                <button class="refresh-btn" id="refresh-btn" onclick="refreshData()">
+                    🔄 Refresh
+                </button>
+            </div>
+        </div>
+        
+        <!-- Loading state -->
+        <div class="loading" id="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading 3D floor plans...</p>
+        </div>
+        
+        <!-- Error state -->
+        <div class="error" id="error" style="display: none;">
+            <strong>Error:</strong> <span id="error-message"></span>
+        </div>
+        
+        <!-- Grid of floor plans -->
+        <div class="grid" id="floor-plans-grid"></div>
+        
+        <!-- Empty state -->
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M9 2L3 8v13h6v-7h6v7h6V8L15 2H9z" stroke-width="2"/>
+            </svg>
+            <h3>No 3D Floor Plans Found</h3>
+            <p>Check back soon as we add more to our portfolio!</p>
+        </div>
+    </div>
+    
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <script>
+        let lightbox;
+        
+        // Fetch and display floor plans
+        async function loadFloorPlans(refresh = false) {
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const grid = document.getElementById('floor-plans-grid');
+            const emptyState = document.getElementById('empty-state');
+            const countBadge = document.getElementById('floor-plan-count');
+            const refreshBtn = document.getElementById('refresh-btn');
+            
+            // Show loading
+            loading.style.display = 'block';
+            error.style.display = 'none';
+            grid.style.display = 'none';
+            emptyState.style.display = 'none';
+            refreshBtn.disabled = true;
+            
+            try {
+                // Call Vercel serverless function
+                const url = '/api/captur3d-floor-plans';
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                loading.style.display = 'none';
+                refreshBtn.disabled = false;
+                
+                if (!data.success) {
+                    throw new Error(data.error || 'Failed to load floor plans');
+                }
+                
+                const floorPlans = data.data;
+                
+                if (floorPlans.length === 0) {
+                    emptyState.style.display = 'block';
+                    countBadge.textContent = '0 floor plans';
+                    return;
+                }
+                
+                // Update count
+                countBadge.textContent = `${floorPlans.length} floor plan${floorPlans.length !== 1 ? 's' : ''}`;
+                
+                // Clear grid
+                grid.innerHTML = '';
+                grid.style.display = 'grid';
+                
+                // Create cards
+                floorPlans.forEach((plan, index) => {
+                    const card = createFloorPlanCard(plan, index);
+                    grid.appendChild(card);
+                });
+                
+                // Initialize lightbox
+                if (lightbox) {
+                    lightbox.destroy();
+                }
+                lightbox = GLightbox({
+                    selector: '.glightbox',
+                    touchNavigation: true,
+                    loop: true,
+                    autoplayVideos: true
+                });
+                
+            } catch (err) {
+                loading.style.display = 'none';
+                error.style.display = 'block';
+                document.getElementById('error-message').textContent = err.message;
+                refreshBtn.disabled = false;
+            }
+        }
+        
+        // Create floor plan card
+        function createFloorPlanCard(plan, index) {
+            const card = document.createElement('div');
+            card.className = 'floor-plan-card';
+            
+            const imageUrl = plan.url || plan.preview_url || '';
+            const name = plan.name || 'Unnamed Floor Plan';
+            const propertyName = plan.property_name || 'Property';
+            const propertyAddress = plan.property_address || '';
+            
+            card.innerHTML = `
+                <a href="${imageUrl}" class="glightbox" data-gallery="floor-plans" data-title="${propertyName}">
+                    <img src="${imageUrl}" alt="${name}" class="floor-plan-image" loading="lazy">
+                </a>
+                <div class="floor-plan-info">
+                    <div class="floor-plan-title">${name}</div>
+                    <div class="floor-plan-property">${propertyName}</div>
+                    ${propertyAddress ? `<div class="floor-plan-address">${propertyAddress}</div>` : ''}
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        // Refresh data
+        function refreshData() {
+            loadFloorPlans(true);
+        }
+        
+        // Load on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFloorPlans();
+        });
+    </script>
+</body>
+</html>
