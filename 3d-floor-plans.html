@@ -194,6 +194,23 @@
             opacity: 0.3;
         }
         
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 3rem;
+        }
+        
+        .image-placeholder small {
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2rem;
@@ -301,8 +318,8 @@
             refreshBtn.disabled = true;
             
             try {
-                // Call Vercel serverless function
-                const url = '/api/captur3d-floor-plans';
+                // Call API endpoint
+                const url = '/api/floor-plans-3d';
                 const response = await fetch(url);
                 const data = await response.json();
                 
@@ -364,12 +381,17 @@
             const propertyAddress = plan.property_address || '';
             
             card.innerHTML = `
-                <a href="${imageUrl}" class="glightbox" data-gallery="floor-plans" data-title="${propertyName}">
-                    <img src="${imageUrl}" alt="${name}" class="floor-plan-image" loading="lazy">
+                <a href="${imageUrl}" class="glightbox" data-gallery="floor-plans" data-title="${propertyName}" data-description="${propertyAddress}">
+                    <img 
+                        src="${imageUrl}" 
+                        alt="${propertyName} - 3D Floor Plan" 
+                        class="floor-plan-image" 
+                        loading="lazy"
+                        onerror="this.parentElement.innerHTML='<div class=image-placeholder>🏗️<br><small>Loading...</small></div>'"
+                    >
                 </a>
                 <div class="floor-plan-info">
-                    <div class="floor-plan-title">${name}</div>
-                    <div class="floor-plan-property">${propertyName}</div>
+                    <div class="floor-plan-title">${propertyName}</div>
                     ${propertyAddress ? `<div class="floor-plan-address">${propertyAddress}</div>` : ''}
                 </div>
             `;
