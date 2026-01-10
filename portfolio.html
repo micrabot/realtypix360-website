@@ -136,6 +136,53 @@
             margin: 0 auto;
         }
 
+        /* 3D FLOOR PLANS CTA SECTION - NEW! */
+        .floor-plans-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 3rem auto;
+            max-width: 1000px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .floor-plans-cta h2 {
+            font-family: var(--font-display);
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .floor-plans-cta p {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .floor-plans-btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.15rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .floor-plans-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            background: #f8f8f8;
+        }
+
         /* Filters Section */
         .filters {
             padding: 3rem 2rem;
@@ -440,6 +487,10 @@
                 font-size: 2.5rem;
             }
 
+            .floor-plans-cta h2 {
+                font-size: 1.8rem;
+            }
+
             .filters-container {
                 flex-direction: column;
             }
@@ -600,6 +651,18 @@
             </p>
         </div>
     </section>
+
+    <!-- ============================================ -->
+    <!-- 3D FLOOR PLANS CTA - NEW SECTION ADDED HERE -->
+    <!-- ============================================ -->
+    <div class="floor-plans-cta">
+        <h2>🏗️ View Our Stunning 3D Floor Plans</h2>
+        <p>Explore our portfolio of professional 3D architectural floor plans created for Buffalo and Western New York properties. Click to see examples of our detailed, high-quality floor plan work.</p>
+        <a href="/3d-floor-plans.html" class="floor-plans-btn">
+            View 3D Floor Plans Gallery →
+        </a>
+    </div>
+    <!-- ============================================ -->
 
     <!-- Stats Bar -->
     <div class="stats-bar">
