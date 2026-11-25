@@ -394,4 +394,566 @@
 
         <div>
           <div class="flex items-center justify-between mb-3 pt-1">
-            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Zillow 3D
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Zillow 3D Default</span>
+            <span class="text-xs font-semibold text-emerald-300 bg-emerald-500/15 px-2.5 py-1 rounded-full">$375+ Built-In Value</span>
+          </div>
+          <h3 class="font-display text-2xl font-extrabold text-white">All-In-One 3D Exposure</h3>
+          <p class="text-sm text-gray-300 mt-1 mb-5">Everything needed to dominate Zillow, Redfin, Realtor.com &amp; MLS in one visit.</p>
+
+          <div class="flex items-baseline gap-2 mb-4">
+            <span id="allInOnePriceDisplay" class="font-display text-5xl font-extrabold text-white">$349</span>
+            <span id="allInOnePriceSub" class="text-sm text-gray-400">starting</span>
+          </div>
+
+          <!-- Interactive Matterport Dual-Capture Toggle -->
+          <label class="flex items-start gap-3 p-3.5 rounded-xl bg-gray-900 border border-gray-700 hover:border-emerald-500/50 cursor-pointer mb-6 transition">
+            <input id="matterportDualToggle" type="checkbox" onchange="updateAllInOnePricing()" class="mt-1 w-4 h-4 accent-emerald-500 rounded cursor-pointer" />
+            <div class="text-xs">
+              <div class="font-bold text-white">+ Add Matterport Pro2 Dual-Capture (+$150)</div>
+              <div class="text-gray-400 mt-0.5">Get both Zillow 3D Home &amp; Matterport in one shoot (Pro3 available w/ client account).</div>
+            </div>
+          </label>
+
+          <ul class="space-y-3 text-sm text-gray-200 mb-8">
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <strong>Zillow 3D Home Tour</strong> (Boosts Zillow Placement)</li>
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">✓</span> Full Ultra-HDR Photography + Sky Replacement</li>
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <strong>Up to 5 Virtually Staged Rooms FREE</strong> ($150 Value • 8 Styles)</li>
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <strong>2D Schematic Floor Plan</strong> w/ Room Dimensions</li>
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">✓</span> Branded &amp; Unbranded Property Website</li>
+          </ul>
+        </div>
+
+        <button id="allInOneOrderBtn" onclick="openBookingModal('All-In-One 3D Exposure ($349)')" class="w-full py-4 px-5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-extrabold text-sm shadow-lg shadow-emerald-500/20 transition cursor-pointer">
+          Order All-In-One Bundle ($349) →
+        </button>
+      </div>
+
+      <!-- Tier 3: Matterport + Zillow Max Exposure -->
+      <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-7 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Dual 3D Platforms</span>
+            <span class="text-xs font-semibold text-gray-300 bg-gray-800 px-2.5 py-1 rounded-full">Luxury &amp; Large Homes</span>
+          </div>
+          <h3 class="font-display text-2xl font-extrabold text-white">Matterport + Zillow Max</h3>
+          <p class="text-sm text-gray-400 mt-1 mb-5">Maximum digital twin exposure across Matterport, Zillow, Redfin &amp; Realtor.com.</p>
+
+          <div class="flex items-baseline gap-1 mb-6">
+            <span class="font-display text-4xl font-extrabold text-white">$499</span>
+            <span class="text-sm text-gray-400">starting</span>
+          </div>
+
+          <ul class="space-y-3 text-sm text-gray-300 mb-8">
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <strong>Matterport Pro2 3D Digital Twin</strong> (Pro3 w/ client account)</li>
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <strong>Zillow 3D Home Tour</strong> Included</li>
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">✓</span> Full Ultra-HDR Photography + Sky Replacement</li>
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <strong>Up to 5 Virtually Staged Rooms FREE</strong> ($150 Value)</li>
+            <li class="flex items-start gap-2.5"><span class="text-emerald-400 font-bold">✓</span> <strong>2D Schematic Floor Plan</strong> + Property Website</li>
+          </ul>
+        </div>
+
+        <button onclick="openBookingModal('Matterport + Zillow Max Exposure ($499)')" class="w-full py-3.5 px-5 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-bold text-sm transition cursor-pointer">
+          Order Max Exposure ($499) →
+        </button>
+      </div>
+    </div>
+
+    <!-- Popular À La Carte Add-Ons -->
+    <div class="mt-14 bg-gray-900/50 border border-gray-800 rounded-2xl p-6 sm:p-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+        <div>
+          <h3 class="font-display text-xl font-bold text-white">Popular À La Carte Add-Ons</h3>
+          <p class="text-sm text-gray-400">Customize any shoot with high-converting extras.</p>
+        </div>
+        <span class="text-xs font-semibold text-emerald-400">Add during booking or text 716-455-2400</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+        <div class="p-4 rounded-xl bg-gray-950/80 border border-gray-800">
+          <div class="flex items-center justify-between font-bold text-white mb-1">
+            <span>🏠 Matterport 3D Twin</span>
+            <span class="text-emerald-400">$150</span>
+          </div>
+          <p class="text-xs text-gray-400">Matterport Pro2 residential capture (Pro3 available if client has own Pro3 account).</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-gray-950/80 border border-gray-800">
+          <div class="flex items-center justify-between font-bold text-white mb-1">
+            <span>✨ Virtual Staging</span>
+            <span class="text-emerald-400">$30/room</span>
+          </div>
+          <p class="text-xs text-gray-400"><strong>First 5 rooms FREE</strong> in 3D bundles. Choose from 8 interior design styles.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-gray-950/80 border border-gray-800">
+          <div class="flex items-center justify-between font-bold text-white mb-1">
+            <span>🎬 Narrated Video / Reels</span>
+            <span class="text-emerald-400">$99</span>
+          </div>
+          <p class="text-xs text-gray-400">Guided narrated property video or vertical social reel built for Instagram &amp; Facebook.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-gray-950/80 border border-gray-800">
+          <div class="flex items-center justify-between font-bold text-white mb-1">
+            <span>🌆 Virtual Twilight</span>
+            <span class="text-emerald-400">$25</span>
+          </div>
+          <p class="text-xs text-gray-400">Turn daytime front exterior shots into dramatic golden-hour dusk hero photos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- "Wait, There's More!" Built-In Value Stack ($375+ Value) -->
+  <section id="bonus" class="py-16 bg-gradient-to-b from-gray-950 via-emerald-950/20 to-gray-950 border-y border-gray-800/80 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6 space-y-5">
+          <span class="inline-block px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-extrabold uppercase tracking-wider">
+            Wait, There's More! • $375+ Built-In Value
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
+            Included Free With Your 3D Listing Package
+          </h2>
+          <p class="text-gray-300 text-base leading-relaxed">
+            Most WNY photographers nickel-and-dime you for floor plans, staging, and property websites. We build <strong class="text-white">over $375 in listing marketing upgrades</strong> right into your appointment:
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800">
+              <div class="text-emerald-400 font-extrabold text-sm">$150 Value — FREE</div>
+              <div class="font-bold text-white mt-0.5">Up to 5 Virtually Staged Rooms</div>
+              <p class="text-xs text-gray-400 mt-1">$30/room value included free. Pick from 8 designer styles to help buyers visualize empty rooms.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800">
+              <div class="text-emerald-400 font-extrabold text-sm">$129 Value — FREE</div>
+              <div class="font-bold text-white mt-0.5">2D Schematic Floor Plan</div>
+              <p class="text-xs text-gray-400 mt-1">Clean MLS-ready room dimensions and layout included with every single package.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800">
+              <div class="text-emerald-400 font-extrabold text-sm">$49 Value — FREE</div>
+              <div class="font-bold text-white mt-0.5">Branded &amp; Unbranded Property Site</div>
+              <p class="text-xs text-gray-400 mt-1">Dedicated single-property showcase link ready for MLS compliance and social sharing.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800">
+              <div class="text-emerald-400 font-extrabold text-sm">$50 Value — FREE</div>
+              <div class="font-bold text-white mt-0.5">Blue Skies &amp; Same-Day Delivery</div>
+              <p class="text-xs text-gray-400 mt-1">Crisp blue-sky replacements on overcast WNY days plus fast same-day turnaround.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive 8-Style Virtual Staging Selector -->
+        <div class="lg:col-span-6 bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-7 shadow-xl">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">8 Interior Design Styles Included</span>
+            <span class="text-xs text-gray-400">Up to 5 Rooms ($30/ea value)</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-4">Preview Your Free Virtual Staging Styles</h3>
+
+          <div class="flex flex-wrap gap-2 mb-5" id="stagingStyleTabs">
+            <button onclick="selectStagingStyle('Standard', 'Versatile, buyer-friendly furnishings with balanced neutral tones ideal for any WNY listing.', this)" class="staging-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-gray-950 cursor-pointer">1. Standard</button>
+            <button onclick="selectStagingStyle('Modern', 'Clean lines, low-profile neutral sofas, warm wood accents, and minimalist lighting.', this)" class="staging-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white cursor-pointer">2. Modern</button>
+            <button onclick="selectStagingStyle('Scandinavian', 'Light birch woods, airy whites, cozy textiles, and bright functional simplicity.', this)" class="staging-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white cursor-pointer">3. Scandinavian</button>
+            <button onclick="selectStagingStyle('Industrial', 'Exposed metal accents, rich cognac leather, reclaimed wood tables, and loft character.', this)" class="staging-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white cursor-pointer">4. Industrial</button>
+            <button onclick="selectStagingStyle('Mid-Century Modern', 'Tapered walnut legs, iconic sculptural seating, warm retro hues, and clean geometry.', this)" class="staging-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white cursor-pointer">5. Mid-Century Modern</button>
+            <button onclick="selectStagingStyle('Luxury', 'High-end statement pieces, plush velvet and marble accents, and upscale executive polish.', this)" class="staging-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white cursor-pointer">6. Luxury</button>
+            <button onclick="selectStagingStyle('Farmhouse', 'Warm shiplap tones, rustic oak tables, linen upholstery, and cozy Western NY charm.', this)" class="staging-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white cursor-pointer">7. Farmhouse</button>
+            <button onclick="selectStagingStyle('Coastal', 'Breezy light tones, natural woven textures, soft blues, and clutter-free open sightlines.', this)" class="staging-tab px-3 py-1.5 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white cursor-pointer">8. Coastal</button>
+          </div>
+
+          <div class="relative rounded-xl overflow-hidden border border-gray-800 mb-4 bg-gray-950">
+            <img
+              id="stagingPreviewImg"
+              src="staging-standard.webp"
+              onerror="this.onerror=null; this.src='realtypix360-living-room-shot.webp';"
+              alt="Virtually staged Western New York living room preview"
+              class="w-full h-56 sm:h-64 object-cover transition-opacity duration-300"
+            />
+            <div class="absolute bottom-3 left-3 right-3 bg-gray-950/90 backdrop-blur-md border border-gray-700 rounded-lg p-3">
+              <div class="flex items-center justify-between">
+                <span id="stagingStyleTitle" class="font-bold text-sm text-emerald-400">Style: Standard</span>
+                <span class="text-[11px] font-semibold text-gray-300">Included Free in 3D Bundles</span>
+              </div>
+              <p id="stagingStyleDesc" class="text-xs text-gray-300 mt-1">Versatile, buyer-friendly furnishings with balanced neutral tones ideal for any WNY listing.</p>
+            </div>
+          </div>
+
+          <button onclick="openBookingModal('All-In-One 3D Exposure ($349)')" class="w-full py-3 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 font-bold text-sm transition cursor-pointer">
+            Claim Your 5 Free Staged Rooms With Any 3D Bundle →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Portfolio Highlights (Trimmed to High-Impact Shots, Zero Static 3D Plans) -->
+  <section id="work" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Curated WNY Showcase</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-1">See The RealtyPix360 Difference</h2>
+        <p class="text-gray-400 text-sm sm:text-base mt-2 max-w-2xl">
+          Hand-picked examples of our Ultra-HDR interiors, blue-sky exteriors, and clean 2D schematic floor plans—without the clutter.
+        </p>
+      </div>
+      <a href="portfolio.html" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gray-900 hover:bg-gray-800 border border-gray-700 text-sm font-bold text-white transition self-start md:self-auto">
+        Open Full Interactive Portfolio →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="group rounded-2xl overflow-hidden bg-gray-900 border border-gray-800">
+        <div class="relative h-60 overflow-hidden">
+          <img src="realtypix360-frontyard-shot.webp" alt="Buffalo NY luxury home exterior photography with blue sky" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 bg-gray-950/85 text-emerald-300 text-xs font-bold px-2.5 py-1 rounded-md border border-gray-700">Curb Appeal &amp; Sky Replacement</span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-white text-base">Tack-Sharp Exteriors</h3>
+          <p class="text-xs text-gray-400 mt-1">Vibrant blue-sky replacement and balanced shadows that stop buyers scrolling on Zillow.</p>
+        </div>
+      </div>
+
+      <div class="group rounded-2xl overflow-hidden bg-gray-900 border border-gray-800">
+        <div class="relative h-60 overflow-hidden">
+          <img src="realtypix360-kitchen-shot.webp" alt="Bright open concept kitchen real estate photography Western NY" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 bg-gray-950/85 text-emerald-300 text-xs font-bold px-2.5 py-1 rounded-md border border-gray-700">Ultra-HDR Interiors</span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-white text-base">True-to-Life Kitchens &amp; Living</h3>
+          <p class="text-xs text-gray-400 mt-1">Accurate cabinet colors, zero blown-out windows, and straight vertical lines.</p>
+        </div>
+      </div>
+
+      <div class="group rounded-2xl overflow-hidden bg-gray-900 border border-gray-800">
+        <div class="relative h-60 overflow-hidden">
+          <img src="realtypix360-backyard-shot.webp" alt="Western NY backyard outdoor living real estate photo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <span class="absolute top-3 left-3 bg-gray-950/85 text-emerald-300 text-xs font-bold px-2.5 py-1 rounded-md border border-gray-700">Outdoor &amp; Lifestyle</span>
+        </div>
+        <div class="p-4">
+          <h3 class="font-bold text-white text-base">Backyards &amp; Sunrooms</h3>
+          <p class="text-xs text-gray-400 mt-1">Highlighting outdoor living spaces, decks, and natural light across Erie &amp; Niagara County.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5-Star Google Reviews (Featuring Mary Lucchetti Spotlight + Carolyn Alessi + Frank Zellner) -->
+  <section id="reviews" class="py-20 bg-gray-900/40 border-y border-gray-800/80 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-400">5.0★ Rated Across Western New York</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mt-2">Trusted By Top Buffalo &amp; Niagara Agents</h2>
+      </div>
+
+      <!-- Featured Review Spotlight: Mary Lucchetti -->
+      <div class="bg-gradient-to-r from-gray-900 via-emerald-950/30 to-gray-900 border border-emerald-500/40 rounded-2xl p-7 sm:p-9 mb-8 shadow-xl">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-3 max-w-4xl">
+            <div class="flex items-center gap-3">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Client Spotlight</span>
+              <span class="text-amber-400 text-sm">★★★★★</span>
+            </div>
+            <blockquote class="text-lg sm:text-xl text-white font-medium leading-relaxed">
+              "I use Chris for all of my listings &amp; he consistently does a phenomenal job. He is very detail oriented &amp; the quality of his photos cannot be beat. My sellers are always very happy with his work &amp; I know his photos are a contributing factor to their quick sales."
+            </blockquote>
+            <div class="text-sm text-gray-300">
+              <strong class="text-white">Mary Lucchetti</strong> • Keller Williams Realty
+            </div>
+          </div>
+          <div class="shrink-0">
+            <a href="#packages" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-extrabold text-sm transition">
+              See Listing Packages →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional 5-Star Reviews Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-amber-400">★★★★★</span>
+              <span class="text-xs text-gray-500">Google Review</span>
+            </div>
+            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+              "Chris is my go-to photographer and has photographed several of my listings over the past few years. I have never been disappointed. My clients are always very happy with the pictures and his professionalism. One client thought the pictures Chris took made all the difference in his sale!"
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+            <div class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center font-bold text-xs text-emerald-400">CA</div>
+            <div>
+              <div class="font-bold text-white text-sm">Carolyn Alessi</div>
+              <div class="text-xs text-gray-400">HUNT Real Estate</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-amber-400">★★★★★</span>
+              <span class="text-xs text-gray-500">Google Review • Apr 30, 2025</span>
+            </div>
+            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+              "Chris always does a fantastic job with Realty Pix 360. His pictures, 360 matterport, and House designs are state of the Art and help me get maximum value for My Listings."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-3 border-t border-gray-800">
+            <div class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center font-bold text-xs text-emerald-400">FZ</div>
+            <div>
+              <div class="font-bold text-white text-sm">Frank Zellner</div>
+              <div class="text-xs text-gray-400">Verified WNY Client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Business Profile & Commercial 3D Tours Banner -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="bg-gradient-to-r from-slate-900 via-emerald-950/40 to-slate-900 border border-emerald-500/30 rounded-3xl p-8 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div class="space-y-3 max-w-2xl">
+        <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+          Google Trusted Pro • 550+ Million Views
+        </span>
+        <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-white">
+          Put Your Business Inside Google Maps With a 3D Virtual Tour
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+          Beyond residential listings, Chris Kivi builds interactive Google Street View 3D tours and Matterport digital twins for WNY restaurants, retail storefronts, gyms, medical offices, and commercial properties.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+        <a href="commercial.html" class="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-extrabold text-sm text-center transition">
+          Explore Commercial &amp; Google Maps 3D →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unified Footer Preserving All Indexed Routes -->
+  <footer class="bg-gray-950 border-t border-gray-800/80 pt-14 pb-10 text-sm text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-800/80">
+        <div>
+          <a href="index.html" class="flex items-center gap-2.5 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-gray-950 font-extrabold">360</div>
+            <span class="font-display font-extrabold text-lg text-white">RealtyPix<span class="text-emerald-400">360</span></span>
+          </a>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            Buffalo &amp; Niagara's premier real estate photography, Zillow 3D Home, Matterport, virtual staging, and 2D floor plan studio—with same-day turnaround.
+          </p>
+          <div class="space-y-1.5 text-gray-300">
+            <p>📞 <a href="tel:7164552400" class="hover:text-emerald-400 transition font-medium">716-455-2400</a></p>
+            <p>📍 34 Loretta St, Tonawanda, NY 14150</p>
+            <p>⭐ 5.0 Rated • Google Trusted Pro (550M+ Views)</p>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-white uppercase tracking-wider text-xs mb-4">Services &amp; Solutions</h4>
+          <ul class="space-y-2.5">
+            <li><a href="index.html#packages" class="hover:text-emerald-400 transition">HDR Real Estate Photography</a></li>
+            <li><a href="index.html#packages" class="hover:text-emerald-400 transition">Zillow 3D Home &amp; Matterport Tours</a></li>
+            <li><a href="3d-floor-plans.html" class="hover:text-emerald-400 transition">2D Schematic Floor Plans</a></li>
+            <li><a href="index.html#bonus" class="hover:text-emerald-400 transition">Virtual Staging (8 Designer Styles)</a></li>
+            <li><a href="commercial.html" class="hover:text-emerald-400 transition">Google Maps Business Profile 3D</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-white uppercase tracking-wider text-xs mb-4">Explore</h4>
+          <ul class="space-y-2.5">
+            <li><a href="portfolio.html" class="hover:text-emerald-400 transition">Curated Portfolio</a></li>
+            <li><a href="index.html#packages" class="hover:text-emerald-400 transition">Packages &amp; Pricing</a></li>
+            <li><a href="floor-plans-education.html" class="hover:text-emerald-400 transition">Why Floor Plans &amp; 3D Work</a></li>
+            <li><a href="index.html#reviews" class="hover:text-emerald-400 transition">5-Star Agent Reviews</a></li>
+            <li><a href="faq.html" class="hover:text-emerald-400 transition">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-white uppercase tracking-wider text-xs mb-4">WNY Service Area</h4>
+          <p class="text-xs leading-relaxed text-gray-400 mb-3">
+            <strong>Erie County:</strong> Buffalo, Tonawanda, Amherst, Williamsville, Clarence, Cheektowaga, Lancaster, Orchard Park, Hamburg, West Seneca, East Aurora, Grand Island, Kenmore.
+          </p>
+          <p class="text-xs leading-relaxed text-gray-400">
+            <strong>Niagara County:</strong> North Tonawanda, Niagara Falls, Wheatfield, Lewiston, Lockport, Youngstown, Sanborn.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <p>© 2026 RealtyPix360 by Chris Kivi. All rights reserved.</p>
+        <div class="flex flex-wrap items-center gap-5">
+          <a href="privacy.html" class="hover:text-gray-300 transition">Privacy Policy</a>
+          <a href="accessibility.html" class="hover:text-gray-300 transition">Accessibility</a>
+          <a href="faq.html" class="hover:text-gray-300 transition">FAQ</a>
+          <a href="contact.html" class="hover:text-gray-300 transition">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Quick-Booking Modal -->
+  <div id="bookingModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-gray-900 border border-gray-700 rounded-2xl max-w-lg w-full p-6 sm:p-7 shadow-2xl relative">
+      <button onclick="closeBookingModal()" aria-label="Close modal" class="absolute top-4 right-4 text-gray-400 hover:text-white p-1.5 rounded-lg bg-gray-800/70">✕</button>
+      <span class="inline-block text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">Same-Day / Next-Day Availability</span>
+      <h3 class="font-display text-2xl font-extrabold text-white mb-1">Schedule Your WNY Shoot</h3>
+      <p class="text-sm text-gray-400 mb-5">Lock in your package below or text/call <a href="tel:7164552400" class="text-emerald-400 font-semibold">716-455-2400</a> for immediate scheduling.</p>
+
+      <form id="quickOrderForm" onsubmit="submitQuickOrder(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Selected Package</label>
+          <select id="modalPackageSelect" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none">
+            <option value="Listing Launch ($199)">Listing Launch — $199 (HDR + 2D Floor Plan + Website)</option>
+            <option value="All-In-One 3D Exposure ($349)" selected>All-In-One 3D Exposure — $349 (Zillow 3D + 5 Staged Rooms + Floor Plan)</option>
+            <option value="All-In-One + Matterport Pro2 Dual ($499)">All-In-One + Matterport Pro2 Dual-Capture — $499 (Zillow 3D + Matterport)</option>
+            <option value="Matterport + Zillow Max Exposure ($499)">Matterport + Zillow Max Exposure — $499 (Full Luxury Bundle)</option>
+            <option value="Google Maps Business Profile 3D Tour">Google Business Profile / Commercial 3D Virtual Tour</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Your Name *</label>
+            <input type="text" required placeholder="Jane Agent" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Mobile Phone (for SMS updates) *</label>
+            <input type="tel" required placeholder="716-555-0199" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Property Address &amp; Town *</label>
+          <input type="text" required placeholder="e.g., 142 Elmwood Ave, Buffalo, NY" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Preferred Shoot Date</label>
+            <input type="date" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Free Virtual Staging Style (Up to 5 Rooms)</label>
+            <select id="modalStagingStyle" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none">
+              <option value="None needed">None needed / Vacant as-is</option>
+              <option value="Standard">1. Standard</option>
+              <option value="Modern">2. Modern</option>
+              <option value="Scandinavian">3. Scandinavian</option>
+              <option value="Industrial">4. Industrial</option>
+              <option value="Mid-Century Modern">5. Mid-Century Modern</option>
+              <option value="Luxury">6. Luxury</option>
+              <option value="Farmhouse">7. Farmhouse</option>
+              <option value="Coastal">8. Coastal</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-extrabold py-3 rounded-xl shadow-lg shadow-emerald-500/20 transition cursor-pointer">
+          Request Shoot Time →
+        </button>
+      </form>
+
+      <div id="bookingSuccess" class="hidden text-center py-6 space-y-3">
+        <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-2xl">✓</div>
+        <h4 class="font-display text-xl font-bold text-white">Shoot Request Received!</h4>
+        <p class="text-sm text-gray-300">Chris will text or call you shortly to confirm your exact arrival window. Need immediate confirmation? Text <a href="sms:7164552400" class="text-emerald-400 font-bold">716-455-2400</a>.</p>
+        <button onclick="closeBookingModal()" class="mt-2 px-5 py-2 rounded-lg bg-gray-800 text-sm font-semibold text-white hover:bg-gray-700">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openBookingModal(pkgName) {
+      window.open('https://realtypix360.aryeo.com/order-forms/7e7392c6-8065-445a-9758-16cc1ba317cb', '_blank', 'noopener,noreferrer');
+    }
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.add('hidden');
+    }
+    function submitQuickOrder(e) {
+      e.preventDefault();
+      document.getElementById('quickOrderForm').classList.add('hidden');
+      document.getElementById('bookingSuccess').classList.remove('hidden');
+    }
+  </script>
+  <script>
+    function toggleHeroVideo() {
+      const vid = document.getElementById('heroBgVideo');
+      const btn = document.getElementById('videoToggleBtn');
+      if (!vid) return;
+      if (vid.paused) {
+        vid.play();
+        btn.textContent = 'Pause Motion';
+      } else {
+        vid.pause();
+        btn.textContent = 'Play Motion';
+      }
+    }
+
+    function updateAllInOnePricing() {
+      const checked = document.getElementById('matterportDualToggle').checked;
+      const priceEl = document.getElementById('allInOnePriceDisplay');
+      const btnEl = document.getElementById('allInOneOrderBtn');
+      if (checked) {
+        priceEl.textContent = '$499';
+        btnEl.textContent = 'Order All-In-One + Matterport ($499) →';
+        btnEl.setAttribute('onclick', "openBookingModal('All-In-One + Matterport Pro2 Dual ($499)')");
+      } else {
+        priceEl.textContent = '$349';
+        btnEl.textContent = 'Order All-In-One Bundle ($349) →';
+        btnEl.setAttribute('onclick', "openBookingModal('All-In-One 3D Exposure ($349)')");
+      }
+    }
+
+    const stagingImages = {
+      'Standard': 'staging-standard.webp',
+      'Modern': 'staging-modern.webp',
+      'Scandinavian': 'staging-scandinavian.webp',
+      'Industrial': 'staging-industrial.webp',
+      'Mid-Century Modern': 'staging-mid-century-modern.webp',
+      'Luxury': 'staging-luxury.webp',
+      'Farmhouse': 'staging-farmhouse.webp',
+      'Coastal': 'staging-coastal.webp'
+    };
+
+    function selectStagingStyle(styleName, desc, btn) {
+      document.querySelectorAll('.staging-tab').forEach(el => {
+        el.classList.remove('bg-emerald-500', 'text-gray-950');
+        el.classList.add('bg-gray-800', 'text-gray-300');
+      });
+      btn.classList.remove('bg-gray-800', 'text-gray-300');
+      btn.classList.add('bg-emerald-500', 'text-gray-950');
+      document.getElementById('stagingStyleTitle').textContent = 'Style: ' + styleName;
+      document.getElementById('stagingStyleDesc').textContent = desc;
+
+      const previewImg = document.getElementById('stagingPreviewImg');
+      if (previewImg && stagingImages[styleName]) {
+        previewImg.onerror = function () {
+          this.onerror = null;
+          this.src = 'realtypix360-living-room-shot.webp';
+        };
+        previewImg.src = stagingImages[styleName];
+      }
+
+      const modalSelect = document.getElementById('modalStagingStyle');
+      if (modalSelect) {
+        for (let i = 0; i < modalSelect.options.length; i++) {
+          if (modalSelect.options[i].value === styleName) {
+            modalSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
