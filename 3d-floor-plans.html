@@ -1,751 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Floor Plans Portfolio | RealtyPix360</title>
-    <meta name="description" content="Explore our stunning collection of professional 3D floor plans for Western New York real estate properties. High-quality architectural visualizations for homes and commercial spaces.">
-    
-    <!-- GLightbox CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        /* Navigation Styles */
-        nav {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #667eea;
-        }
-        
-        .cta-phone {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s;
-        }
-        
-        .cta-phone:hover {
-            transform: translateY(-2px);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #333;
-        }
-        
-        /* Header Styles */
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 2rem;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-        
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        /* Footer Styles */
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 2rem 1.5rem 0.75rem;
-            margin-top: 2.5rem;
-        }
-        
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section a {
-            color: #ecf0f1;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: #667eea;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #34495e;
-            color: #95a5a6;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 25px 15px;
-        }
-        
-        .intro-text {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 25px;
-        }
-        
-        .intro-text h2 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-        
-        .intro-text p {
-            margin-bottom: 15px;
-            color: #555;
-        }
-        
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .count-badge {
-            background: #667eea;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-        }
-        
-        .refresh-btn {
-            background: #764ba2;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s;
-        }
-        
-        .refresh-btn:hover {
-            background: #5f3a82;
-        }
-        
-        .refresh-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 60px 20px;
-        }
-        
-        .loading-spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .floor-plan-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .floor-plan-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
-        }
-        
-        .floor-plan-image-wrapper {
-            position: relative;
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            background: #f0f0f0;
-            cursor: pointer;
-        }
-        
-        .floor-plan-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: opacity 0.3s;
-        }
-        
-        .view-toggle-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(102, 126, 234, 0.95);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            z-index: 10;
-        }
-        
-        .view-toggle-btn:hover {
-            background: rgba(118, 75, 162, 0.95);
-            transform: scale(1.05);
-        }
-        
-        .view-toggle-btn.showing-2d {
-            background: rgba(46, 204, 113, 0.95);
-        }
-        
-        .view-toggle-btn.showing-2d:hover {
-            background: rgba(39, 174, 96, 0.95);
-        }
-        
-        .floor-plan-info {
-            padding: 12px 15px;
-        }
-        
-        .floor-plan-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0;
-            line-height: 1.3;
-        }
-        
-        .floor-plan-property {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-        }
-        
-        .floor-plan-address {
-            color: #999;
-            font-size: 0.9rem;
-        }
-        
-        .error {
-            background: #ff5555;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-        }
-        
-        .empty-state svg {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 20px;
-            opacity: 0.3;
-        }
-        
-        .image-placeholder {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 3rem;
-        }
-        
-        .image-placeholder small {
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                gap: 0;
+  <title>2D Schematic Floor Plans &amp; 3D Virtual Tours | RealtyPix360 Buffalo NY</title>
+  <meta name="description" content="MLS-ready 2D schematic floor plans with room measurements included free with every Buffalo &amp; Niagara real estate photography package. Zillow 3D Home &amp; Matterport available." />
+  <link rel="canonical" href="https://www.realtypix360.com/3d-floor-plans.html" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="US-NY" />
+  <meta name="geo.placename" content="Tonawanda, New York" />
+  <meta name="geo.position" content="43.0203;-78.8803" />
+  <meta name="ICBM" content="43.0203, -78.8803" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#090D16',
+              card: '#111827',
+              border: '#1F2937',
+              emerald: '#10B981',
+              emeraldHover: '#059669',
+              amber: '#F59E0B',
             }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                width: 100%;
-                padding: 0.75rem 0;
-                border-bottom: 1px solid #eee;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            /* Tighten up cards on mobile */
-            .header {
-                padding: 25px 15px;
-            }
-            
-            .header h1 {
-                font-size: 1.75rem;
-            }
-            
-            .header p {
-                font-size: 1rem;
-            }
-            
-            .container {
-                padding: 15px 12px;
-            }
-            
-            .intro-text {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-            
-            .floor-plan-image-wrapper {
-                height: 200px;
-            }
-            
-            .floor-plan-info {
-                padding: 10px 12px;
-            }
-            
-            .floor-plan-title {
-                font-size: 0.9rem;
-            }
-            
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            footer {
-                padding: 1.5rem 1rem 0.5rem;
-                margin-top: 1.5rem;
-            }
-            
-            .grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 20px;
-            }
-            
-            .floor-plan-image {
-                height: 250px;
-            }
+          }
         }
-        
-        .cache-indicator {
-            font-size: 0.85rem;
-            color: #888;
-            font-style: italic;
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #090D16; color: #F9FAFB; }
+    .glass-nav {
+      background: rgba(9, 13, 22, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .hero-gradient {
+      background: linear-gradient(180deg, rgba(9, 13, 22, 0.72) 0%, rgba(9, 13, 22, 0.86) 55%, #090D16 100%);
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://www.realtypix360.com/#business",
+        "name": "RealtyPix360",
+        "alternateName": "RealtyPix360 LLC",
+        "url": "https://www.realtypix360.com/",
+        "logo": "https://www.realtypix360.com/realtypix360-frontyard-shot.webp",
+        "image": [
+          "https://www.realtypix360.com/realtypix360-frontyard-shot.webp",
+          "https://www.realtypix360.com/realtypix360-kitchen-shot.webp",
+          "https://www.realtypix360.com/realtypix360-living-room-shot.webp",
+          "https://www.realtypix360.com/realtypix360-sunroom-shot.webp",
+          "https://www.realtypix360.com/realtypix360-backyard-shot.webp"
+        ],
+        "telephone": "+1-716-455-2400",
+        "priceRange": "$$",
+        "founder": {
+          "@type": "Person",
+          "name": "Chris Kivi",
+          "jobTitle": "Google Trusted Pro Photographer & Founder"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "34 Loretta St",
+          "addressLocality": "Tonawanda",
+          "addressRegion": "NY",
+          "postalCode": "14150",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.0203,
+          "longitude": -78.8803
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Buffalo", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Tonawanda", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "North Tonawanda", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Amherst", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Clarence", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Williamsville", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Orchard Park", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Lancaster", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Niagara Falls", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Lewiston", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "AdministrativeArea", "name": "Erie County" },
+          { "@type": "AdministrativeArea", "name": "Niagara County" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "48",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Mary Lucchetti" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "I use Chris for all of my listings & he consistently does a phenomenal job. He is very detail oriented & the quality of his photos cannot be beat. My sellers are always very happy with his work & I know his photos are a contributing factor to their quick sales."
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Carolyn Alessi" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Chris is my go-to photographer and has photographed several of my listings over the past few years. I have never been disappointed. My clients are always very happy with the pictures and his professionalism. One client thought the pictures Chris took made all the difference in his sale!"
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Frank Zellner" },
+            "datePublished": "2025-04-30",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Chris always does a fantastic job with Realty Pix 360. His pictures, 360 matterport, and House designs are state of the Art and help me get maximum value for My Listings."
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Real Estate Photography & 3D Virtual Tour Packages",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Listing Launch Package",
+              "price": "199.00",
+              "priceCurrency": "USD",
+              "description": "Professional Ultra-HDR photography with sky replacement, 2D schematic floor plan with room measurements, and branded/unbranded property website."
+            },
+            {
+              "@type": "Offer",
+              "name": "All-In-One 3D Exposure Package",
+              "price": "349.00",
+              "priceCurrency": "USD",
+              "description": "Ultra-HDR photography, Zillow 3D Home tour, 2D schematic floor plan, property website, and up to 5 virtually staged rooms in 7 styles."
+            },
+            {
+              "@type": "Offer",
+              "name": "Matterport + Zillow Max Exposure Package",
+              "price": "499.00",
+              "priceCurrency": "USD",
+              "description": "Includes both Matterport 3D Digital Twin and Zillow 3D Home tour, Ultra-HDR photography, 2D schematic floor plan, property website, and up to 5 virtually staged rooms."
+            }
+          ]
         }
-    </style>
+      }
+    ]
+  }
+  </script>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">RealtyPix360</div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/portfolio.html">Portfolio</a></li>
-                <li><a href="/commercial.html">Commercial</a></li>
-                <li><a href="/faq.html">FAQ</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-                <li><a href="tel:7167708030" class="cta-phone">📞 Call Us</a></li>
-            </ul>
-            <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
-        </div>
-    </nav>
-    
-    <!-- Header -->
-    <div class="header">
-        <h1>🏗️ Professional 3D Floor Plans</h1>
-        <p>Explore our portfolio of stunning 3D architectural floor plans for Western New York properties</p>
+<body class="antialiased selection:bg-emerald-500 selection:text-gray-950">
+  <!-- Top Google Business Profile 3D Tour Announcement Bar -->
+  <div class="bg-gradient-to-r from-emerald-950 via-emerald-900 to-slate-900 border-b border-emerald-500/30 text-xs sm:text-sm py-2.5 px-4">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+      <div class="flex items-center justify-center sm:justify-start gap-2 text-emerald-100">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+          Google Trusted Pro • 550M+ Views
+        </span>
+        <span>Own a local storefront or commercial space? Put your business inside <strong>Google Maps in 3D</strong>.</span>
+      </div>
+      <a href="commercial.html" class="inline-flex items-center gap-1 font-semibold text-emerald-300 hover:text-white whitespace-nowrap transition">
+        Google Maps 3D Tours →
+      </a>
     </div>
-    
-    <div class="container">
-        <!-- SEO-friendly intro text -->
-        <div class="intro-text">
-            <h2>Why Choose 3D Floor Plans?</h2>
-            <p>
-                3D floor plans provide an immersive, realistic view of property layouts that traditional 2D plans simply can't match. 
-                Our professional 3D floor plans help real estate agents, homeowners, and developers showcase properties with stunning 
-                clarity and detail.
-            </p>
-            <p>
-                At RealtyPix360, we've created dozens of high-quality 3D floor plans for residential and commercial properties across 
-                Buffalo and Western New York. Each floor plan is meticulously crafted using cutting-edge technology and professional 
-                design standards to give potential buyers and tenants the best possible understanding of property layouts.
-            </p>
-            <p>
-                <strong>Services include:</strong> Residential 3D floor plans, commercial property floor plans, custom branding, 
-                multiple file formats (PDF, PNG, DWG), and fast 12-24 hour turnaround times.
-            </p>
+  </div>
+
+  <!-- Sticky Navigation -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-gray-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-lg bg-emerald-500 flex items-center justify-center text-gray-950 font-extrabold text-lg shadow-lg shadow-emerald-500/20">
+          360
         </div>
-        
-        <!-- Controls -->
-        <div class="controls">
-            <div class="count-badge">
-                <span id="floor-plan-count">Loading...</span>
-            </div>
-            <div>
-                <button class="refresh-btn" id="refresh-btn" onclick="refreshData()">
-                    🔄 Refresh
-                </button>
-            </div>
+        <div>
+          <span class="font-display font-extrabold text-lg tracking-tight text-white">RealtyPix<span class="text-emerald-400">360</span></span>
+          <span class="hidden md:block text-[10px] uppercase tracking-widest text-gray-400 -mt-1">Buffalo & Niagara Media</span>
         </div>
-        
-        <!-- Loading state -->
-        <div class="loading" id="loading">
-            <div class="loading-spinner"></div>
-            <p>Loading 3D floor plans...</p>
-        </div>
-        
-        <!-- Error state -->
-        <div class="error" id="error" style="display: none;">
-            <strong>Error:</strong> <span id="error-message"></span>
-        </div>
-        
-        <!-- Grid of floor plans -->
-        <div class="grid" id="floor-plans-grid"></div>
-        
-        <!-- Empty state -->
-        <div class="empty-state" id="empty-state" style="display: none;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M9 2L3 8v13h6v-7h6v7h6V8L15 2H9z" stroke-width="2"/>
-            </svg>
-            <h3>No 3D Floor Plans Found</h3>
-            <p>Check back soon as we add more to our portfolio!</p>
-        </div>
+      </a>
+
+      <nav aria-label="Primary Navigation" class="hidden lg:flex items-center gap-7 text-sm font-medium">
+        <a href="index.html#packages" class="text-gray-300 hover:text-white transition">Packages</a>
+        <a href="portfolio.html" class="text-emerald-400 font-semibold">Portfolio</a>
+        <a href="commercial.html" class="text-gray-300 hover:text-white transition">Google Maps & Commercial</a>
+        <a href="floor-plans-education.html" class="text-gray-300 hover:text-white transition">Agent Guide</a>
+        <a href="faq.html" class="text-gray-300 hover:text-white transition">FAQ</a>
+        <a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:7164552400" class="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-gray-300 hover:text-emerald-400 transition">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          716-455-2400
+        </a>
+        <button onclick="openBookingModal('All-In-One 3D Exposure ($349)')" class="bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold text-sm px-4 py-2.5 rounded-lg shadow-lg shadow-emerald-500/20 transition cursor-pointer">
+          Order & Schedule
+        </button>
+        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" aria-label="Toggle Menu" class="lg:hidden p-2 rounded-lg border border-gray-800 text-gray-300 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
     </div>
-    
-    <!-- GLightbox JS -->
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    
-    <script>
-        // Fetch and display floor plans
-        async function loadFloorPlans(refresh = false) {
-            const loading = document.getElementById('loading');
-            const error = document.getElementById('error');
-            const grid = document.getElementById('floor-plans-grid');
-            const emptyState = document.getElementById('empty-state');
-            const countBadge = document.getElementById('floor-plan-count');
-            const refreshBtn = document.getElementById('refresh-btn');
-            
-            // Show loading
-            loading.style.display = 'block';
-            error.style.display = 'none';
-            grid.style.display = 'none';
-            emptyState.style.display = 'none';
-            refreshBtn.disabled = true;
-            
-            try {
-                // Call API endpoint - using existing endpoint
-                const url = '/api/captur3d-floor-plans';
-                const response = await fetch(url);
-                const data = await response.json();
-                
-                loading.style.display = 'none';
-                refreshBtn.disabled = false;
-                
-                if (!data.success) {
-                    throw new Error(data.error || 'Failed to load floor plans');
-                }
-                
-                const floorPlans = data.data;
-                
-                if (floorPlans.length === 0) {
-                    emptyState.style.display = 'block';
-                    countBadge.textContent = '0 floor plans';
-                    return;
-                }
-                
-                // Count how many have both views
-                const hasBothCount = floorPlans.filter(p => p.has_both).length;
-                
-                // Update count
-                countBadge.textContent = `${floorPlans.length} properties`;
-                
-                // Clear grid
-                grid.innerHTML = '';
-                grid.style.display = 'grid';
-                
-                // Create cards
-                floorPlans.forEach((property, index) => {
-                    const card = createFloorPlanCard(property, index);
-                    grid.appendChild(card);
-                });
-                
-            } catch (err) {
-                loading.style.display = 'none';
-                error.style.display = 'block';
-                document.getElementById('error-message').textContent = err.message;
-                refreshBtn.disabled = false;
-            }
-        }
-        
-        // Create floor plan card with 2D/3D toggle
-        function createFloorPlanCard(property, index) {
-            const card = document.createElement('div');
-            card.className = 'floor-plan-card';
-            
-            const has3D = property.view_3d && property.view_3d.url;
-            const has2D = property.view_2d && property.view_2d.url;
-            const hasBoth = has3D && has2D;
-            
-            // Default to 3D view
-            const currentView = has3D ? property.view_3d : property.view_2d;
-            const imageUrl = currentView.url || '';
-            const propertyName = property.property_name || 'Property';
-            
-            card.innerHTML = `
-                <div class="floor-plan-image-wrapper" data-property-name="${propertyName}">
-                    <img 
-                        src="${imageUrl}" 
-                        alt="${propertyName} - Floor Plan" 
-                        class="floor-plan-image" 
-                        loading="lazy"
-                        data-3d-url="${has3D ? property.view_3d.url : ''}"
-                        data-2d-url="${has2D ? property.view_2d.url : ''}"
-                        data-current="3d"
-                    >
-                    ${hasBoth ? `
-                        <button class="view-toggle-btn" onclick="event.stopPropagation(); toggleView(this);">
-                            <span class="toggle-label">Switch to 2D</span>
-                        </button>
-                    ` : ''}
-                </div>
-                <div class="floor-plan-info">
-                    <div class="floor-plan-title">${propertyName}</div>
-                </div>
-            `;
-            
-            // Add click handler to image wrapper for lightbox
-            const wrapper = card.querySelector('.floor-plan-image-wrapper');
-            wrapper.addEventListener('click', (e) => {
-                // Don't trigger if clicking the toggle button
-                if (e.target.closest('.view-toggle-btn')) return;
-                
-                const img = wrapper.querySelector('.floor-plan-image');
-                const currentUrl = img.src;
-                const propertyName = wrapper.dataset.propertyName;
-                
-                // Open lightbox with current view
-                const lightbox = GLightbox({
-                    elements: [{
-                        'href': currentUrl,
-                        'type': 'image',
-                        'title': propertyName,
-                        'description': img.dataset.current === '3d' ? '3D View' : '2D View'
-                    }],
-                    openEffect: 'fade',
-                    closeEffect: 'fade'
-                });
-                lightbox.open();
-            });
-            
-            return card;
-        }
-        
-        // Toggle between 2D and 3D views
-        function toggleView(button) {
-            const wrapper = button.closest('.floor-plan-image-wrapper');
-            const img = wrapper.querySelector('.floor-plan-image');
-            const label = button.querySelector('.toggle-label');
-            const currentView = img.dataset.current;
-            
-            if (currentView === '3d') {
-                // Switch to 2D
-                img.src = img.dataset['2dUrl'];
-                img.dataset.current = '2d';
-                label.textContent = 'Switch to 3D';
-                button.classList.add('showing-2d');
-            } else {
-                // Switch to 3D
-                img.src = img.dataset['3dUrl'];
-                img.dataset.current = '3d';
-                label.textContent = 'Switch to 2D';
-                button.classList.remove('showing-2d');
-            }
-        }
-        
-        // Refresh data
-        function refreshData() {
-            loadFloorPlans(true);
-        }
-        
-        // Load on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            loadFloorPlans();
-        });
-        
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const navLinks = document.getElementById('nav-links');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>RealtyPix360</h3>
-                <p>Professional real estate photography and 3D tours serving Buffalo and Western New York.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <ul>
-                    <li><a href="/portfolio.html">Real Estate Photography</a></li>
-                    <li><a href="/3d-floor-plans.html">3D Floor Plans</a></li>
-                    <li><a href="/commercial.html">Commercial Photography</a></li>
-                    <li><a href="/">3D Virtual Tours</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <ul>
-                    <li>📞 <a href="tel:7167708030">(716) 770-8030</a></li>
-                    <li>📧 <a href="/contact.html">Contact Form</a></li>
-                    <li>📍 Serving Buffalo & WNY</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/portfolio.html">Portfolio</a></li>
-                    <li><a href="/faq.html">FAQ</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
-                </ul>
-            </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-800 bg-gray-950 px-4 py-4 space-y-3 text-sm font-medium">
+      <a href="index.html#packages" class="block py-1.5 text-gray-200 hover:text-emerald-400">Packages & Pricing</a>
+      <a href="portfolio.html" class="block py-1.5 text-gray-200 hover:text-emerald-400">Curated Portfolio</a>
+      <a href="commercial.html" class="block py-1.5 text-gray-200 hover:text-emerald-400">Google Maps & Commercial 3D</a>
+      <a href="floor-plans-education.html" class="block py-1.5 text-gray-200 hover:text-emerald-400">Agent Media Guide</a>
+      <a href="3d-floor-plans.html" class="block py-1.5 text-gray-200 hover:text-emerald-400">2D Floor Plans & 3D Tours</a>
+      <a href="faq.html" class="block py-1.5 text-gray-200 hover:text-emerald-400">FAQ</a>
+      <a href="contact.html" class="block py-1.5 text-gray-200 hover:text-emerald-400">Contact</a>
+    </div>
+  </header>
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">$129 Value • Included Free With Every Package</span>
+    <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-white mt-2 mb-5">
+      MLS-Ready 2D Schematic Floor Plans &amp; 3D Tours
+    </h1>
+    <p class="text-gray-300 text-lg leading-relaxed mb-10">
+      We streamlined our floor plan deliverables around what Western New York agents and buyers actually use: <strong class="text-white">crisp, accurate 2D schematic floor plans with room dimensions</strong>—paired with interactive <strong class="text-emerald-400">Zillow 3D Home</strong> and <strong class="text-white">Matterport</strong> walkthroughs.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+        <h2 class="font-display text-xl font-bold text-white mb-2">📐 2D Schematic Floor Plan (Included Free)</h2>
+        <p class="text-sm text-gray-300 leading-relaxed">
+          Clean black-and-white architectural layout with room labels and approximate dimensions. Ready to upload straight to WNYREIS / MLS and your property website.
+        </p>
+      </div>
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+        <h2 class="font-display text-xl font-bold text-white mb-2">🏠 Interactive Zillow 3D &amp; Matterport</h2>
+        <p class="text-sm text-gray-300 leading-relaxed">
+          Give out-of-town and relocating buyers a true 360° walkthrough experience. Zillow 3D Home is included in our $349 bundle, with Matterport Pro2 available for $150.
+        </p>
+      </div>
+    </div>
+
+    <a href="index.html#packages" class="inline-flex items-center gap-2 px-6 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-extrabold text-sm transition">
+      Compare Packages &amp; Book Online →
+    </a>
+  </main>
+  <!-- Unified Footer Preserving All Indexed Routes -->
+  <footer class="bg-gray-950 border-t border-gray-800/80 pt-14 pb-10 text-sm text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-800/80">
+        <div>
+          <a href="index.html" class="flex items-center gap-2.5 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-gray-950 font-extrabold">360</div>
+            <span class="font-display font-extrabold text-lg text-white">RealtyPix<span class="text-emerald-400">360</span></span>
+          </a>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            Buffalo &amp; Niagara's premier real estate photography, Zillow 3D Home, Matterport, virtual staging, and 2D floor plan studio—with same-day turnaround.
+          </p>
+          <div class="space-y-1.5 text-gray-300">
+            <p>📞 <a href="tel:7164552400" class="hover:text-emerald-400 transition font-medium">716-455-2400</a></p>
+            <p>📍 34 Loretta St, Tonawanda, NY 14150</p>
+            <p>⭐ 5.0 Rated • Google Trusted Pro (550M+ Views)</p>
+          </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 RealtyPix360. All rights reserved.</p>
+
+        <div>
+          <h4 class="font-display font-bold text-white uppercase tracking-wider text-xs mb-4">Services &amp; Solutions</h4>
+          <ul class="space-y-2.5">
+            <li><a href="index.html#packages" class="hover:text-emerald-400 transition">HDR Real Estate Photography</a></li>
+            <li><a href="index.html#packages" class="hover:text-emerald-400 transition">Zillow 3D Home &amp; Matterport Tours</a></li>
+            <li><a href="3d-floor-plans.html" class="hover:text-emerald-400 transition">2D Schematic Floor Plans</a></li>
+            <li><a href="index.html#bonus" class="hover:text-emerald-400 transition">Virtual Staging (7 Designer Styles)</a></li>
+            <li><a href="commercial.html" class="hover:text-emerald-400 transition">Google Maps Business Profile 3D</a></li>
+          </ul>
         </div>
-    </footer>
+
+        <div>
+          <h4 class="font-display font-bold text-white uppercase tracking-wider text-xs mb-4">Explore</h4>
+          <ul class="space-y-2.5">
+            <li><a href="portfolio.html" class="hover:text-emerald-400 transition">Curated Portfolio</a></li>
+            <li><a href="index.html#packages" class="hover:text-emerald-400 transition">Packages &amp; Pricing</a></li>
+            <li><a href="floor-plans-education.html" class="hover:text-emerald-400 transition">Why Floor Plans &amp; 3D Work</a></li>
+            <li><a href="index.html#reviews" class="hover:text-emerald-400 transition">5-Star Agent Reviews</a></li>
+            <li><a href="faq.html" class="hover:text-emerald-400 transition">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-white uppercase tracking-wider text-xs mb-4">WNY Service Area</h4>
+          <p class="text-xs leading-relaxed text-gray-400 mb-3">
+            <strong>Erie County:</strong> Buffalo, Tonawanda, Amherst, Williamsville, Clarence, Cheektowaga, Lancaster, Orchard Park, Hamburg, West Seneca, East Aurora, Grand Island, Kenmore.
+          </p>
+          <p class="text-xs leading-relaxed text-gray-400">
+            <strong>Niagara County:</strong> North Tonawanda, Niagara Falls, Wheatfield, Lewiston, Lockport, Youngstown, Sanborn.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <p>© 2026 RealtyPix360 by Chris Kivi. All rights reserved.</p>
+        <div class="flex flex-wrap items-center gap-5">
+          <a href="privacy.html" class="hover:text-gray-300 transition">Privacy Policy</a>
+          <a href="accessibility.html" class="hover:text-gray-300 transition">Accessibility</a>
+          <a href="faq.html" class="hover:text-gray-300 transition">FAQ</a>
+          <a href="contact.html" class="hover:text-gray-300 transition">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Quick-Booking Modal -->
+  <div id="bookingModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-gray-900 border border-gray-700 rounded-2xl max-w-lg w-full p-6 sm:p-7 shadow-2xl relative">
+      <button onclick="closeBookingModal()" aria-label="Close modal" class="absolute top-4 right-4 text-gray-400 hover:text-white p-1.5 rounded-lg bg-gray-800/70">✕</button>
+      <span class="inline-block text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">Same-Day / Next-Day Availability</span>
+      <h3 class="font-display text-2xl font-extrabold text-white mb-1">Schedule Your WNY Shoot</h3>
+      <p class="text-sm text-gray-400 mb-5">Lock in your package below or text/call <a href="tel:7164552400" class="text-emerald-400 font-semibold">716-455-2400</a> for immediate scheduling.</p>
+
+      <form id="quickOrderForm" onsubmit="submitQuickOrder(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Selected Package</label>
+          <select id="modalPackageSelect" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none">
+            <option value="Listing Launch ($199)">Listing Launch — $199 (HDR + 2D Floor Plan + Website)</option>
+            <option value="All-In-One 3D Exposure ($349)" selected>All-In-One 3D Exposure — $349 (Zillow 3D + 5 Staged Rooms + Floor Plan)</option>
+            <option value="All-In-One + Matterport Pro2 Dual ($499)">All-In-One + Matterport Pro2 Dual-Capture — $499 (Zillow 3D + Matterport)</option>
+            <option value="Matterport + Zillow Max Exposure ($499)">Matterport + Zillow Max Exposure — $499 (Full Luxury Bundle)</option>
+            <option value="Google Maps Business Profile 3D Tour">Google Business Profile / Commercial 3D Virtual Tour</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Your Name *</label>
+            <input type="text" required placeholder="Jane Agent" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Mobile Phone (for SMS updates) *</label>
+            <input type="tel" required placeholder="716-555-0199" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Property Address &amp; Town *</label>
+          <input type="text" required placeholder="e.g., 142 Elmwood Ave, Buffalo, NY" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Preferred Shoot Date</label>
+            <input type="date" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Free Virtual Staging Style (Up to 5 Rooms)</label>
+            <select id="modalStagingStyle" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none">
+              <option value="None needed">None needed / Vacant as-is</option>
+              <option value="Modern">Style 1: Modern</option>
+              <option value="Contemporary">Style 2: Contemporary</option>
+              <option value="Farmhouse">Style 3: Farmhouse</option>
+              <option value="Scandinavian">Style 4: Scandinavian</option>
+              <option value="Traditional">Style 5: Traditional</option>
+              <option value="Luxury Transitional">Style 6: Luxury Transitional</option>
+              <option value="Coastal / Minimalist">Style 7: Coastal / Minimalist</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-extrabold py-3 rounded-xl shadow-lg shadow-emerald-500/20 transition cursor-pointer">
+          Request Shoot Time →
+        </button>
+      </form>
+
+      <div id="bookingSuccess" class="hidden text-center py-6 space-y-3">
+        <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-2xl">✓</div>
+        <h4 class="font-display text-xl font-bold text-white">Shoot Request Received!</h4>
+        <p class="text-sm text-gray-300">Chris will text or call you shortly to confirm your exact arrival window. Need immediate confirmation? Text <a href="sms:7164552400" class="text-emerald-400 font-bold">716-455-2400</a>.</p>
+        <button onclick="closeBookingModal()" class="mt-2 px-5 py-2 rounded-lg bg-gray-800 text-sm font-semibold text-white hover:bg-gray-700">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openBookingModal(pkgName) {
+      const modal = document.getElementById('bookingModal');
+      const select = document.getElementById('modalPackageSelect');
+      document.getElementById('quickOrderForm').classList.remove('hidden');
+      document.getElementById('bookingSuccess').classList.add('hidden');
+      if (pkgName && select) {
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value.includes(pkgName) || select.options[i].text.includes(pkgName)) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      modal.classList.remove('hidden');
+    }
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.add('hidden');
+    }
+    function submitQuickOrder(e) {
+      e.preventDefault();
+      document.getElementById('quickOrderForm').classList.add('hidden');
+      document.getElementById('bookingSuccess').classList.remove('hidden');
+    }
+  </script>
+
 </body>
 </html>

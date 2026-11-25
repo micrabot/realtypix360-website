@@ -1,913 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BHTF1B6K11"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BHTF1B6K11');
-    </script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Complete Listing Formula - Free Training | RealtyPix360</title>
-    <meta name="description" content="Learn why 3D tours + floor plans create listings that convert. Interactive training for Buffalo & Niagara real estate agents.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-primary: #1a1a1a;
-            --color-secondary: #2c5f6f;
-            --color-accent: #d4a574;
-            --color-light: #f8f6f3;
-            --color-white: #ffffff;
-            --color-text: #2d2d2d;
-            --color-text-light: #6b6b6b;
-            --font-display: 'Playfair Display', serif;
-            --font-body: 'DM Sans', sans-serif;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-body);
-            color: var(--color-text);
-            line-height: 1.6;
-            background: var(--color-white);
-        }
-
-        /* Accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #2c5f6f;
-            color: white;
-            padding: 8px 16px;
-            text-decoration: none;
-            z-index: 10000;
-            border-radius: 0 0 4px 0;
-            font-weight: 600;
-        }
-        .skip-link:focus { top: 0; }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0.75rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-family: var(--font-display);
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--color-text);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--color-secondary);
-        }
-
-        /* Main Content */
-        main {
-            padding-top: 5rem;
-            max-width: 900px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
-            padding-bottom: 4rem;
-        }
-
-        /* Module System */
-        .module {
-            display: none;
-            animation: fadeIn 0.5s;
-        }
-
-        .module.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1 {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            color: var(--color-primary);
-            margin: 2rem 0 0.5rem;
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: var(--color-text-light);
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            color: var(--color-primary);
-            margin: 2rem 0 1.5rem;
-        }
-
-        h3 {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            color: var(--color-primary);
-            margin: 2rem 0 1rem;
-        }
-
-        h4 {
-            font-size: 1.2rem;
-            color: var(--color-secondary);
-            margin: 1.5rem 0 1rem;
-        }
-
-        p {
-            margin-bottom: 1.25rem;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        ul, ol {
-            margin: 1.5rem 0 1.5rem 2rem;
-        }
-
-        li {
-            margin-bottom: 0.75rem;
-            font-size: 1.05rem;
-        }
-
-        .highlight-box {
-            background: var(--color-light);
-            padding: 2rem;
-            border-left: 4px solid var(--color-accent);
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .comparison-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        .comparison-card.negative {
-            border-left: 4px solid #e74c3c;
-        }
-
-        .comparison-card.positive {
-            border-left: 4px solid #27ae60;
-        }
-
-        .stat {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--color-secondary);
-            display: block;
-            margin: 0.5rem 0;
-        }
-
-        /* Quiz Section */
-        .quiz {
-            background: var(--color-light);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-        }
-
-        .quiz-options {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .quiz-option {
-            background: white;
-            padding: 1rem 1.5rem;
-            border: 2px solid #e5e5e5;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 1rem;
-        }
-
-        .quiz-option:hover {
-            border-color: var(--color-secondary);
-            background: rgba(44, 95, 111, 0.05);
-        }
-
-        .quiz-option.correct {
-            border-color: #27ae60;
-            background: rgba(39, 174, 96, 0.1);
-        }
-
-        .quiz-option.incorrect {
-            border-color: #e74c3c;
-            background: rgba(231, 76, 60, 0.1);
-        }
-
-        .quiz-feedback {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 8px;
-            display: none;
-        }
-
-        .quiz-feedback.show {
-            display: block;
-        }
-
-        .quiz-feedback.correct {
-            background: rgba(39, 174, 96, 0.1);
-            border-left: 4px solid #27ae60;
-        }
-
-        .quiz-feedback.incorrect {
-            background: rgba(231, 76, 60, 0.1);
-            border-left: 4px solid #e74c3c;
-        }
-
-        /* Navigation Buttons */
-        .module-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 3rem 0;
-            padding-top: 2rem;
-            border-top: 2px solid var(--color-light);
-        }
-
-        .nav-button {
-            padding: 1rem 2rem;
-            background: var(--color-secondary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .nav-button:hover {
-            background: #1a4a5a;
-            transform: translateY(-2px);
-        }
-
-        .nav-button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .nav-button.secondary {
-            background: var(--color-light);
-            color: var(--color-text);
-        }
-
-        .nav-button.secondary:hover {
-            background: #d4a574;
-            color: white;
-        }
-
-        /* Progress Bar */
-        .progress-container {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--color-light);
-            z-index: 999;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: var(--color-accent);
-            transition: width 0.3s ease;
-        }
-
-        /* CTA Box */
-        .cta-box {
-            background: linear-gradient(135deg, var(--color-secondary) 0%, #1a4a5a 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 15px;
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .cta-box h2 {
-            color: white;
-            margin-top: 0;
-        }
-
-        .cta-box ul {
-            text-align: left;
-            display: inline-block;
-            margin: 1rem 0;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--color-accent);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        @media (max-width: 768px) {
-            .comparison-grid {
-                grid-template-columns: 1fr;
+  <title>Why Floor Plans &amp; 3D Tours Win More Listings | RealtyPix360 Agent Guide</title>
+  <meta name="description" content="Learn how combining Zillow 3D Home tours, 2D schematic floor plans, and virtual staging helps Buffalo &amp; Niagara real estate agents win more listing presentations." />
+  <link rel="canonical" href="https://www.realtypix360.com/floor-plans-education.html" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="US-NY" />
+  <meta name="geo.placename" content="Tonawanda, New York" />
+  <meta name="geo.position" content="43.0203;-78.8803" />
+  <meta name="ICBM" content="43.0203, -78.8803" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#090D16',
+              card: '#111827',
+              border: '#1F2937',
+              emerald: '#10B981',
+              emeraldHover: '#059669',
+              amber: '#F59E0B',
             }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            main {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
+          }
         }
-
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 1001;
-        }
-
-        .mobile-menu-btn span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background: var(--color-primary);
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: flex;
-                align-items: center;
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #090D16; color: #F9FAFB; }
+    .glass-nav {
+      background: rgba(9, 13, 22, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .hero-gradient {
+      background: linear-gradient(180deg, rgba(9, 13, 22, 0.72) 0%, rgba(9, 13, 22, 0.86) 55%, #090D16 100%);
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://www.realtypix360.com/#business",
+        "name": "RealtyPix360",
+        "alternateName": "RealtyPix360 LLC",
+        "url": "https://www.realtypix360.com/",
+        "logo": "https://www.realtypix360.com/realtypix360-frontyard-shot.webp",
+        "image": [
+          "https://www.realtypix360.com/realtypix360-frontyard-shot.webp",
+          "https://www.realtypix360.com/realtypix360-kitchen-shot.webp",
+          "https://www.realtypix360.com/realtypix360-living-room-shot.webp",
+          "https://www.realtypix360.com/realtypix360-sunroom-shot.webp",
+          "https://www.realtypix360.com/realtypix360-backyard-shot.webp"
+        ],
+        "telephone": "+1-716-455-2400",
+        "priceRange": "$$",
+        "founder": {
+          "@type": "Person",
+          "name": "Chris Kivi",
+          "jobTitle": "Google Trusted Pro Photographer & Founder"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "34 Loretta St",
+          "addressLocality": "Tonawanda",
+          "addressRegion": "NY",
+          "postalCode": "14150",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.0203,
+          "longitude": -78.8803
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Buffalo", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Tonawanda", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "North Tonawanda", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Amherst", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Clarence", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Williamsville", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Orchard Park", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Lancaster", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Niagara Falls", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "City", "name": "Lewiston", "containedInPlace": { "@type": "State", "name": "New York" } },
+          { "@type": "AdministrativeArea", "name": "Erie County" },
+          { "@type": "AdministrativeArea", "name": "Niagara County" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "48",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Mary Lucchetti" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "I use Chris for all of my listings & he consistently does a phenomenal job. He is very detail oriented & the quality of his photos cannot be beat. My sellers are always very happy with his work & I know his photos are a contributing factor to their quick sales."
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Carolyn Alessi" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Chris is my go-to photographer and has photographed several of my listings over the past few years. I have never been disappointed. My clients are always very happy with the pictures and his professionalism. One client thought the pictures Chris took made all the difference in his sale!"
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Frank Zellner" },
+            "datePublished": "2025-04-30",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Chris always does a fantastic job with Realty Pix 360. His pictures, 360 matterport, and House designs are state of the Art and help me get maximum value for My Listings."
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Real Estate Photography & 3D Virtual Tour Packages",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Listing Launch Package",
+              "price": "199.00",
+              "priceCurrency": "USD",
+              "description": "Professional Ultra-HDR photography with sky replacement, 2D schematic floor plan with room measurements, and branded/unbranded property website."
+            },
+            {
+              "@type": "Offer",
+              "name": "All-In-One 3D Exposure Package",
+              "price": "349.00",
+              "priceCurrency": "USD",
+              "description": "Ultra-HDR photography, Zillow 3D Home tour, 2D schematic floor plan, property website, and up to 5 virtually staged rooms in 7 styles."
+            },
+            {
+              "@type": "Offer",
+              "name": "Matterport + Zillow Max Exposure Package",
+              "price": "499.00",
+              "priceCurrency": "USD",
+              "description": "Includes both Matterport 3D Digital Twin and Zillow 3D Home tour, Ultra-HDR photography, 2D schematic floor plan, property website, and up to 5 virtually staged rooms."
             }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: #ffffff;
-                flex-direction: column;
-                gap: 0;
-                padding: 2rem;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                max-height: 0;
-                overflow: hidden;
-                opacity: 0;
-                transition: all 0.3s ease;
-                z-index: 999;
-            }
-
-            .nav-links.active {
-                max-height: 500px;
-                opacity: 1;
-            }
-
-            .nav-links li {
-                width: 100%;
-                text-align: center;
-                padding: 1rem 0;
-                border-bottom: 1px solid #e5e5e5;
-            }
-
-            .nav-links li:last-child {
-                border-bottom: none;
-            }
+          ]
         }
-    </style>
+      }
+    ]
+  }
+  </script>
 </head>
-<body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Progress Bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+<body class="antialiased selection:bg-emerald-500 selection:text-gray-950">
+  <!-- Top Google Business Profile 3D Tour Announcement Bar -->
+  <div class="bg-gradient-to-r from-emerald-950 via-emerald-900 to-slate-900 border-b border-emerald-500/30 text-xs sm:text-sm py-2.5 px-4">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+      <div class="flex items-center justify-center sm:justify-start gap-2 text-emerald-100">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+          Google Trusted Pro • 550M+ Views
+        </span>
+        <span>Own a local storefront or commercial space? Put your business inside <strong>Google Maps in 3D</strong>.</span>
+      </div>
+      <a href="commercial.html" class="inline-flex items-center gap-1 font-semibold text-emerald-300 hover:text-white whitespace-nowrap transition">
+        Google Maps 3D Tours →
+      </a>
     </div>
-    
-    <!-- Navigation -->
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-        <div class="nav-container">
-            <a href="/" class="logo">RealtyPix360</a>
-            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/portfolio.html">Portfolio</a></li>
-                <li><a href="/commercial.html">Commercial</a></li>
-                <li><a href="/faq.html">FAQ</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-                <li><a href="#" data-phone="link" aria-label="Call us">📞 <span data-phone="text">Loading...</span></a></li>
-            </ul>
+  </div>
+
+  <!-- Sticky Navigation -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-gray-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-lg bg-emerald-500 flex items-center justify-center text-gray-950 font-extrabold text-lg shadow-lg shadow-emerald-500/20">
+          360
         </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main id="main-content">
-        <h1>🏠 The Complete Listing Formula</h1>
-        <p class="subtitle">Master the art of listings that convert in 2026</p>
-
-        <!-- Module 1 -->
-        <div class="module active" id="module1">
-            <h2>Module 1: Understanding the Modern Buyer</h2>
-
-            <h3>🎯 The Reality Check</h3>
-
-            <p><strong>It's Saturday morning. Your prospect is on the couch with their phone.</strong></p>
-
-            <p>They're not getting in the car. They're not driving across town to see "just another house." They're scrolling through 47 listings in 8 minutes.</p>
-
-            <p><strong>Your listing has exactly 12 seconds to make them stop scrolling.</strong></p>
-
-            <h3>Why People Don't Want to Drive Anymore</h3>
-
-            <ul>
-                <li><strong>Time is precious:</strong> Average person views 10-15 properties online before visiting ONE in person</li>
-                <li><strong>Information overload:</strong> Buyers are more educated and selective than ever</li>
-                <li><strong>Efficiency mindset:</strong> "Why drive 20 minutes when I can virtually walk through in 2?"</li>
-                <li><strong>Comparison shopping:</strong> They're evaluating YOUR listing against competitors simultaneously</li>
-            </ul>
-
-            <div class="highlight-box">
-                <h4>💡 Key Insight</h4>
-                <p>The buyer's journey now happens 80% online. Your listing isn't competing with other houses in the neighborhood—it's competing with every other tab open in their browser.</p>
-            </div>
-
-            <div class="quiz">
-                <p><strong>Quick Check: What's the #1 reason prospects skip listings today?</strong></p>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="checkAnswer(this, false)">A) Price is too high</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, true)">B) Not enough information to justify a visit</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, false)">C) Bad location</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, false)">D) Poor curb appeal</div>
-                </div>
-                <div class="quiz-feedback">
-                    <p></p>
-                </div>
-            </div>
-
-            <div class="module-nav">
-                <button class="nav-button secondary" disabled>Previous</button>
-                <button class="nav-button" onclick="nextModule()">Next Module →</button>
-            </div>
+        <div>
+          <span class="font-display font-extrabold text-lg tracking-tight text-white">RealtyPix<span class="text-emerald-400">360</span></span>
+          <span class="hidden md:block text-[10px] uppercase tracking-widest text-gray-400 -mt-1">Buffalo & Niagara Media</span>
         </div>
+      </a>
 
-        <!-- Module 2 -->
-        <div class="module" id="module2">
-            <h2>Module 2: The 3D Tour Advantage - Owning Their Time</h2>
+      <nav aria-label="Primary Navigation" class="hidden lg:flex items-center gap-7 text-sm font-medium">
+        <a href="index.html#packages" class="text-gray-300 hover:text-white transition">Packages</a>
+        <a href="portfolio.html" class="text-gray-300 hover:text-white transition">Portfolio</a>
+        <a href="commercial.html" class="text-gray-300 hover:text-white transition">Google Maps & Commercial</a>
+        <a href="floor-plans-education.html" class="text-emerald-400 font-semibold">Agent Guide</a>
+        <a href="faq.html" class="text-gray-300 hover:text-white transition">FAQ</a>
+        <a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a>
+      </nav>
 
-            <h3>⏱️ The Time Ownership Revolution</h3>
+      <div class="flex items-center gap-3">
+        <a href="tel:7164552400" class="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-gray-300 hover:text-emerald-400 transition">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          716-455-2400
+        </a>
+        <button onclick="openBookingModal('All-In-One 3D Exposure ($349)')" class="bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold text-sm px-4 py-2.5 rounded-lg shadow-lg shadow-emerald-500/20 transition cursor-pointer">
+          Order & Schedule
+        </button>
+        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" aria-label="Toggle Menu" class="lg:hidden p-2 rounded-lg border border-gray-800 text-gray-300 hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
 
-            <p><strong>Video Tour:</strong> 2 minutes. Play button. Stop button. Over.</p>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-gray-800 bg-gray-950 px-4 py-4 space-y-3 text-sm font-medium">
+      <a href="index.html#packages" class="block py-1.5 text-gray-200 hover:text-emerald-400">Packages & Pricing</a>
+      <a href="portfolio.html" class="block py-1.5 text-gray-200 hover:text-emerald-400">Curated Portfolio</a>
+      <a href="commercial.html" class="block py-1.5 text-gray-200 hover:text-emerald-400">Google Maps & Commercial 3D</a>
+      <a href="floor-plans-education.html" class="block py-1.5 text-gray-200 hover:text-emerald-400">Agent Media Guide</a>
+      <a href="3d-floor-plans.html" class="block py-1.5 text-gray-200 hover:text-emerald-400">2D Floor Plans & 3D Tours</a>
+      <a href="faq.html" class="block py-1.5 text-gray-200 hover:text-emerald-400">FAQ</a>
+      <a href="contact.html" class="block py-1.5 text-gray-200 hover:text-emerald-400">Contact</a>
+    </div>
+  </header>
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">WNY Listing Presentation Playbook</span>
+    <h1 class="font-display text-3xl sm:text-5xl font-extrabold text-white mt-2 mb-5">
+      Why Floor Plans &amp; 3D Tours Win More Listings
+    </h1>
+    <p class="text-gray-300 text-lg leading-relaxed mb-12">
+      In Western New York's competitive market, sellers interview agents who bring a modern digital marketing system—not just a camera. Here is why bundling <strong class="text-white">Zillow 3D Home</strong>, <strong class="text-white">2D schematic floor plans</strong>, and <strong class="text-white">virtual staging</strong> sets you apart at the kitchen table.
+    </p>
 
-            <p><strong>3D Digital Twin:</strong> No stop button. No end. Buyers explore for 8, 12, 15 minutes. They're in YOUR property, on THEIR terms.</p>
+    <div class="space-y-6">
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
+        <h2 class="font-display text-xl font-bold text-white mb-2">1. Buyers Rate Floor Plans Second Only to Photos</h2>
+        <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+          Photos show what a room looks like, but a clean 2D schematic floor plan shows how the home actually flows. That is why RealtyPix360 includes a room-measured 2D floor plan free with every package.
+        </p>
+      </div>
 
-            <h3>Why 3D Tours Stop People in Their Tracks:</h3>
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
+        <h2 class="font-display text-xl font-bold text-white mb-2">2. Zillow 3D Home Triggers Algorithmic Search Priority</h2>
+        <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+          Listings with a Zillow 3D Home tour receive dedicated badging and higher visibility in Zillow buyer alerts—which is why we make Zillow 3D Home the default in our $349 All-In-One package, with Matterport Pro2 dual-capture available anytime for $150.
+        </p>
+      </div>
 
-            <ul>
-                <li><strong>Self-directed exploration:</strong> They control where they go, what they look at, how long they stay</li>
-                <li><strong>No artificial ending:</strong> Unlike videos that finish, 3D tours keep them engaged indefinitely</li>
-                <li><strong>Discovery mindset:</strong> "What's around this corner? What's in that closet?" - natural curiosity keeps them exploring</li>
-                <li><strong>Repeat visits:</strong> They come back multiple times before even contacting you</li>
-                <li><strong>Time investment = emotional investment:</strong> The longer they explore, the more attached they become</li>
-            </ul>
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 sm:p-8">
+        <h2 class="font-display text-xl font-bold text-white mb-2">3. Virtual Staging Eliminates Vacant-Room Objections</h2>
+        <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+          Empty rooms feel smaller online. With up to 5 virtually staged rooms included free ($150 value across 7 designer styles) in our 3D packages, buyers immediately see scale, warmth, and furniture placement.
+        </p>
+      </div>
+    </div>
 
-            <div class="comparison-grid">
-                <div class="comparison-card negative">
-                    <h4>🎥 Video Tour</h4>
-                    <span class="stat">2-3 min</span>
-                    <p>Average engagement</p>
-                    <p>Linear, passive experience</p>
-                    <p>"Next listing..."</p>
-                </div>
-                <div class="comparison-card positive">
-                    <h4>🏠 3D Digital Twin</h4>
-                    <span class="stat">12-15 min</span>
-                    <p>Average engagement</p>
-                    <p>Interactive, immersive</p>
-                    <p>"I need to show this to my spouse!"</p>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <h4>💡 You're Owning Their Time</h4>
-                <p>When someone spends 15 minutes exploring your 3D tour, they're not looking at 10 other listings. They're mentally moving furniture. They're imagining their life there. Time spent = mental ownership.</p>
-            </div>
-
-            <h3>🌨️ The Buffalo/Niagara Weather Advantage</h3>
-
-            <p><strong>January snowstorm?</strong> No problem.</p>
-            <p><strong>Freezing rain forecast?</strong> Buyers are still touring—from their couch.</p>
-            <p><strong>Roads are a mess?</strong> Your listing is still working 24/7.</p>
-
-            <p>In Buffalo & Niagara, weather can shut down showings for days. But 3D tours + floor plans give you an easy win—you're capturing qualified leads while your competition waits for better weather.</p>
-
-            <div class="module-nav">
-                <button class="nav-button secondary" onclick="prevModule()">← Previous</button>
-                <button class="nav-button" onclick="nextModule()">Next Module →</button>
-            </div>
+    <div class="mt-12 bg-emerald-950/30 border border-emerald-500/30 rounded-2xl p-7 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <h3 class="font-display text-xl font-bold text-white">Ready to Pitch This on Your Next Listing Appointment?</h3>
+        <p class="text-sm text-gray-300 mt-1">Same-day turnaround across Erie &amp; Niagara County.</p>
+      </div>
+      <button onclick="openBookingModal('All-In-One 3D Exposure ($349)')" class="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-extrabold text-sm shrink-0 cursor-pointer">
+        Schedule a Shoot →
+      </button>
+    </div>
+  </main>
+  <!-- Unified Footer Preserving All Indexed Routes -->
+  <footer class="bg-gray-950 border-t border-gray-800/80 pt-14 pb-10 text-sm text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-800/80">
+        <div>
+          <a href="index.html" class="flex items-center gap-2.5 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-gray-950 font-extrabold">360</div>
+            <span class="font-display font-extrabold text-lg text-white">RealtyPix<span class="text-emerald-400">360</span></span>
+          </a>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            Buffalo &amp; Niagara's premier real estate photography, Zillow 3D Home, Matterport, virtual staging, and 2D floor plan studio—with same-day turnaround.
+          </p>
+          <div class="space-y-1.5 text-gray-300">
+            <p>📞 <a href="tel:7164552400" class="hover:text-emerald-400 transition font-medium">716-455-2400</a></p>
+            <p>📍 34 Loretta St, Tonawanda, NY 14150</p>
+            <p>⭐ 5.0 Rated • Google Trusted Pro (550M+ Views)</p>
+          </div>
         </div>
 
-        <!-- Module 3 -->
-        <div class="module" id="module3">
-            <h2>Module 3: The Fatal Information Gap</h2>
-
-            <div class="comparison-grid">
-                <div class="comparison-card negative">
-                    <h4>❌ Basic Listing</h4>
-                    <p>📷 10 photos</p>
-                    <p>Generic description</p>
-                    <p>Square footage</p>
-                    <span class="stat">23%</span>
-                    <p>Click-through rate</p>
-                </div>
-                <div class="comparison-card positive">
-                    <h4>✅ Complete Listing</h4>
-                    <p>🎯 Photos + 3D Tour + Floor Plan</p>
-                    <p>Detailed walkthrough</p>
-                    <p>Interactive experience</p>
-                    <span class="stat">71%</span>
-                    <p>Click-through rate</p>
-                </div>
-            </div>
-
-            <h3>What Prospects Actually Want to Know:</h3>
-
-            <ul>
-                <li><strong>Layout & Flow:</strong> "How do the rooms connect?"</li>
-                <li><strong>Size Perception:</strong> "Is this 1,200 sq ft spacious or cramped?"</li>
-                <li><strong>Furniture Fit:</strong> "Will my king bed fit in that bedroom?"</li>
-                <li><strong>Daily Life:</strong> "Can I see myself living here?"</li>
-                <li><strong>Problem Spots:</strong> "What are they NOT showing me?"</li>
-            </ul>
-
-            <h3>🔍 The Missing Piece Problem</h3>
-
-            <p><strong>3D Tour Alone:</strong> "This is cool, but I'm lost. Where's the kitchen in relation to the living room?"</p>
-
-            <p><strong>Floor Plan Alone:</strong> "OK, I see the layout, but what does it actually LOOK like?"</p>
-
-            <p><strong>3D Tour + Floor Plan Together:</strong> "Oh WOW! Now I get it. I can see myself here. Let me share this with my spouse!"</p>
-
-            <div class="highlight-box">
-                <h4>💡 The Power Combo</h4>
-                <p>Floor plans give context and orientation. 3D tours give experience and emotion. Together, they create complete confidence—and that confidence is what converts browsers into buyers.</p>
-            </div>
-
-            <div class="module-nav">
-                <button class="nav-button secondary" onclick="prevModule()">← Previous</button>
-                <button class="nav-button" onclick="nextModule()">Next Module →</button>
-            </div>
+        <div>
+          <h4 class="font-display font-bold text-white uppercase tracking-wider text-xs mb-4">Services &amp; Solutions</h4>
+          <ul class="space-y-2.5">
+            <li><a href="index.html#packages" class="hover:text-emerald-400 transition">HDR Real Estate Photography</a></li>
+            <li><a href="index.html#packages" class="hover:text-emerald-400 transition">Zillow 3D Home &amp; Matterport Tours</a></li>
+            <li><a href="3d-floor-plans.html" class="hover:text-emerald-400 transition">2D Schematic Floor Plans</a></li>
+            <li><a href="index.html#bonus" class="hover:text-emerald-400 transition">Virtual Staging (7 Designer Styles)</a></li>
+            <li><a href="commercial.html" class="hover:text-emerald-400 transition">Google Maps Business Profile 3D</a></li>
+          </ul>
         </div>
 
-        <!-- Module 4 -->
-        <div class="module" id="module4">
-            <h2>Module 4: The FOMO Factor</h2>
-
-            <h3>⚡ The Psychology of Complete Information</h3>
-
-            <p>When you provide comprehensive information, something powerful happens in the buyer's mind:</p>
-
-            <h3>How Complete Listings Create Urgency:</h3>
-
-            <ul>
-                <li><strong>Transparency builds trust:</strong> "They're not hiding anything—this must be good!"</li>
-                <li><strong>Easy decision-making:</strong> "I have everything I need to decide RIGHT NOW"</li>
-                <li><strong>Competitive advantage visibility:</strong> "Wow, other listings don't have this—I better act fast"</li>
-                <li><strong>Shareability:</strong> "I need to send this to my partner immediately"</li>
-                <li><strong>Professional impression:</strong> "This seller and agent are serious—this won't last"</li>
-            </ul>
-
-            <div class="comparison-grid">
-                <div class="comparison-card negative">
-                    <h4>Incomplete Listing</h4>
-                    <span class="stat">4-7 days</span>
-                    <p>Average time to first showing</p>
-                    <p>"Let me think about it..."</p>
-                </div>
-                <div class="comparison-card positive">
-                    <h4>Complete Listing</h4>
-                    <span class="stat">24-48 hrs</span>
-                    <p>Average time to first showing</p>
-                    <p>"Can I see this TODAY?"</p>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <h4>💡 The Trust Equation</h4>
-                <p>Complete Information + Professional Presentation = Qualified, Ready-to-Act Leads</p>
-                <p>You're not just getting more leads—you're getting BETTER leads who are further along in their decision process.</p>
-            </div>
-
-            <div class="quiz">
-                <p><strong>What happens when listings have floor plans + 3D tours?</strong></p>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="checkAnswer(this, false)">A) They confuse buyers with too much info</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, true)">B) They accelerate the buying decision and create urgency</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, false)">C) They only work for luxury properties</div>
-                    <div class="quiz-option" onclick="checkAnswer(this, false)">D) They replace the need for in-person showings</div>
-                </div>
-                <div class="quiz-feedback">
-                    <p></p>
-                </div>
-            </div>
-
-            <div class="module-nav">
-                <button class="nav-button secondary" onclick="prevModule()">← Previous</button>
-                <button class="nav-button" onclick="nextModule()">Next Module →</button>
-            </div>
+        <div>
+          <h4 class="font-display font-bold text-white uppercase tracking-wider text-xs mb-4">Explore</h4>
+          <ul class="space-y-2.5">
+            <li><a href="portfolio.html" class="hover:text-emerald-400 transition">Curated Portfolio</a></li>
+            <li><a href="index.html#packages" class="hover:text-emerald-400 transition">Packages &amp; Pricing</a></li>
+            <li><a href="floor-plans-education.html" class="hover:text-emerald-400 transition">Why Floor Plans &amp; 3D Work</a></li>
+            <li><a href="index.html#reviews" class="hover:text-emerald-400 transition">5-Star Agent Reviews</a></li>
+            <li><a href="faq.html" class="hover:text-emerald-400 transition">Frequently Asked Questions</a></li>
+          </ul>
         </div>
 
-        <!-- Module 5 -->
-        <div class="module" id="module5">
-            <h2>Module 5: Why NOW More Than Ever</h2>
+        <div>
+          <h4 class="font-display font-bold text-white uppercase tracking-wider text-xs mb-4">WNY Service Area</h4>
+          <p class="text-xs leading-relaxed text-gray-400 mb-3">
+            <strong>Erie County:</strong> Buffalo, Tonawanda, Amherst, Williamsville, Clarence, Cheektowaga, Lancaster, Orchard Park, Hamburg, West Seneca, East Aurora, Grand Island, Kenmore.
+          </p>
+          <p class="text-xs leading-relaxed text-gray-400">
+            <strong>Niagara County:</strong> North Tonawanda, Niagara Falls, Wheatfield, Lewiston, Lockport, Youngstown, Sanborn.
+          </p>
+        </div>
+      </div>
 
-            <h3>🏆 The Market Reality Check</h3>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <p>© 2026 RealtyPix360 by Chris Kivi. All rights reserved.</p>
+        <div class="flex flex-wrap items-center gap-5">
+          <a href="privacy.html" class="hover:text-gray-300 transition">Privacy Policy</a>
+          <a href="accessibility.html" class="hover:text-gray-300 transition">Accessibility</a>
+          <a href="faq.html" class="hover:text-gray-300 transition">FAQ</a>
+          <a href="contact.html" class="hover:text-gray-300 transition">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-            <p><strong>Today's Market Landscape:</strong></p>
+  <!-- Interactive Quick-Booking Modal -->
+  <div id="bookingModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-gray-900 border border-gray-700 rounded-2xl max-w-lg w-full p-6 sm:p-7 shadow-2xl relative">
+      <button onclick="closeBookingModal()" aria-label="Close modal" class="absolute top-4 right-4 text-gray-400 hover:text-white p-1.5 rounded-lg bg-gray-800/70">✕</button>
+      <span class="inline-block text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">Same-Day / Next-Day Availability</span>
+      <h3 class="font-display text-2xl font-extrabold text-white mb-1">Schedule Your WNY Shoot</h3>
+      <p class="text-sm text-gray-400 mb-5">Lock in your package below or text/call <a href="tel:7164552400" class="text-emerald-400 font-semibold">716-455-2400</a> for immediate scheduling.</p>
 
-            <ul>
-                <li>Average buyer looks at 10-12 listings online before contacting an agent</li>
-                <li>73% of buyers say virtual tours are important in their search</li>
-                <li>Listings with floor plans get 52% more views than those without</li>
-                <li>Complete listings (photos + 3D + floor plans) spend 31% less time on market</li>
-            </ul>
-
-            <h3>What Your Competition Is (Probably) Doing Wrong:</h3>
-
-            <ul>
-                <li>Using only phone photos</li>
-                <li>Relying on MLS-minimum descriptions</li>
-                <li>Skipping floor plans entirely</li>
-                <li>Having a 3D tour but no orientation context</li>
-                <li>Treating online presence as an afterthought</li>
-            </ul>
-
-            <div class="highlight-box">
-                <h4>💡 Your Competitive Edge</h4>
-                <p>When you provide professional photography + 3D tours + accurate floor plans, you're not just marketing a property—you're demonstrating that you're a professional who invests in results. That attracts serious sellers AND serious buyers.</p>
-            </div>
-
-            <h3>The RealtyPix360 Advantage:</h3>
-
-            <ul>
-                <li><strong>Same-day turnaround:</strong> Keep your listings moving fast</li>
-                <li><strong>Complete package:</strong> Everything buyers need to decide</li>
-                <li><strong>Professional quality:</strong> Stand out in every search</li>
-                <li><strong>Verified results:</strong> 480+ million views across 668+ properties</li>
-                <li><strong>Local expertise:</strong> Buffalo/WNY market specialists</li>
-            </ul>
-
-            <h3>🎯 The Bottom Line</h3>
-
-            <p>You're competing in an attention economy. Every listing without a complete information package is leaving money on the table and frustrating qualified buyers who move on to better-presented properties.</p>
-
-            <p><strong>The question isn't "Can I afford professional presentation?"</strong></p>
-
-            <p><strong>The question is "Can I afford NOT to have it?"</strong></p>
-
-            <div class="module-nav">
-                <button class="nav-button secondary" onclick="prevModule()">← Previous</button>
-                <button class="nav-button" onclick="showCompletion()">Complete Training →</button>
-            </div>
+      <form id="quickOrderForm" onsubmit="submitQuickOrder(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Selected Package</label>
+          <select id="modalPackageSelect" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none">
+            <option value="Listing Launch ($199)">Listing Launch — $199 (HDR + 2D Floor Plan + Website)</option>
+            <option value="All-In-One 3D Exposure ($349)" selected>All-In-One 3D Exposure — $349 (Zillow 3D + 5 Staged Rooms + Floor Plan)</option>
+            <option value="All-In-One + Matterport Pro2 Dual ($499)">All-In-One + Matterport Pro2 Dual-Capture — $499 (Zillow 3D + Matterport)</option>
+            <option value="Matterport + Zillow Max Exposure ($499)">Matterport + Zillow Max Exposure — $499 (Full Luxury Bundle)</option>
+            <option value="Google Maps Business Profile 3D Tour">Google Business Profile / Commercial 3D Virtual Tour</option>
+          </select>
         </div>
 
-        <!-- Completion -->
-        <div class="module" id="completion">
-            <div class="cta-box">
-                <h2>🎉 Congratulations!</h2>
-                <p style="font-size: 1.2rem; margin: 1.5rem 0;">You've completed "The Complete Listing Formula"</p>
-                
-                <h3 style="color: white; margin-top: 2rem;">🎓 What You've Learned:</h3>
-                <ul style="text-align: left; display: inline-block; margin: 1rem 0;">
-                    <li>Modern buyers do 80% of their research online before contacting you</li>
-                    <li>3D digital twins stop people in their tracks—no stop button means you own their time</li>
-                    <li>Floor plans + 3D tours create the complete picture buyers need</li>
-                    <li>Complete information accelerates decisions and creates FOMO</li>
-                    <li>Professional presentation is your competitive advantage</li>
-                    <li>Buffalo weather can't stop your listings from working 24/7</li>
-                </ul>
-
-                <h3 style="color: white; margin-top: 2rem;">Ready to Elevate Your Listings?</h3>
-                <p>RealtyPix360 provides same-day turnaround on professional photography, 3D tours, and floor plans for the Buffalo/Western NY market.</p>
-                
-                <a href="/contact.html" class="cta-button">Get Started Today</a>
-                
-                <p style="margin-top: 2rem; font-size: 0.95rem;">
-                    📧 realtypix360@gmail.com | 📞 716-770-8030<br>
-                    <small>Google Trusted Pro | 480M+ Verified Views | 668+ Properties Photographed</small>
-                </p>
-            </div>
-
-            <div class="module-nav" style="border: none;">
-                <button class="nav-button secondary" onclick="prevModule()">← Previous</button>
-                <a href="/index.html" class="nav-button">Back to Homepage</a>
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Your Name *</label>
+            <input type="text" required placeholder="Jane Agent" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Mobile Phone (for SMS updates) *</label>
+            <input type="tel" required placeholder="716-555-0199" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
         </div>
-    </main>
 
-    <script>
-        let currentModule = 1;
-        const totalModules = 5;
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Property Address &amp; Town *</label>
+          <input type="text" required placeholder="e.g., 142 Elmwood Ave, Buffalo, NY" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none" />
+        </div>
 
-        function updateProgress() {
-            const progress = (currentModule / totalModules) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Preferred Shoot Date</label>
+            <input type="date" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Free Virtual Staging Style (Up to 5 Rooms)</label>
+            <select id="modalStagingStyle" class="w-full bg-gray-950 border border-gray-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:border-emerald-500 focus:outline-none">
+              <option value="None needed">None needed / Vacant as-is</option>
+              <option value="Modern">Style 1: Modern</option>
+              <option value="Contemporary">Style 2: Contemporary</option>
+              <option value="Farmhouse">Style 3: Farmhouse</option>
+              <option value="Scandinavian">Style 4: Scandinavian</option>
+              <option value="Traditional">Style 5: Traditional</option>
+              <option value="Luxury Transitional">Style 6: Luxury Transitional</option>
+              <option value="Coastal / Minimalist">Style 7: Coastal / Minimalist</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-extrabold py-3 rounded-xl shadow-lg shadow-emerald-500/20 transition cursor-pointer">
+          Request Shoot Time →
+        </button>
+      </form>
+
+      <div id="bookingSuccess" class="hidden text-center py-6 space-y-3">
+        <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-2xl">✓</div>
+        <h4 class="font-display text-xl font-bold text-white">Shoot Request Received!</h4>
+        <p class="text-sm text-gray-300">Chris will text or call you shortly to confirm your exact arrival window. Need immediate confirmation? Text <a href="sms:7164552400" class="text-emerald-400 font-bold">716-455-2400</a>.</p>
+        <button onclick="closeBookingModal()" class="mt-2 px-5 py-2 rounded-lg bg-gray-800 text-sm font-semibold text-white hover:bg-gray-700">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openBookingModal(pkgName) {
+      const modal = document.getElementById('bookingModal');
+      const select = document.getElementById('modalPackageSelect');
+      document.getElementById('quickOrderForm').classList.remove('hidden');
+      document.getElementById('bookingSuccess').classList.add('hidden');
+      if (pkgName && select) {
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value.includes(pkgName) || select.options[i].text.includes(pkgName)) {
+            select.selectedIndex = i;
+            break;
+          }
         }
+      }
+      modal.classList.remove('hidden');
+    }
+    function closeBookingModal() {
+      document.getElementById('bookingModal').classList.add('hidden');
+    }
+    function submitQuickOrder(e) {
+      e.preventDefault();
+      document.getElementById('quickOrderForm').classList.add('hidden');
+      document.getElementById('bookingSuccess').classList.remove('hidden');
+    }
+  </script>
 
-        function showModule(moduleNum) {
-            document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
-            document.getElementById('module' + moduleNum).classList.add('active');
-            window.scrollTo(0, 0);
-            updateProgress();
-        }
-
-        function nextModule() {
-            if (currentModule < totalModules) {
-                currentModule++;
-                showModule(currentModule);
-            }
-        }
-
-        function prevModule() {
-            if (currentModule > 1) {
-                currentModule--;
-                showModule(currentModule);
-            }
-        }
-
-        function showCompletion() {
-            document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
-            document.getElementById('completion').classList.add('active');
-            document.getElementById('progressBar').style.width = '100%';
-            window.scrollTo(0, 0);
-        }
-
-        function checkAnswer(element, isCorrect) {
-            const quiz = element.closest('.quiz');
-            const feedback = quiz.querySelector('.quiz-feedback');
-            const feedbackText = feedback.querySelector('p');
-            const options = quiz.querySelectorAll('.quiz-option');
-            
-            // Disable all options
-            options.forEach(opt => {
-                opt.style.pointerEvents = 'none';
-                if (opt === element) {
-                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
-                }
-            });
-            
-            // Show feedback
-            feedback.classList.add('show', isCorrect ? 'correct' : 'incorrect');
-            
-            if (isCorrect) {
-                feedbackText.textContent = '✅ Correct! Buyers skip listings when they don\'t have enough information to make the drive worthwhile. Complete information = more qualified showings.';
-            } else {
-                feedbackText.textContent = '❌ Not quite. While price, location, and curb appeal matter, the #1 reason is lack of sufficient information. Buyers won\'t drive unless they\'re confident it\'s worth their time.';
-            }
-        }
-
-        // Initialize
-        updateProgress();
-    </script>
-    <!-- Mobile Menu Toggle -->
-    <script>
-    (function() {
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const navLinks = document.getElementById('nav-links');
-
-        if (mobileMenuBtn && navLinks) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenuBtn.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenuBtn.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.nav')) {
-                    mobileMenuBtn.classList.remove('active');
-                    navLinks.classList.remove('active');
-                }
-            });
-        }
-    })();
-    </script>
-
-    <!-- Phone Number Protection -->
-    <script>
-    (function() {
-        const parts = ['716', '770', '8030'];
-        const formatted = parts[0] + '-' + parts[1] + '-' + parts[2];
-        const href = 'tel:' + parts.join('');
-        
-        document.querySelectorAll('[data-phone="link"]').forEach(el => {
-            el.href = href;
-        });
-        
-        document.querySelectorAll('[data-phone="text"]').forEach(el => {
-            el.textContent = formatted;
-        });
-    })();
-    </script>
 </body>
 </html>
